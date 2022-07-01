@@ -36,18 +36,18 @@ function NavBar() {
           />{" "}
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center h-full md:h-fit space-y-4 md:space-y-0">
-        {navLinks.map(({ id, name, path, className }) => (
-          <div key={id}>
-            <Link
-              to={path}
-              className={`${
-                className ? className : ""
-              } font-[400] text-desktoplink text-[25px] md:text-[20px] md:ml-[20px] font-lato `}
-            >
-              {name}
-            </Link>
-          </div>
-        ))}
+          {navLinks.map(({ id, name, path, className }) => (
+            <div key={id}>
+              <Link
+                to={path}
+                className={`${
+                  className ? className : ""
+                } font-[400] text-desktoplink text-[25px] md:text-[20px] md:ml-[20px] font-lato `}
+              >
+                {name}
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -56,20 +56,3 @@ function NavBar() {
 
 export default NavBar;
 
-{
-  /* 
-
-<div className="h-full flex flex-col md:flex-row items-center justify-center ">
-<div className="bg-blue-200 h-full w-full flex flex-col md:flex-row justify-center md:justify-between  items-center text-center">
- <div className="flex flex-col md:flex-row">
-  {
-      navLinks.map(({id, name, path}) => (
-      <div key={id}>
-          <Link to={path} className='font-[400] text-links text-[25px]'>{name}</Link>
-      </div>    
-      ))
-  }
- </div>
-</div>
-</div> */
-}
