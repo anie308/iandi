@@ -1,4 +1,4 @@
-import { FaBars } from "react-icons/fa";
+
 import Whatsapp from './assets/whatsapp.png'
 import Mail from './assets/mail.png'
 import Linked from './assets/linked.png'
