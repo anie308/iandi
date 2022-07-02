@@ -16,6 +16,8 @@ module.exports = {
       },
       fontFamily:{
         lato: "Lato, sans-serif",
+        raleway: "Raleway, sans-serif",
+        montserrat: "Montserrat, sans-serif",
       }
     },
   },

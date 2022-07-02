@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Logo from "../assets/logo.png";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FaTimes } from "react-icons/fa";
-import { navLinks } from "../data";
+import { navLinks, socials } from "../data";
 import { Link } from "react-router-dom";
 
 function NavBar() {
@@ -19,15 +19,15 @@ function NavBar() {
         </div>
         <div className="flex md:hidden">
           <AiOutlineMenu
-            className="text-[25px] font-[300] cursor-pointer"
+            className="text-[#333333] text-[25px] font-[300] cursor-pointer"
             onClick={handleMenu}
           />
         </div>
       </div>
       <div
         className={`${
-          isOpen ? "hidden  md:flex" : "flex"
-        } fixed top-0 md:relative flex-col h-screen md:h-fit bg-primary md:flex-row w-full md:w-fit p-[20px] md:p-0`}
+          isOpen ? " top-[-100%] md:top-0" : "top-0"
+        } fixed top-0 md:relative flex-col h-screen md:h-fit bg-primary md:flex-row w-full md:w-fit p-[20px] md:p-0 transition-top`}
       >
         <div className="flex md:hidden w-full   items-center justify-end ">
           <FaTimes
@@ -35,19 +35,39 @@ function NavBar() {
             onClick={handleMenu}
           />{" "}
         </div>
-        <div className="flex flex-col md:flex-row justify-center items-center h-full md:h-fit space-y-4 md:space-y-0">
-          {navLinks.map(({ id, name, path, className }) => (
+        <div className="flex flex-col justify-between items-center space-y-12 pt-[75px] md:pt-0 md:flex-row">
+
+      <div className='flex flex-col md:flex-row justify-center items-center h-full md:h-fit space-y-4  md:space-y-0'>
+      {navLinks.map(({ id, name, path, className }) => (
             <div key={id}>
               <Link
+              onClick={handleMenu}
                 to={path}
                 className={`${
                   className ? className : ""
-                } font-[400] text-desktoplink text-[25px] md:text-[20px] md:ml-[20px] font-lato `}
+                } font-[500] text-desktoplink text-[18px] sm:text-[16px]  lg:text-[20px] md:ml-[20px] font-lato `}
               >
                 {name}
               </Link>
             </div>
           ))}
+      </div>
+      <div className="space-y-4 flex flex-col md:hidden">
+        <div className="flex items-center w-full justify-center">
+          <div className="flex space-x-3">
+                {
+                  socials.map(({path, icon}) => (
+                    <div>
+                      <a href={path} target='_blank' rel="noreferrer"><img src={icon} alt="" /> </a>
+                    </div>
+                  ))
+                }
+          </div>
+        </div>
+        <div className="w-full text-center text-[16px] font-lato text-mobilelink font-[500]">105 Cecil Street #18-00 <br/>
+The Octagon <br/>
+Singapore 069534</div>
+      </div>
         </div>
       </div>
     </div>

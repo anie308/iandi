@@ -1,3 +1,9 @@
+import { FaBars } from "react-icons/fa";
+import Whatsapp from './assets/whatsapp.png'
+import Mail from './assets/mail.png'
+import Linked from './assets/linked.png'
+import Insta from './assets/insta.png'
+
 export const navLinks = [
     {
       id: 1,
@@ -31,3 +37,26 @@ export const navLinks = [
       path: "/about-us",
     },
   ];
+
+
+  export const socials = [
+    {
+      path: "https://www.linkedin.com/",
+      icon: Linked,
+    },
+    {
+      path: "https://www.instagram.com/",
+      icon: Insta,
+    },
+    {
+      path: "https://www.linkedin.com",
+      icon: Whatsapp,
+
+    },
+    {
+      path: "mailto:",
+      icon: Mail,
+    },
+  
+    
+  ]
