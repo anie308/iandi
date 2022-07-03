@@ -6,7 +6,7 @@ import { navLinks, socials } from "../data";
 import { Link } from "react-router-dom";
 
 function NavBar() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const handleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -26,12 +26,12 @@ function NavBar() {
       </div>
       <div
         className={`${
-          isOpen ? " top-[-100%] md:top-0" : "top-0"
-        } fixed top-0 md:relative flex-col h-screen md:h-fit bg-primary md:flex-row w-full md:w-fit p-[20px] md:p-0 transition-top`}
+          isOpen ? " top-0" : "top-[-100%]"
+        } fixed  md:relative flex-col h-screen md:h-fit bg-primary md:flex-row w-full md:w-fit p-[20px] md:p-0 transition-top`}
       >
         <div className="flex md:hidden w-full   items-center justify-end ">
           <FaTimes
-            className=" text-[30px] cursor-pointer font-[300]"
+            className="text-[30px] cursor-pointer font-[300]"
             onClick={handleMenu}
           />{" "}
         </div>
