@@ -65,7 +65,7 @@ function Login() {
             </div>
           </div>
           <div className="w-full mt-[20px]">
-            <button className="w-full text-center h-[42px] bg-[#33658A]">Login</button>
+            <button className="w-full text-center h-[42px] bg-[#33658A] text-white text-[22px] cursor-pointer">Login</button>
           </div>
         </form>
       </div>
