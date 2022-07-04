@@ -45,7 +45,7 @@ function NavBar() {
                 to={path}
                 className={`${
                   className ? className : ""
-                } font-[500] text-desktoplink text-[18px] sm:text-[16px]  lg:text-[20px] md:ml-[20px] font-lato `}
+                } font-[500] text-desktoplink text-[18px] sm:text-[16px]  lg:text-[18px] md:ml-[20px] font-lato `}
               >
                 {name}
               </Link>

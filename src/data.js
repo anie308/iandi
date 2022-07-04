@@ -4,6 +4,9 @@ import Mail from './assets/mail.png'
 import Linked from './assets/linked.png'
 import Insta from './assets/insta.png'
 
+
+
+
 export const navLinks = [
     {
       id: 1,
@@ -41,11 +44,11 @@ export const navLinks = [
 
   export const socials = [
     {
-      path: "https://www.linkedin.com/",
+      path: "https://www.linkedin.com/company/innovation-and-integration-ltd-/",
       icon: Linked,
     },
     {
-      path: "https://www.instagram.com/",
+      path: "https://www.instagram.com/iandi.eu/",
       icon: Insta,
     },
     {
@@ -54,7 +57,7 @@ export const navLinks = [
 
     },
     {
-      path: "mailto:",
+      path: "mailto:info@iandi.eu",
       icon: Mail,
     },
   
