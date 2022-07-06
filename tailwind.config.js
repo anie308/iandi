@@ -8,7 +8,8 @@ module.exports = {
       colors:{
         'primary': '#FAFAFA',
         'desktoplink': '#232C38',
-        'mobilelink': '#333333'
+        'mobilelink': '#333333',
+        
       },
       transitionProperty: {
         'top': 'top',

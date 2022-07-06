@@ -57,7 +57,7 @@ function NavBar() {
           <div className="flex space-x-3">
                 {
                   socials.map(({path, icon}) => (
-                    <div>
+                    <div key={path}>
                       <a href={path} target='_blank' rel="noreferrer"><img src={icon} alt="" /> </a>
                     </div>
                   ))

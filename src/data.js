@@ -60,6 +60,45 @@ export const navLinks = [
       path: "mailto:info@iandi.eu",
       icon: Mail,
     },
-  
-    
+   
+  ]
+
+  export const courseDetails =[
+    {
+      id: 1,
+      name: "Web Development",
+      meta: "Learn how to use the BASICS model to assess and take charge of your physical and mental well-being.",
+      status: "Coming soon",
+      slug: "web-development",
+    },
+    {
+      id: 2,
+      name: "Web Development",
+      meta: "Learn how to use the BASICS model to assess and take charge of your physical and mental well-being.",
+      status: "Coming soon"
+    },
+    {
+      id: 3,
+      name: "Web Development",
+      meta: "Learn how to use the BASICS model to assess and take charge of your physical and mental well-being.",
+      status: "Coming soon"
+    },
+    {
+      id: 4,
+      name: "Web Development",
+      meta: "Learn how to use the BASICS model to assess and take charge of your physical and mental well-being.",
+      status: "Coming soon"
+    },
+    {
+      id: 5,
+      name: "Web Development",
+      meta: "Learn how to use the BASICS model to assess and take charge of your physical and mental well-being.",
+      status: "Coming soon"
+    },
+    {
+      id: 6,
+      name: "Web Development",
+      meta: "Learn how to use the BASICS model to assess and take charge of your physical and mental well-being.",
+      status: "Coming soon"
+    },
   ]
