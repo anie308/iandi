@@ -31,7 +31,7 @@ function NavBar({to}) {
       </div>
       <div
         className={`${
-          isOpen ? " top-0" : "top-[-100%]"
+          isOpen ? " top-0" : "top-[-180%]"
         } fixed  md:relative flex-col h-screen md:h-fit bg-primary md:flex-row w-full md:w-fit p-[20px] md:p-0 transition-top`}
       >
         <div className="flex md:hidden w-full   items-center justify-end ">
