@@ -2,6 +2,7 @@ import {Route , Routes } from 'react-router-dom'
 import Login from './components/Login';
 import AboutUs from './pages/AboutUs';
 import CourseDetail from './pages/CourseDetail';
+import Courses from './pages/Courses';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Session from './pages/Session';
@@ -16,6 +17,7 @@ function App() {
         <Route path="/sessions" element={<Session />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/iandi-admin" element={<Login />} />
+        <Route path="/courses" element={<Courses/>} />
         <Route path="/courses/:slug" element={<CourseDetail />} />
         <Route path="*" element={<NotFound/>} />
 

@@ -26,8 +26,8 @@ function HomeHero() {
             <Link to="/about-us">Learn more about us</Link>
           </div>
         </div>
-        <div className="flex-1">
-          <img src={Hero} alt="hero" className="h-full" />
+        <div className="flex-1 px-[15px] md:p-0 w-full ">
+          <img src={Hero} alt="hero" className="h-[200px] w-full md:h-fit rounded-[15px] md:rounded-none" />
         </div>
       </div>
       <div className="flex flex-col md:flex-row items-start md:items-center py-[10px] px-[20px] md:px-[6px] md:py-[50px]   ">

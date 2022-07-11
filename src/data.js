@@ -87,7 +87,7 @@ export const navLinks = [
       id: 4,
       name: "Web Development",
       meta: "Learn how to use the BASICS model to assess and take charge of your physical and mental well-being.",
-      status: "Coming soon"
+      status: "Out of Stock!"
     },
     {
       id: 5,
@@ -99,6 +99,25 @@ export const navLinks = [
       id: 6,
       name: "Web Development",
       meta: "Learn how to use the BASICS model to assess and take charge of your physical and mental well-being.",
-      status: "Coming soon"
+      status: "Out of Stock!"
     },
+  ]
+
+
+  export const biteReads =[
+    {
+      id: 1,
+      title: "How to figure out what I want in my career?",
+      duration: "4 mins"
+    },
+    {
+      id: 2,
+      title: "How to figure out what I want in my career?",
+      duration: "4 mins"
+    },
+    {
+      id: 3,
+      title: "How to figure out what I want in my career?",
+      duration: "4 mins"
+    }
   ]

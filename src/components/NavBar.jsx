@@ -4,12 +4,35 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { FaTimes } from "react-icons/fa";
 import { navLinks, socials } from "../data";
 import { Link } from "react-router-dom";
+import {useMatch} from 'react-router-dom'
 
-function NavBar() {
+function NavBar({to}) {
   const [isOpen, setIsOpen] = useState(false);
   const handleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+     let match = useMatch(to !== "" ? `/` + to + "/*" : "/");
+
+
+  // function CustomLink({ children, to, menu, showsidebar, ...props }: any) {
+  //   let match = useMatch(to !== "" ? `/dashboard/` + to + "/*" : "/dashboard");
+  //   return (
+  //     <Link
+  //       match={match}
+  //       className={`  ${
+  //         match
+  //           ? "  sm:bg-[#0156da1a]  text-primary sm:border-r-[5px] sm:border-blue-500"
+  //           : "text-[#AEAEAE] bg-white"
+  //       }  sm:pl-20px w-[30px] sm:w-full text-lg flex flex-col sm:flex-row items-center mx-[20px] sm:mx-[5px] sm:m-0 justify-center sm:justify-start   md:mt-2  sm:p-[16px] `}
+  //       to={to}
+  //       {...props}
+  //     >
+  //       {children}
+  //     </Link>
+  //   );
+  // }
+
 
   return (
     <div className="flex flex-col md:flex-row  bg-primary relative items-center justify-between md:px-[35px] md:py-[20px]">
@@ -38,14 +61,16 @@ function NavBar() {
         <div className="flex flex-col justify-between items-center space-y-12 pt-[75px] md:pt-0 md:flex-row">
 
       <div className='flex flex-col md:flex-row justify-center items-center h-full md:h-fit space-y-4  md:space-y-0'>
-      {navLinks.map(({ id, name, path, className }) => (
+      {navLinks.map(({ id, name, path, className, match }) => (
             <div key={id}>
               <Link
+              match={match}
               onClick={handleMenu}
                 to={path}
                 className={`${
-                  className ? className : ""
-                } font-[500] text-desktoplink text-[18px] sm:text-[16px]  lg:text-[18px] md:ml-[20px] font-lato `}
+                  // eslint-disable-next-line no-sequences
+                  className ? className : "", 
+               match? 'border-b-[3px]' : '' }  font-[500] text-desktoplink text-[18px] sm:text-[16px]  lg:text-[18px] md:ml-[20px] font-lato  `}
               >
                 {name}
               </Link>

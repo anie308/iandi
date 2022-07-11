@@ -1,5 +1,6 @@
 import React from 'react'
-import Courses from '../components/Courses'
+import BitesSection from '../components/BitesSection'
+import CoursesSection from '../components/Courses'
 import HomeHero from '../components/HomeHero'
 import NavBar from '../components/NavBar'
 
@@ -9,7 +10,8 @@ function Home() {
     <div>
         <NavBar/>
         <HomeHero/>
-        <Courses/>
+        <CoursesSection/>
+        <BitesSection/>
     </div>
   )
 }

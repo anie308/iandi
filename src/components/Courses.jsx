@@ -3,7 +3,7 @@ import { BsChevronDoubleDown, BsChevronRight, BsChevronLeft } from "react-icons/
 import { Link } from "react-router-dom";
 import CourseListing from "./CourseListing";
 
-function Courses() {
+function CoursesSection() {
   return (
     <div className="flex flex-col w-full py-[20px]">
       <div className="w-full flex flex-col justify-center py-[20px]">
@@ -49,4 +49,4 @@ function Courses() {
   );
 }
 
-export default Courses;
+export default CoursesSection;
