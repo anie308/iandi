@@ -1,15 +1,15 @@
 import React from "react";
-import Thumbnail from "../assets/thumbnail.png";
+import Thumbnail from "../../assets/thumbnail.png";
 import { Link } from "react-router-dom";
 function CourseItem({ course }) {
   return (
-    <div className="min-w-[260px]  sm:min-w-[260px]  rounded-[15px]">
+    <div className="min-w-[267px] max-h-[500px] sm:min-w-[267px]  rounded-[15px]">
       <div className="relative w-full ">
         <div>
           <img
             src={Thumbnail}
             alt=""
-            className="rounded-t-[20px] w-full object-contain"
+            className="rounded-t-[20px] w-full object-cover"
           />
         </div>
         <div className="absolute top-[20px] bg-[#33658A] text-white py-[2px] rounded-r-[20px] px-[10px] flex items-center text-lato text-[12px] ">

@@ -1,5 +1,5 @@
 import React from 'react'
-import { courseDetails } from '../data'
+import { courseDetails } from '../../data'
 import CourseItem from './CourseItem'
 
 function CoursePageComponent() {

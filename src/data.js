@@ -107,17 +107,58 @@ export const navLinks = [
   export const biteReads =[
     {
       id: 1,
-      title: "How to figure out what I want in my career?",
-      duration: "4 mins"
+      title: "What type of hiring managers are your best friend?",
+      duration: "4 mins",
+    
+      slug: "how-to-figure-out-what-i-want-in-my-career",
     },
     {
       id: 2,
       title: "How to figure out what I want in my career?",
-      duration: "4 mins"
+      duration: "4 mins",
+      slug: "how-to-figure-out-what-i-want-in-my-career",
+
     },
     {
       id: 3,
       title: "How to figure out what I want in my career?",
-      duration: "4 mins"
+      duration: "4 mins",
+      slug: "how-to-figure-out-what-i-want-in-my-career",
+
+    },
+    {
+      id: 4,
+      title: "How to figure out what I want in my career?",
+      duration: "4 mins",
+      slug: "how-to-figure-out-what-i-want-in-my-career",
+
     }
+  ]
+
+  export const Sessions = [
+    {
+      id:1,
+      title: "What are my Transferrable Skills?",
+      createdAT: "6 July 2022, 4pm sgt"
+    },
+    {
+      id:2,
+      title: "Let’s talk about Imposter Syndrome",
+      createdAT: "6 July 2022, 4pm sgt"
+    },
+    {
+      id:3,
+      title: "What are my Transferrable Skills?",
+      createdAT: "6 July 2022, 4pm sgt"
+    },
+    {
+      id:4,
+      title: "What are my Transferrable Skills?",
+      createdAT: "6 July 2022, 4pm sgt"
+    },
+    {
+      id:5,
+      title: "What are my Transferrable Skills?",
+      createdAT: "6 July 2022, 4pm sgt"
+    },
   ]

@@ -1,6 +1,7 @@
 import {Route , Routes } from 'react-router-dom'
 import Login from './components/Login';
 import AboutUs from './pages/AboutUs';
+import Bites from './pages/Bites';
 import CourseDetail from './pages/CourseDetail';
 import Courses from './pages/Courses';
 import Home from './pages/Home';
@@ -19,6 +20,7 @@ function App() {
         <Route path="/iandi-admin" element={<Login />} />
         <Route path="/courses" element={<Courses/>} />
         <Route path="/courses/:slug" element={<CourseDetail />} />
+        <Route path="/bites" element={<Bites />} />
         <Route path="*" element={<NotFound/>} />
 
         

@@ -1,6 +1,6 @@
 import React from 'react'
-import CoursePageComponent from '../components/CoursePageComponent'
-import CoursePageHero from '../components/CoursePageHero'
+import CoursePageComponent from '../components/Courses/CoursePageComponent'
+import CoursePageHero from '../components/Courses/CoursePageHero'
 import NavBar from '../components/NavBar'
 
 
