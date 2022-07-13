@@ -4,6 +4,7 @@ import CoursesSection from '../components/Courses/CoursesSection'
 import HomeHero from '../components/HomeHero'
 import NavBar from '../components/NavBar'
 import SessionsSection from '../components/Sessions/SessionsSection'
+import SupportSection from '../components/SupportSection'
 
 function Home() {
    
@@ -14,6 +15,7 @@ function Home() {
         <CoursesSection/>
         <BitesSection/>
         <SessionsSection/>
+        <SupportSection/>
     </div>
   )
 }

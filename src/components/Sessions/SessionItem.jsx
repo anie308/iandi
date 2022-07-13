@@ -5,7 +5,7 @@ import Thumbnail from "../../assets/thumbnail2.png";
 
 function SessionItem({session}) {
   return (
-    <div className="min-w-[280px] md:min-w-[320px]  min-h-[480px]    rounded-[15px]">
+    <div className="min-w-[300px] max-w-[300px]  min-h-[340px]    rounded-[15px]">
     <div className="w-full">
       <div>
         <img
@@ -24,7 +24,7 @@ function SessionItem({session}) {
        <span> {session.createdAT}</span>
         </div>
     </div>
-    <div className="bg-[#F6C042] py-[15px] flex items-center justify-center rounded-b-[15px] cursor-pointer">
+    <div className="bg-[#EB6D74] py-[15px] flex items-center justify-center rounded-b-[15px] cursor-pointer">
       <Link
         to={`/sessions/${session.slug}`}
         className="text-lato text-[16px] text-white"

@@ -11,6 +11,7 @@ module.exports = {
         'mobilelink': '#333333',
         
       },
+      
       transitionProperty: {
         'top': 'top',
         
