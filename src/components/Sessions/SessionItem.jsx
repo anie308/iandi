@@ -5,7 +5,7 @@ import Thumbnail from "../../assets/thumbnail2.png";
 
 function SessionItem({session}) {
   return (
-    <div className="min-w-[267px] max-w-[267px]   min-h-[340px]    rounded-[15px]">
+    <div className="min-w-[300px] max-w-[300]    min-h-[340px]    rounded-[15px]">
     <div className="w-full">
       <div>
         <img

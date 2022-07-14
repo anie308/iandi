@@ -3,7 +3,7 @@ import Thumbnail from "../../assets/thumbnail.png";
 import { Link } from "react-router-dom";
 function CourseItem({ course }) {
   return (
-    <div className="min-w-[270px] max-w-[270px]  min-h-[300px] rounded-[20px] shadow">
+    <div className="min-w-[300px] max-w-[300]   min-h-[300px] rounded-[20px] shadow">
       <div className="relative w-full ">
         <div>
           <img

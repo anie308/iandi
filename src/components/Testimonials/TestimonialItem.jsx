@@ -4,7 +4,7 @@ import Profile from '../../assets/profile.png'
 
 function TestimonialItem({ testimony }) {
   return (
-    <div className="min-w-[267px] max-w-[267px]     rounded-[15px] border">
+    <div className="min-w-[280px] max-w-[300]     rounded-[15px] border">
       <div className="flex flex-col w-full bg-primary p-[15px] rounded-[15px]">
         <div className="pb-[20px] text-left font-[700] font-raleway text-[16px] ">
           {testimony.title}
