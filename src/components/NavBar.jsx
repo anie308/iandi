@@ -20,7 +20,7 @@ function NavBar({to}) {
     <div className="flex flex-col md:flex-row  bg-primary relative items-center justify-between md:px-[35px] md:py-[20px]">
       <div className="flex justify-between items-center w-full md:w-fit py-[20px] px-[20px] md:p-0">
         <div>
-          <img src={Logo} alt="logo" />
+          <Link to="/"><img src={Logo} alt="logo" /></Link>
         </div>
         <div className="flex md:hidden">
           <AiOutlineMenu
@@ -32,7 +32,7 @@ function NavBar({to}) {
       <div
         className={`${
           isOpen ? " top-0" : "top-[-180%]"
-        } fixed  md:relative flex-col h-screen md:h-fit bg-primary md:flex-row w-full md:w-fit p-[20px] md:p-0 transition-top z-30`}
+        } fixed  md:relative flex-col h-full md:h-fit bg-primary md:flex-row w-full md:w-fit p-[20px] md:p-0 transition-top z-30`}
       >
         <div className="flex md:hidden w-full   items-center justify-end ">
           <FaTimes
@@ -40,9 +40,9 @@ function NavBar({to}) {
             onClick={handleMenu}
           />{" "}
         </div>
-        <div className="flex flex-col justify-between items-center space-y-12 pt-[75px] md:pt-0 md:flex-row">
+        <div className="flex flex-col justify-between items-center space-y-12 pt-[15px] md:pt-0 md:flex-row">
 
-      <div className='flex flex-col md:flex-row justify-center items-center h-[400px] md:h-fit space-y-4  md:space-y-0'>
+      <div className='flex flex-col md:flex-row justify-center items-center h-[350px] md:h-fit space-y-4  md:space-y-0'>
       {navLinks.map(({ id, name, path, className }) => (
             <div key={id}>
               <Link

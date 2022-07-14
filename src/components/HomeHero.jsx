@@ -22,12 +22,12 @@ function HomeHero() {
             for busy professionals.
           </div>
 
-          <div className="hidden md:flex mt-[20px] text-[#4395C1] border-dotted border-[2px] w-fit border-[#4395C1] px-[20px] py-[8px] rounded-[10px] font-lato">
+          <div className="hidden md:flex mt-[20px] text-[rgb(67,149,193)] border-dotted border-[2px] w-fit border-[#4395C1] px-[20px] py-[8px] rounded-[10px] font-lato">
             <Link to="/about-us">Learn more about us</Link>
           </div>
         </div>
-        <div className="flex-1 px-[15px] md:p-0 w-full ">
-          <img src={Hero} alt="hero" className="h-[200px] w-full md:h-fit rounded-[15px] md:rounded-none" />
+        <div className="flex-1 px-[15px] md:p-0 w-full h-full">
+          <img src={Hero} alt="hero" className="h-full w-full md:h-fit rounded-[15px] md:rounded-none" />
         </div>
       </div>
       <div className="flex flex-col md:flex-row items-start md:items-center py-[10px] px-[20px] md:px-[6px] md:py-[50px]   ">

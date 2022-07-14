@@ -4,7 +4,7 @@ import CourseItem from './CourseItem'
 
 function CoursePageComponent() {
   return (
-    <div className='px-[30px] grid grid-cols-4 gap-4'>
+    <div className='px-[20px] flex flex-col items-center mt-[30px] gap-4'>
     {
         courseDetails.map((course)=> {
             return <CourseItem key={course.id} course={course}/>
@@ -16,4 +16,3 @@ function CoursePageComponent() {
 
 export default CoursePageComponent
 
-//0270038708

@@ -11,10 +11,12 @@ module.exports = {
         'mobilelink': '#333333',
         
       },
+      flex: {
+      '2': '2 2 0%'
+    },
       
       transitionProperty: {
         'top': 'top',
-        
       },
       fontFamily:{
         lato: "Lato, sans-serif",

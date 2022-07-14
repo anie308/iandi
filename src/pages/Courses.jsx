@@ -9,7 +9,7 @@ function Courses(){
        <div>
         <NavBar/>
         <CoursePageHero/>
-        {/* <CoursePageComponent/> */}
+        <CoursePageComponent/>
        </div>
     )
 }

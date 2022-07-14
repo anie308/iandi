@@ -6,12 +6,12 @@ import CourseListing from "./CourseListing";
 function CoursesSection() {
   return (
     <div className="flex flex-col w-full px-[20px] md:px-[38px] lg:px-[80px]">
-      <div className="w-full flex flex-col justify-center py-[20px]">
+      <div className="w-full flex flex-col justify-center pt-[20px]">
         <div>
-          {" "}
-          <p className="font-[800] text-[20px] md:text-[32px] font-raleway text-left md:text-center px-[20px]">
-            See professional and personal <br /> development in a{" "}
-            <span className="text-[#4395C1]">new way</span>
+         
+          <p className="font-[800] text-[20px] md:text-[32px] font-raleway text-left md:text-center ">
+            See professional and personal <br className="hidden md:block" /> development in a 
+             <span className="text-[#4395C1]"> new way</span>
           </p>
         </div>
         <div className="hidden md:flex w-full  justify-center mt-[15px]">

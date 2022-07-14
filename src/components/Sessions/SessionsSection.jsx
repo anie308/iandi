@@ -4,7 +4,7 @@ import SessionListing from './SessionListing'
 
 function SessionsSection() {
   return (
-    <div className="flex flex-col w-full px-[20px] md:px-[38px] lg:px-[58px] mt-[70px]">
+    <div className="flex flex-col w-full px-[20px] md:px-[38px] lg:px-[80px] mt-[70px]">
    
     <div className="">
       <div>
