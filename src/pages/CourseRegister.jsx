@@ -1,20 +1,17 @@
 import React from 'react'
-import CourseDetailSection from '../components/Courses/CourseDetailSection'
+import CourseRegisterSection from '../components/Courses/CourseRegisterSection'
 import Footer from '../components/Footer'
 import NavBar from '../components/NavBar'
 
 
-
-
-function CourseDetail() {
-    
+function CourseRegister() {
   return (
     <div>
         <NavBar/>
-        <CourseDetailSection/>
+        <CourseRegisterSection/>
         <Footer/>
     </div>
   )
 }
 
-export default CourseDetail
+export default CourseRegister

@@ -22,7 +22,7 @@ function HomeHero() {
             for busy professionals.
           </div>
 
-          <div className="hidden md:flex mt-[20px] text-[rgb(67,149,193)] border-dotted border-[2px] w-fit border-[#4395C1] px-[20px] py-[8px] rounded-[10px] font-lato">
+          <div className="hidden md:flex mt-[30px] text-[rgb(67,149,193)]  border w-fit border-[#4395C1] px-[20px] py-[8px] rounded-[10px] font-lato">
             <Link to="/about-us">Learn more about us</Link>
           </div>
         </div>

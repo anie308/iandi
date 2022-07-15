@@ -4,8 +4,10 @@ import Thumbnail from "../../assets/thumbnail2.png";
 
 
 function SessionItem({session}) {
+  const { title,  slug, createdAt } = session;
+
   return (
-    <div className="min-w-[300px] max-w-[300]    min-h-[340px]    rounded-[15px]">
+    <div className="min-w-[280px] max-w-[300]    min-h-[340px]    rounded-[15px]">
     <div className="w-full">
       <div>
         <img
@@ -18,15 +20,15 @@ function SessionItem({session}) {
     </div>
     <div className="flex flex-col w-full bg-primary px-[15px]">
       <div className="py-[10px] text-left font-[700] font-raleway text-[16px] ">
-        {session.title}
+        {title}
       </div>
       <div className=" pb-[20px] text-lato text-[14px] md:text-[16px] flex items-center  uppercase">
-       <span> {session.createdAT}</span>
+       <span> {createdAt}</span>
         </div>
     </div>
     <div className="bg-[#EB6D74] py-[15px] flex items-center justify-center rounded-b-[15px] cursor-pointer">
       <Link
-        to={`/sessions/${session.slug}`}
+        to={`/sessions/${slug}`}
         className="text-lato text-[16px] text-white"
       >
        Read Now

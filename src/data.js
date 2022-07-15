@@ -60,7 +60,7 @@ export const courseDetails = [
   {
     id: 1,
     name: "Web Development",
-    meta: "Learn how to use the BASICS model..",
+    meta: "Learn how to use the BASICS model to assess and take charge of your physical and mental well-being.",
     status: "Coming soon",
     slug: "web-development",
   },
