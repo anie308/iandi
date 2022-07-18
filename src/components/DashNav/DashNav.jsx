@@ -7,7 +7,7 @@ function DashNav({toggle, isToggled}) {
         isToggled(!toggle)
     }
   return (
-    <div className='bg-[#FAFAFA] py-[20px] px-[20px] flex justify-between md:justify-end items-center  '>
+    <div className='bg-[#FAFAFA] py-[12px] px-[20px] flex justify-between md:justify-end items-center  '>
         <div className='flex md:hidden'>
             <img src={Logo} alt="" />
         </div>
