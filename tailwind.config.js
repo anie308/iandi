@@ -17,6 +17,7 @@ module.exports = {
       
       transitionProperty: {
         'top': 'top',
+        'left': 'left'
       },
       fontFamily:{
         lato: "Lato, sans-serif",

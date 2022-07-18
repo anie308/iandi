@@ -1,22 +1,39 @@
 import { useState } from "react";
+import {useDispatch} from 'react-redux'
 import Logo from "../assets/logo.png";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { login } from "../redux/userSlice";
+import {useNavigate} from 'react-router-dom'
 
 function Login() {
-//   const [user, setUser] = useState([""]);
   const [visible, setVisible] = useState(false);
+  const [name, setName] = useState("")
+  const [password, setPassword] = useState("")
+  console.log(name, password);
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const handleVisibility = () => {
     setVisible((prevState) => !prevState);
+
+
   };
 
-  const handleSubmit = () =>{
-    alert('Login Successful');
+  const handleSubmit = (e ) =>{
+    e.preventDefault()  
+
+    dispatch(login({
+      name: name,
+      password: password,
+      loggedIn: true,
+    }))
+
+    navigate('/dashboard')
   }
 
   return (
     <div className="min-h-screen max-h-screen bg-gray-300 flex items-center justify-center">
-      <div className="w-[400px] bg-primary shadow pt-[20px] pb-[35px]">
+      <div className="w-full md:w-[400px] bg-primary shadow pt-[20px] pb-[35px]">
         <div className="w-full flex justify-center py-[15px]">
           <img src={Logo} alt="logo" className="h-[50px] w-[130px] " />
         </div>
@@ -25,7 +42,7 @@ function Login() {
             Welcome! <br /> Login to proceed
           </p>
         </div>
-        <form action="" className="w-full px-[30px]" onSubmit={handleSubmit}>
+        <form action="" className="w-full p-[10px] md:px-[30px]" onSubmit={(e) => handleSubmit(e)}>
           <div className="w-full space-y-1">
             <label htmlFor="username" className="text-[18px] font-raleway font-[600">
               Username
@@ -36,7 +53,9 @@ function Login() {
               required  
                 type="text"
                 placeholder=""
+                value={name}
                 className="w-full h-[45px] outline-none pl-[10px] border border-gray-600"
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
           </div>
@@ -49,6 +68,9 @@ function Login() {
               required
                 type={visible ? "text" : "password"}
                 placeholder=""
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+
                 className="w-full h-[45px] outline-none pl-[10px] border border-gray-600 "
               />
                {visible ? (
@@ -65,7 +87,7 @@ function Login() {
             </div>
           </div>
           <div className="w-full mt-[30px]">
-            <button className="w-full text-center h-[45px] bg-[#33658A] text-white text-[22px] cursor-pointer">Login</button>
+            <button type='submit' className="w-full text-center h-[45px] bg-[#33658A] text-white text-[22px] cursor-pointer">Login</button>
           </div>
         </form>
       </div>
