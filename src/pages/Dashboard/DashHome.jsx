@@ -1,5 +1,5 @@
 import React from 'react'
-import DashHomeHero from '../DashComponents/DashHomeHero'
+import DashHomeHero from '../../components/DashComponents/DashHomeHero'
 
 function DashHome() {
   return (

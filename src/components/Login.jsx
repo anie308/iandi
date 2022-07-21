@@ -5,11 +5,11 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { login } from "../redux/userSlice";
 import {useNavigate} from 'react-router-dom'
 
+
 function Login() {
   const [visible, setVisible] = useState(false);
   const [name, setName] = useState("")
   const [password, setPassword] = useState("")
-  console.log(name, password);
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -44,7 +44,7 @@ function Login() {
         </div>
         <form action="" className="w-full p-[10px] md:px-[30px]" onSubmit={(e) => handleSubmit(e)}>
           <div className="w-full space-y-1">
-            <label htmlFor="username" className="text-[18px] font-raleway font-[600">
+            <label htmlFor="username" className="text-[18px] font-raleway font-[600]">
               Username
             </label>
             <div>

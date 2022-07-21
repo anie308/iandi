@@ -18,12 +18,12 @@ function CourseDetailSection() {
   }, [slug]);
 
   const available = true;
-  //"
+
   
   return (
     <div className="">
       {course ? (
-        <div className="flex flex-col  lg:mx-[110px] mt-[60px]">
+        <div className="flex flex-col  lg:ml-[80px] mt-[60px]">
           <div className="w-ful flex flex-col items-left my-[10px] pl-[20px]">
             <p className="font-montserrat text-[14px] md:text-[18px] font-[500] text-[#33658A]">
               DEVELOPMENT COURSE
@@ -98,9 +98,9 @@ function CourseDetailSection() {
                   <div className="w-full mt-[20px]">
                     <Link to={`${available? "/course/register" : "/course/waitlist"}`} className="">
                       <p
-                        className={`${available? " bg-[#33658A] text-white " :"border border-[#4395C1] text-[#4395C1]"} w-full  py-[15px]  rounded-[10px] text-center font-[lato] text-[16px]`}
+                        className={`${available? " bg-[#33658A] text-white " :"border border-[#4395C1] text-[#4395C1]"} w-full  py-[15px]  rounded-[10px] text-center font-[lato] text-[18px]`}
                       >
-                        Register Now
+                        {available? 'Register Now' : 'Join Waitlist'}
                       </p>
                     </Link>
                   </div>

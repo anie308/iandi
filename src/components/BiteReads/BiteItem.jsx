@@ -16,21 +16,22 @@ const { title,  slug } = bite;
   
 
   return (
-    <div className="min-w-[300px] max-w-[380]   rounded-[15px] flex flex-col justify-between">
-      <div className="w-full">
+    <div className="min-w-[280px] max-w-[300] max-h-[360px]   rounded-[15px] flex flex-col justify-between ">
+      <div className="w-full ">
         <div>
           <img
             src={Thumbnail}
             alt="thumbnail"
-            className="h-[180px] rounded-t-[20px] w-full "
+            className="h-[180px] rounded-t-[20px] w-full object-cover"
           />
         </div>
       </div>
-      <div className="flex flex-col w-full bg-primary px-[8px]">
-        <div className="py-[10px] text-left font-[700] font-raleway text-[16px] ">
+       
+      <div className="flex flex-col w-full bg-primary h-full p-[10px]">
+        <div className="text-left font-[700] font-raleway text-[16px] h-full w-full">
           {title.substring(0, 45) + "..."}
         </div>
-        <div className=" pb-[20px] text-lato text-[14px] md:text-[18px] flex items-center space-x-1">
+        <div className="  text-lato text-[14px] md:text-[18px] flex items-center space-x-1 h-full w-full">
           <IoTimeOutline className="text-[18px]" />
           <span className="flex items-center">{time} min </span>
         </div>

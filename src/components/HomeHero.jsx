@@ -8,7 +8,7 @@ function HomeHero() {
     <div>
       <div className="bg-[#EBEEF5] flex flex-col md:flex-row">
         <div className="px-[15px] py-[20px] md:py-[30px] md:pl-[60px] flex-1 flex flex-col items-start justify-center space-y-4">
-          <div className="font-[800] text-center md:text-left font-raleway text-[30px] md:text-[40px]">
+          <div className="font-[800] text-center md:text-left font-raleway text-[28px] md:text-[40px]">
             Learn to achieve your <br className="hidden md:block" /> development
             goals
           </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Outlet } from 'react-router-dom'
-import DashNav from '../DashNav/DashNav'
-import Sidebar from '../SideBar/Sidebar'
+import DashNav from '../DashComponents/DashNav'
+import Sidebar from '../DashComponents/Sidebar'
 
 function DashboardLayout() {
   const [toggle, isToggled] = useState(false);

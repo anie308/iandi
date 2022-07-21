@@ -1,8 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function CourseRegisterSection() {
+  const navigate = useNavigate()
     const handleClick = () => {
-        alert("You have successfully registered for this course!");
+        navigate('/course/register/success')
     }
   return (
     <div className="mt-[80px] flex flex-col items-center">

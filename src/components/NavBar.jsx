@@ -3,9 +3,9 @@ import Logo from "../assets/logo.png";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FaTimes } from "react-icons/fa";
 import { navLinks, socials } from "../data";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-function NavBar({to}) {
+function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const handleMenu = () => {
     setIsOpen(!isOpen);
@@ -20,7 +20,7 @@ function NavBar({to}) {
     <div className="flex flex-col md:flex-row  bg-primary relative items-center justify-between md:px-[35px] md:py-[20px]">
       <div className="flex justify-between items-center w-full md:w-fit py-[20px] px-[20px] md:p-0">
         <div>
-          <Link to="/"><img src={Logo} alt="logo" /></Link>
+          <NavLink to="/"><img src={Logo} alt="logo" /></NavLink>
         </div>
         <div className="flex md:hidden">
           <AiOutlineMenu
@@ -45,16 +45,15 @@ function NavBar({to}) {
       <div className='flex flex-col md:flex-row justify-center items-center h-[350px] md:h-fit space-y-4  md:space-y-0'>
       {navLinks.map(({ id, name, path, className }) => (
             <div key={id}>
-              <Link
+              <NavLink 
               onClick={handleMenu}
                 to={path}
                 className={`${
-                  // eslint-disable-next-line no-sequences
                   className ? className : ""
-                }  font-[500] text-desktoplink text-[18px] sm:text-[16px]  lg:text-[18px] md:ml-[20px] font-lato  `}
+                } font-[500]  text-[18px] sm:text-[16px]  lg:text-[18px] md:ml-[20px] font-lato  `}
               >
                 {name}
-              </Link>
+              </NavLink>
             </div>
           ))}
       </div>

@@ -1,20 +1,20 @@
-import React from "react";
+import React from 'react'
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import BitesSection from "../components/BiteReads/BitesSection";
 import SessionsSection from "../components/Sessions/SessionsSection";
-import RegSuccessSection from "../components/RegSuccessSection";
+import WaitSuccess from '../components/WaitSuccess'
 
-function RegistrationSuccess() {
+function WaitlistSuccess() {
   return (
     <div>
-      <NavBar />
-      <RegSuccessSection/>
+      <NavBar/>
+      <WaitSuccess/>
       <BitesSection/>
       <SessionsSection/>
-      <Footer />
+      <Footer/>
     </div>
-  );
+  )
 }
 
-export default RegistrationSuccess;
+export default WaitlistSuccess

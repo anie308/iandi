@@ -12,7 +12,11 @@ import RegistrationSuccess from './pages/RegistrationSuccess';
 import Session from './pages/Session';
 import { selectUser } from './redux/userSlice';
 import DashboardLayout from './components/Templates/DashboardLayout';
-import DashHome from './components/DashboardHome/DashHome';
+import DashHome from './pages/Dashboard/DashHome';
+import CourseWaitlist from './pages/CourseWaitlist';
+import WaitlistSuccess from './pages/WaitlistSuccess';
+import BitesDetail from './pages/BitesDetail';
+import DashCourse from './pages/Dashboard/DashCourse';
 
 
 function App() {
@@ -26,12 +30,15 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/sessions" element={<Session />} />
         <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/iandi-admin" element={<Login />} />
+        <Route path="/admin" element={<Login />} />
         <Route path="/courses" element={<Courses/>} />
         <Route path="/courses/:slug" element={<CourseDetail />} />
         <Route path='/course/register' element={<CourseRegister />} />
         <Route path='/course/register/success' element= {<RegistrationSuccess />} />
+        <Route path='/course/waitlist' element={<CourseWaitlist/>}/>
+        <Route path='/course/waitlist/success' element={<WaitlistSuccess/>}/>
         <Route path="/bites" element={<Bites />} />
+        <Route path="/bites/:slug" element={<BitesDetail />} />
         <Route path="*" element={<NotFound/>} />
 
         {user ?   <Route
@@ -41,6 +48,7 @@ function App() {
         }
          >
           <Route path='' element={<DashHome/>}/>
+          <Route path='courses' element={<DashCourse/>}/>
          </Route> 
         : <Route path="/"  element={<Home/>} />}
       
