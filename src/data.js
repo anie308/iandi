@@ -193,3 +193,26 @@ export const Testimonials = [
 
   },
 ];
+
+export const waitlist=[
+  {
+    id: 1,
+    email: 'johndoe@gmail.com',
+    course: 'Web Development',
+  },
+  {
+    id: 2,
+    email: 'johndoe@gmail.com',
+    course: 'Web Development',
+  },
+  {
+    id: 3,
+    email: 'johndoe@gmail.com',
+    course: 'Web Development',
+  },
+  {
+    id: 4,
+    email: 'johndoe@gmail.com',
+    course: 'Web Development',
+  },
+]
