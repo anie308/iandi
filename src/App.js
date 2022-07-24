@@ -17,6 +17,7 @@ import CourseWaitlist from './pages/CourseWaitlist';
 import WaitlistSuccess from './pages/WaitlistSuccess';
 import BitesDetail from './pages/BitesDetail';
 import DashCourse from './pages/Dashboard/DashCourse';
+import DashCreateCourse from './pages/Dashboard/DashCreateCourse';
 
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
         <Route path='/course/waitlist/success' element={<WaitlistSuccess/>}/>
         <Route path="/bites" element={<Bites />} />
         <Route path="/bites/:slug" element={<BitesDetail />} />
-        <Route path="*" element={<NotFound/>} />
+        <Route path="/*" element={<NotFound/>} />
 
         {user ?   <Route
          path='/dashboard'
@@ -49,6 +50,7 @@ function App() {
          >
           <Route path='' element={<DashHome/>}/>
           <Route path='courses' element={<DashCourse/>}/>
+          <Route path='create-course' element={<DashCreateCourse/>}/>
          </Route> 
         : <Route path="/"  element={<Home/>} />}
       

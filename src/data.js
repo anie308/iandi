@@ -216,3 +216,23 @@ export const waitlist=[
     course: 'Web Development',
   },
 ]
+
+export const mdRules = [
+  {
+    title: "From h1 to h6",
+    rule: "# Heading -> ######Heading"
+  },
+  {
+    title: "Blockquote",
+    rule: "> Your quote"
+  },
+  {
+    title: "Image",
+    rule: "![alt text](https://via.placeholder.com/150x150)"
+  },
+  {
+    title: "Link",
+    rule: "[Link Text](https://www.google.com)"
+  }
+
+]

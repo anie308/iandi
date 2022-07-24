@@ -1,8 +1,11 @@
 import React from 'react'
+import DashCoursesSection from '../../components/DashComponents/DashCoursesSection'
 
 function DashCourse() {
   return (
-    <div>DashCourse</div>
+    <div>
+      <DashCoursesSection/>
+    </div>
   )
 }
 
