@@ -17,7 +17,7 @@ function CourseDetailSection() {
     }
   }, [slug]);
 
-  const available = true;
+  const available = false;
 
   
   return (

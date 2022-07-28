@@ -24,6 +24,21 @@ function CourseWaitlistSection() {
         <div className="flex flex-col items-start space-y-1 w-full">
           <div>
             <label htmlFor="email" className="font-lato">
+              Course<sup></sup>
+            </label>
+          </div>
+          <div className="w-full">
+            <input
+              type="course"
+              placeholder="Course"
+              className="border-b pb-[5px] outline-none w-full"
+              required
+            />
+          </div>
+        </div>
+        <div className="flex flex-col items-start space-y-1 w-full">
+          <div>
+            <label htmlFor="email" className="font-lato">
               Email<sup></sup>
             </label>
           </div>

@@ -17,7 +17,10 @@ import CourseWaitlist from './pages/CourseWaitlist';
 import WaitlistSuccess from './pages/WaitlistSuccess';
 import BitesDetail from './pages/BitesDetail';
 import DashCourse from './pages/Dashboard/DashCourse';
+import DashBites from './pages/Dashboard/DashBites';
 import DashCreateCourse from './pages/Dashboard/DashCreateCourse';
+import DashCreateBite from './pages/Dashboard/DashCreateBite';
+import UpdateBite from './pages/Dashboard/UpdateBite';
 
 
 function App() {
@@ -50,7 +53,10 @@ function App() {
          >
           <Route path='' element={<DashHome/>}/>
           <Route path='courses' element={<DashCourse/>}/>
+          <Route path='bites' element={<DashBites/>}/>
           <Route path='create-course' element={<DashCreateCourse/>}/>
+          <Route path='create-bite' element={<DashCreateBite/>}/>
+          <Route path='update-bite/:slug' element={<UpdateBite/>}/>
          </Route> 
         : <Route path="/"  element={<Home/>} />}
       

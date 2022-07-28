@@ -1,8 +1,11 @@
 import React from 'react'
+import DashBitesSection from '../../components/DashComponents/DashBitesSection'
 
 function DashBites() {
   return (
-    <div>DashBites</div>
+    <div>
+      <DashBitesSection/>
+    </div>
   )
 }
 

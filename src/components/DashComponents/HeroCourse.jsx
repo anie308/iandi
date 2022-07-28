@@ -8,7 +8,7 @@ function HeroCourse() {
     <div className='flex-1 w-full bg-gray-200 p-[10px] rounded-[5px]'>
          <div className="flex items-center justify-between">
         <div className="text-[18px] font-lato ">Recent Courses</div>
-        <div className="text-[16px] font-lato"><Link to='/dashboard/waitlist'>See All</Link></div>
+        <div className="text-[16px] font-lato"><Link to='/dashboard/courses'>See All</Link></div>
       </div>
         <div className='flex flex-col space-y-4 mt-[20px]'>
             {
