@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import BiteListing from '../BiteReads/BiteListing'
+import BiteItem from './BiteItem'
 
 function BitesSection() {
   return (
@@ -27,7 +27,7 @@ function BitesSection() {
       </div>
 
       <div className="my-[20px]">
-          <BiteListing/>
+      <BiteItem />
       </div>
     </div>
 

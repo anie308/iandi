@@ -17,7 +17,7 @@ function NavBar() {
 
 
   return (
-    <div className="flex flex-col md:flex-row  bg-primary relative items-center justify-between md:px-[35px] md:py-[20px]">
+    <div className="sticky top-0 z-30 flex flex-col md:flex-row  bg-primary  items-center justify-between md:px-[35px] md:py-[20px]">
       <div className="flex justify-between items-center w-full md:w-fit py-[20px] px-[20px] md:p-0">
         <div>
           <NavLink to="/"><img src={Logo} alt="logo" /></NavLink>
