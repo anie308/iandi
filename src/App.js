@@ -36,6 +36,7 @@ function App() {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/admin" element={<Login />} />
         <Route path="/courses" element={<Courses/>} />
+        
         <Route path="/courses/:slug" element={<CourseDetail />} />
         <Route path='/course/register' element={<CourseRegister />} />
         <Route path='/course/register/success' element= {<RegistrationSuccess />} />
@@ -53,6 +54,7 @@ function App() {
          >
           <Route path='' element={<DashHome/>}/>
           <Route path='courses' element={<DashCourse/>}/>
+        
           <Route path='bites' element={<DashBites/>}/>
           <Route path='create-course' element={<DashCreateCourse/>}/>
           <Route path='create-bite' element={<DashCreateBite/>}/>

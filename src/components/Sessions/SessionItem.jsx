@@ -7,7 +7,7 @@ function SessionItem({session}) {
   const { title,  slug, createdAt } = session;
 
   return (
-    <div className="min-w-[280px] max-w-[300]    min-h-[340px]    rounded-[15px]">
+    <div className="min-w-[280px] max-w-[300] h-[320px] min-h-[320px]   max-h-[320px]   flex flex-col   rounded-[15px] bg-primary justify-between">
     <div className="w-full">
       <div>
         <img
@@ -18,11 +18,11 @@ function SessionItem({session}) {
       </div>
    
     </div>
-    <div className="flex flex-col w-full bg-primary px-[15px]">
-      <div className="py-[10px] text-left font-[700] font-raleway text-[16px] ">
-        {title}
+    <div className="flex flex-col w-full bg-primary px-[10px]">
+      <div className="py-[5px] text-left font-[700] font-raleway text-[16px] ">
+        { title.length > 40 ? `${title.substring(0, 20)}...` : title }
       </div>
-      <div className=" pb-[20px] text-lato text-[14px] md:text-[16px] flex items-center  uppercase">
+      <div className=" pb-[20px] text-lato text-[14px] md:text-[16px] flex items-center ">
        <span> {createdAt}</span>
         </div>
     </div>

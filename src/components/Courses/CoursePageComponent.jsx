@@ -1,18 +1,89 @@
-import React from 'react'
-import { courseDetails } from '../../data'
-import CourseItem from './CourseItem'
+import React, { useState } from "react";
+import Thumbnail from "../../assets/thumbnail.png";
+import { courseDetails, faqArr } from "../../data";
+import { Link } from "react-router-dom";
+import { BsCaretDown } from "react-icons/bs";
 
 function CoursePageComponent() {
+  const [more, setMore] = useState(3);
+  const [faq, setFaq] = useState(null);
+  const toggle = (i) => {
+   if(faq === i){
+    return setFaq(null);
+   }
+     setFaq(i);
+  }
   return (
-    <div className='px-[20px] flex flex-col items-center mt-[30px] gap-4'>
-    {
-        courseDetails.map((course)=> {
-            return <CourseItem key={course.id} course={course}/>
-        })
-    }
-</div>
-  )
+    <div className="px-[20px]">
+      <div className="flex flex-col items-center">
+        <div className=" flex flex-col items-center my-[80px] gap-10">
+          {courseDetails.slice(0, more).map((course) => (
+            <div className="flex flex-col md:flex-row md:h-[280px] border rounded-[10px]" key={course.id}>
+              <div className="h-[280px] w-full  md:min-w-[380px] max-w-[380px] flex-1 relative">
+               
+                <span className="absolute bg-[#33658A] top-[20px] text-white py-[2px] rounded-r-[20px] z-10 px-[10px] flex items-center text-lato text-[12px]">
+                  {course.status}
+                </span>
+                <img
+                  src={Thumbnail}
+                  alt=""
+                  className="h-full w-full rounded-l-[10px] object-cover"
+                />
+              </div>
+              <div className="flex-1 md:flex-2 w-full md:min-w-[580px] md:max-w-[580px] md:p-[20px] pt-[10px]">
+                <div className="px-[10px] md:p-0">
+                  <p className="font-raleway font-[700] text-[20px]">
+                    {course.name}
+                  </p>
+                </div>
+                <div className=" my-[5px] md:mt-[20px] px-[10px] md:p-0">
+                  <p className="font-lato text-[14px] md:text-[18px] font-[400] text-[#333333]">
+                    {course.meta}
+                  </p>
+                </div>
+                <div className="md:mt-[30px] w-full md:w-fit ">
+                  <Link
+                    to={`/courses/${course.slug}`}
+                    className=""
+                  >
+                   <p className="h-full w-full md:w-fit  bg-[#33658A] text-white px-[20px] py-[15px] md:py-[10px] rounded-b-[10px] md:rounded-[12px] text-center "> View course</p>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="my-[20px]">
+          <button
+            className="border border-[#F6C042] text-[#F6C042] font-[400] text-[18px] px-[20px] py-[10px] font-lato rounded-[12px] cursor-pointer"
+            onClick={(e) => setMore(more + 3)}
+          >
+            Load More
+          </button>
+        </div>
+      </div>
+      <div className="mt-[100px] flex flex-col justify-center items-center">
+        <div className="mb-[30px] md:mb-[50px]">
+          <p className="font-[800] font-raleway text-[20px]  md:text-[32px] ">
+            Frequently Asked Questions
+          </p>
+        </div>
+        {faqArr.map((item, i) => (
+          <div className="my-[10px] w-full md:w-[960px] " onClick={() => toggle(i)} key={item.question}>
+            <div className=" border flex gap-3 items-center justify-between p-[10px] md:p-[20px]  cursor-pointer ">
+              <p className="font-[400]  font-lato text-[16px] md:text-[20px]">
+                {item.question}
+              </p>
+              <BsCaretDown />
+            </div>
+            <div className={`${faq === i ? 'h-full p-[20px]' : 'h-0 p-0'} overflow-hidden transition-all break-words`}>
+              <p className="">{item.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
-export default CoursePageComponent
-
+export default CoursePageComponent;

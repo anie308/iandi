@@ -18,7 +18,7 @@ export const navLinks = [
   {
     id: 3,
     name: "Bite-sized Reads",
-    path: "/blog",
+    path: "/bites",
   },
   {
     id: 4,
@@ -235,4 +235,27 @@ export const mdRules = [
     rule: "[Link Text](https://www.google.com)"
   }
 
+]
+
+export const faqArr = [
+  {
+    question: 'How much will I have to pay for the class?',
+    answer: 'Courses are all free to access until 30 August 2022. Look out for our affordable pricing that is coming soon!'
+  },
+  {
+    question: 'Can I take more than one class at a time?',
+    answer: 'It really depends on your pace based on your work and personal life schedule. We recommend not to rush through the courses but to maintain regular pace along with Bite-sized reads and Live sessions.'
+  },
+  {
+    question: 'Do I have to be online at an exact time to study?',
+    answer: 'Absolutely not. I&I’s development courses are designed for busy professionals all around the world. You can learn at your own pace comfortably on mobile or on your laptop.'
+  },
+  {
+    question: 'How are classes graded?',
+    answer: 'Unlike most courses, we don’t pass or fail you for any courses. There are rarely only ONE WAY to get to where you want to be. We encourage and guide you through prompts to allow you to reflect and consider other options.'
+  },
+  {
+    question: 'How long does it take to complete a class?',
+    answer: 'It really depends on your pace based on your work and personal life schedule. We recommend not to rush through the courses but to maintain regular pace along with Bite-sized reads and Live sessions.'
+  },
 ]

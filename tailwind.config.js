@@ -16,6 +16,7 @@ module.exports = {
       transitionProperty: {
         top: "top",
         left: "left",
+        height: "height",
         
       },
       fontFamily: {

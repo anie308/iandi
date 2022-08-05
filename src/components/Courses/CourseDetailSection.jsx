@@ -22,8 +22,8 @@ function CourseDetailSection() {
   return (
     <div className="mt-[30px] md:mt-[60px]">
       {course ? (
-        <div className="mx-[15px] md:mx-[150px] flex flex-col md:flex-row    justify-around">
-          <div>
+        <div className=" md:mx-[150px] flex flex-col md:flex-row    justify-around">
+          <div className="mx-[15px]">
             <div className="w-ful flex flex-col items-left my-[10px] ">
               <p className="font-montserrat text-[14px] md:text-[18px] font-[500] text-[#33658A]">
                 DEVELOPMENT COURSE
@@ -57,8 +57,8 @@ function CourseDetailSection() {
               </div>
             </div>
           </div>
-          <div className="md:bg-[#EBEEF5] md:ml-[100px] rounded-[15px] px-[0px] md:px-[15px] py-[15px] md:py-[25px] w-full md:w-[360px] flex flex-col md:flex-col-reverse justify-start">
-            <div>
+          <div className="md:bg-[#EBEEF5] md:ml-[100px] rounded-[15px] px-[0px] md:px-[15px] py-[15px] md:py-[25px] w-full md:w-[360px] flex flex-col md:flex-col-reverse justify-start items-start h-full">
+            <div className="w-full">
               <div className="hidden md:block  text-[#232C38] md:pb-[50px] md:border-b border-[#D4D4D4]">
                 <div>
                   <div>
@@ -96,7 +96,7 @@ function CourseDetailSection() {
                 </div>
               </div>
               <div>
-                <div className="flex flex-col md:flex-row items-start md:items-center py-[15px] space-y-4 md:space-y-0 md:space-x-2">
+                <div className="mx-[15px] md:m-0 flex flex-col md:flex-row items-start md:items-center py-[15px] space-y-4 md:space-y-0 md:space-x-2 w-full">
                   <div className="flex items-center space-x-1 border shadow p-[8px] rounded-[10px] w-fit bg-white">
                     <IoTimeOutline className="text-[25px]" />
                     <p className=" font-raleway font-[700]  text-[15px]">
@@ -110,21 +110,61 @@ function CourseDetailSection() {
                     </p>
                   </div>
                 </div>
-                <div></div>
+                <div className="w-full mx-[15px] md:m-0">
+                  <div className="my-[20px] w-full">
+                    <p className="font-[700] text-[16px] md:text-[20px] font-raleway">
+                      What you will learn
+                    </p>
+                    <p className="font-[500] font-lato text-[14px] md:text-[18px] mt-[5px]">
+                      Description (1 - 3 rows max)
+                    </p>
+                  </div>
+                  <div className="mt-[25px]">
+                    <p className="font-[700] text-[16px] md:text-[20px] font-raleway">
+                      Who should take this course?
+                    </p>
+                    <p className="font-[500] font-lato text-[14px] md:text-[18px] mt-[5px]">
+                      Description (1 - 3 rows max)
+                    </p>
+                  </div>
+                  <div className="hidden md:block my-[25px]">
+                    <p className="font-[700] text-[16px] md:text-[20px] font-raleway">
+                      Bonus
+                    </p>
+                    <p className="font-[500] font-lato text-[14px] md:text-[18px] mt-[5px]">
+                      Complimentary{" "}
+                      <span className="text-[#4395C1]">
+                        {" "}
+                        1 to 1 Support Session
+                      </span>{" "}
+                      upon completion of this course
+                    </p>
+                  </div>
+                 
+                </div>
               </div>
-              <div className="block md:hidden mt-[70px] text-[#232C38] md:pb-[50px] md:border-b border-[#D4D4D4]">
-                <div>
-                  <div>
-                    <div className="text-center">
+              <div className=" bg-[#EBEEF5] w-full  block md:hidden mt-[70px] text-[#232C38] md:pb-[50px] md:border-b border-[#D4D4D4] py-[30px] px-[15px]">
+                <div className="w-full flex items-center">
+                  <div className="w-full">
+                    <div className="text-center w-full">
                       {available ? (
-                         <div><div className="text-[18px] font-[800] font-raleway"> Ready to get started?  </div>
-                         <span className="font-[400] text-[15px] font-lato text-center">Get access to all courses for free until 30 August!</span></div>
-                        
+                        <div className="w-full">
+                          <div className="text-[18px] font-[800] font-raleway">
+                            {" "}
+                            Ready to get started?{" "}
+                          </div>
+                          <span className="font-[400] text-[15px] font-lato text-center">
+                            Get access to all courses for free until 30 August!
+                          </span>
+                        </div>
                       ) : (
                         <div>
-                          <div className="text-[18px] font-[800] font-raleway">Course is coming soon in August. </div>
-                          <span className="font-[400] text-[15px] font-lato text-center">Get notified when
-                          it’s available!</span>
+                          <div className="text-[18px] font-[800] font-raleway">
+                            Course is coming soon in August.{" "}
+                          </div>
+                          <span className="font-[400] text-[15px] font-lato text-center">
+                            Get notified when it’s available!
+                          </span>
                         </div>
                       )}
                     </div>
@@ -184,18 +224,9 @@ export default CourseDetailSection;
 
 //           </div>
 //         </div>
-//         <div>
-//           <p className="font-[700] text-[16px] md:text-[20px] font-raleway">What you will learn</p>
-//           <p className="font-[500] font-lato text-[14px] md:text-[18px] mt-[5px]">Description (1 - 3 rows max)</p>
-//         </div>
-//         <div className="mt-[25px]">
-//           <p className="font-[700] text-[16px] md:text-[20px] font-raleway">Who should take this course?</p>
-//           <p className="font-[500] font-lato text-[14px] md:text-[18px] mt-[5px]">Description (1 - 3 rows max)</p>
-//         </div>
-//         <div className="hidden md:block mt-[25px]">
-//           <p className="font-[700] text-[16px] md:text-[20px] font-raleway">Bonus</p>
-//           <p className="font-[500] font-lato text-[14px] md:text-[18px] mt-[5px]">Complimentary <span className="text-[#4395C1]"> 1 to 1 Support Session</span> upon completion of this course</p>
-//         </div>
+//
+//
+//
 //       </div>
 //     </div>
 //   </div>
