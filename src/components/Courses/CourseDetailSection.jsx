@@ -57,7 +57,7 @@ function CourseDetailSection() {
               </div>
             </div>
           </div>
-          <div className="md:bg-[#EBEEF5] md:ml-[100px] rounded-[15px] px-[0px] md:px-[15px] py-[15px] md:py-[25px] w-full md:w-[360px] flex flex-col md:flex-col-reverse justify-start items-start h-full">
+          <div className="md:bg-[#EBEEF5] md:ml-[100px] rounded-[15px] px-[0px] md:px-[15px] py-[15px] md:py-[25px] w-full md:min-w-[360px] flex flex-col md:flex-col-reverse justify-start items-start h-full">
             <div className="w-full">
               <div className="hidden md:block  text-[#232C38] md:pb-[50px] md:border-b border-[#D4D4D4]">
                 <div>
@@ -96,7 +96,7 @@ function CourseDetailSection() {
                 </div>
               </div>
               <div>
-                <div className="mx-[15px] md:m-0 flex flex-col md:flex-row items-start md:items-center py-[15px] space-y-4 md:space-y-0 md:space-x-2 w-full">
+                <div className="px-[15px] md:m-0 flex flex-col md:flex-row items-start md:items-center py-[15px] space-y-4 md:space-y-0 md:space-x-2 w-full">
                   <div className="flex items-center space-x-1 border shadow p-[8px] rounded-[10px] w-fit bg-white">
                     <IoTimeOutline className="text-[25px]" />
                     <p className=" font-raleway font-[700]  text-[15px]">
@@ -110,7 +110,7 @@ function CourseDetailSection() {
                     </p>
                   </div>
                 </div>
-                <div className="w-full mx-[15px] md:m-0">
+                <div className=" px-[15px] md:m-0">
                   <div className="my-[20px] w-full">
                     <p className="font-[700] text-[16px] md:text-[20px] font-raleway">
                       What you will learn

@@ -22,7 +22,7 @@ if (isFetching) {
     
   </div>;
 } else if (isSuccess) {
-  biteList = <div className='grid  lg:grid-cols-2 gap-10 md:px-[30px] lg:px-[350px] justify-center w-full'>
+  biteList = <div className='grid  lg:grid-cols-2 gap-10 md:px-[30px] lg:px-[220px] justify-center w-full'>
           {bites.slice(0, more)
     .map((bite) => (
      <Link to={`/bites/${bite.slug}`} key={bite.id}>

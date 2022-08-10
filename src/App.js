@@ -21,6 +21,7 @@ import DashBites from './pages/Dashboard/DashBites';
 import DashCreateCourse from './pages/Dashboard/DashCreateCourse';
 import DashCreateBite from './pages/Dashboard/DashCreateBite';
 import UpdateBite from './pages/Dashboard/UpdateBite';
+import SessionDetail from './pages/SessionDetail';
 
 
 function App() {
@@ -32,11 +33,11 @@ function App() {
      
       <Routes >
         <Route path="/" element={<Home />} />
-        <Route path="/sessions" element={<Session />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/admin" element={<Login />} />
         <Route path="/courses" element={<Courses/>} />
-        
+        <Route path="/sessions" element={<Session />} />
+        <Route path="/sessions/:slug" element={<SessionDetail />} />
         <Route path="/courses/:slug" element={<CourseDetail />} />
         <Route path='/course/register' element={<CourseRegister />} />
         <Route path='/course/register/success' element= {<RegistrationSuccess />} />
