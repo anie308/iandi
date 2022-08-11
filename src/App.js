@@ -22,6 +22,7 @@ import DashCreateCourse from './pages/Dashboard/DashCreateCourse';
 import DashCreateBite from './pages/Dashboard/DashCreateBite';
 import UpdateBite from './pages/Dashboard/UpdateBite';
 import SessionDetail from './pages/SessionDetail';
+import Support from './pages/Support';
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
         <Route path="/bites" element={<Bites />} />
         <Route path="/bites/:slug" element={<BitesDetail />} />
         <Route path="/*" element={<NotFound/>} />
+        <Route path="/support" element={<Support/>}/>
 
         {user ?   <Route
          path='/dashboard'

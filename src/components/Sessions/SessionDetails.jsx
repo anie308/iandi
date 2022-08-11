@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { Sessions } from "../../data";
 import Thumbnail from "../../assets/thumbnail.png";
-
+import TestimonialSection from "../Testimonials/TestimonialSection";
 
 function SessionDetails() {
   const { slug } = useParams();
@@ -18,7 +18,8 @@ function SessionDetails() {
   }, [slug]);
   return (
     <div className="mt-[30px] md:mt-[60px]">
-      {session ? (
+     <div>
+     {session ? (
         <div className=" md:mx-[150px] flex flex-col md:flex-row    justify-around">
           <div className="mx-[15px]">
             <div className="w-ful flex flex-col items-left my-[10px] ">
@@ -107,12 +108,28 @@ function SessionDetails() {
               <div className=" bg-[#EBEEF5] w-full  block md:hidden mt-[70px] text-[#232C38] md:pb-[50px] md:border-b border-[#D4D4D4] py-[30px] px-[15px]">
                 <div className="w-full flex items-center">
                   <div className="w-full">
-                    <div className="text-center w-full"></div>
-                    <div className="mt-[20px]">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Sit iste inventore dicta necessitatibus officiis! Incidunt
-                      rerum libero expedita, omnis qui ducimus, deserunt illo
-                      alias id assumenda, quos vero est tempora.
+                    <div>
+                      <div>
+                        <p className="font-[700] text-[20px] text-center font-raleway">
+                          Save Your Spot!{" "}
+                        </p>
+                        <p className="font-[400] text-[16px] font-lato text-center break-words">
+                          Can’t make it? Don’t worry, you’ll get a recording of
+                          this class, so register today!
+                        </p>
+                      </div>
+                      <div className="mt-[20px] w-full">
+                        <button className="bg-[#EB6D74] text-white py-[10px] rounded-[12px] w-full text-center">
+                          <a
+                            href="https://iani.eu"
+                            rel="noreferrer"
+                            target="_blank"
+                            className=""
+                          >
+                            Register Now
+                          </a>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -125,6 +142,10 @@ function SessionDetails() {
           Hello Motherfucker!!
         </div>
       )}
+     </div>
+     <div>
+      <TestimonialSection/>
+     </div>
     </div>
   );
 }
