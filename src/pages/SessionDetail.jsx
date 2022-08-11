@@ -7,6 +7,7 @@ function SessionDetail() {
   return (
     <div>
         <NavBar/>
+        
         <SessionDetails/>
         <Footer/>
     </div>

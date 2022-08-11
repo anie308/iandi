@@ -68,7 +68,8 @@ function CoursePageComponent() {
             Frequently Asked Questions
           </p>
         </div>
-        {faqArr.map((item, i) => (
+        {faqArr.slice(0,5)
+        .map((item, i) => (
           <div className="my-[10px] w-full md:w-[960px] " onClick={() => toggle(i)} key={item.question}>
             <div className=" border flex gap-3 items-center justify-between p-[10px] md:p-[20px]  cursor-pointer ">
               <p className="font-[400]  font-lato text-[16px] md:text-[20px]">

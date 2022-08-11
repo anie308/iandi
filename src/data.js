@@ -134,26 +134,31 @@ export const Sessions = [
     id: 1,
     title: "What are my Transferrable Skills?",
     createdAT: "6 July 2022, 4pm sgt",
+    slug: "what-are-my-transferrable-skills",
   },
   {
     id: 2,
     title: "Let’s talk about Imposter Syndrome",
     createdAT: "6 July 2022, 4pm sgt",
+    slug: "let-s-talk-about-imposter-syndrome",
   },
   {
     id: 3,
     title: "What are my Transferrable Skills?",
     createdAT: "6 July 2022, 4pm sgt",
+    slug: "what-are-my-transferrable-skills",
   },
   {
     id: 4,
     title: "What are my Transferrable Skills?",
     createdAT: "6 July 2022, 4pm sgt",
+    slug: "what-are-my-transferrable-skills",
   },
   {
     id: 5,
     title: "What are my Transferrable Skills?",
     createdAT: "6 July 2022, 4pm sgt",
+    slug: "what-are-my-transferrable-skills",
   },
 ];
 export const Testimonials = [
@@ -256,6 +261,18 @@ export const faqArr = [
   },
   {
     question: 'How long does it take to complete a class?',
+    answer: 'There will be a Q&A session at the end of the session. But of course, you may always key in your questions in the Q&A chat during the session and the speaker and/or facilitator will do their best to answer as many as possible!'
+  },
+  {
+    question: 'Can I ask questions during the live sessions?',
     answer: 'It really depends on your pace based on your work and personal life schedule. We recommend not to rush through the courses but to maintain regular pace along with Bite-sized reads and Live sessions.'
+  },
+  {
+    question: 'What do I need to prepare beforehand?',
+    answer: 'Come with a clear and open mind is all you need! Okay, maybe a pen and a piece of paper if you insist.'
+  },
+  {
+    question: 'Will there be a recording of the sessions?',
+    answer: 'Majority of the sessions will be recorded and sent to your registered email address. So don’t worry if you have registered but can’t make it last minute, we know how busy professionals can be!'
   },
 ]

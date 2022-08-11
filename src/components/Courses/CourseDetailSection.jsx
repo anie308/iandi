@@ -202,33 +202,4 @@ function CourseDetailSection() {
 
 export default CourseDetailSection;
 
-//    <div className="flex flex-col  lg:ml-[80px] mt-[60px]">
 
-// <div className="flex flex-col  md:flex-row rounded-[20px] ">
-//   <div className="flex-1 px-[20px] ">
-
-//   <div className="flex-1 ">
-//     <div className="w-full md:w-[450px] flex flex-col-reverse md:flex-col">
-//       <div className="md:pb-[30px] md:border-b border-[#D4D4D4] w-full mt-[100px] bg-[#EBEEF5] md:bg-white px-[20px] md:mt-0 p-[35px] md:pl-0 md:pt-0 md:pr-0">
-//         <div>
-
-//         </div>
-//         <div className="w-full mt-[20px]">
-
-//         </div>
-//       </div>
-//       <div className="py-[30px] px-[10px] mx-[20px] md:p-0 border border-t-0 rounded-b-[15px] md:border-none">
-//         <div>
-//           <div className="">
-//
-
-//           </div>
-//         </div>
-//
-//
-//
-//       </div>
-//     </div>
-//   </div>
-// </div>
-// </div>

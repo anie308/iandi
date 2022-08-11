@@ -16,7 +16,7 @@ function SessionsSection() {
           </div>
           <div className="hidden md:flex items-center space-x-3">
               <div>
-                  <Link to='/bites' className="font-lato text-[16px] font-[400] border border-[#EB6D74] text-[#EB6D74] py-[8px] px-[15px] rounded-[3px]  text-lato">See All</Link>
+                  <Link to='/sessions' className="font-lato text-[16px] font-[400] border border-[#EB6D74] text-[#EB6D74] py-[8px] px-[15px] rounded-[3px]  text-lato">See All</Link>
               </div>
               {/* <div className='flex items-center space-x-2'>
                   <div className="border rounded-full p-[9px] text-[20px] border-[#33658A] text-[#F6C042] cursor-pointer"> <BsChevronLeft/></div>
