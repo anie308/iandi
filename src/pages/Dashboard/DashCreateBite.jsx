@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom'
  import { default as api } from "../../redux/apiSlice";
 import { useNotification } from '../../components/context/NotifyProvider';
 
-import BiteForm from '../../components/BiteForm'
+import BiteForm from '../../components/DashComponents/Forms/BiteForm'
 import { useEffect } from 'react';
 
 function DashCreateBite() {

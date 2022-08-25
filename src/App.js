@@ -1,6 +1,5 @@
 import { Route , Routes } from 'react-router-dom'
-import {useSelector} from 'react-redux'
-import Login from './components/Login';
+import Login from './components/Auth/Login';
 import AboutUs from './pages/AboutUs';
 import Bites from './pages/Bites';
 import CourseDetail from './pages/CourseDetail';
@@ -10,7 +9,7 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import RegistrationSuccess from './pages/RegistrationSuccess';
 import Session from './pages/Session';
-import { selectUser } from './redux/userSlice';
+
 import DashboardLayout from './components/Templates/DashboardLayout';
 import DashHome from './pages/Dashboard/DashHome';
 import CourseWaitlist from './pages/CourseWaitlist';
@@ -23,15 +22,16 @@ import DashCreateBite from './pages/Dashboard/DashCreateBite';
 import UpdateBite from './pages/Dashboard/UpdateBite';
 import SessionDetail from './pages/SessionDetail';
 import Support from './pages/Support';
+import Testimony from './pages/Testimony';
 
 
 function App() {
-  const user =useSelector(selectUser);
+  const user =true
 
   
   return (
     <>
-     
+     {/* <NavBar/> */}
       <Routes >
         <Route path="/" element={<Home />} />
         <Route path="/about-us" element={<AboutUs />} />
@@ -48,6 +48,7 @@ function App() {
         <Route path="/bites/:slug" element={<BitesDetail />} />
         <Route path="/*" element={<NotFound/>} />
         <Route path="/support" element={<Support/>}/>
+        <Route path="/stories/:slug" element={<Testimony/>} />
 
         {user ?   <Route
          path='/dashboard'
@@ -55,7 +56,7 @@ function App() {
           <DashboardLayout/>
         }
          >
-          <Route path='' element={<DashHome/>}/>
+          <Route name='Dahboard' path='' element={<DashHome/>}/>
           <Route path='courses' element={<DashCourse/>}/>
         
           <Route path='bites' element={<DashBites/>}/>

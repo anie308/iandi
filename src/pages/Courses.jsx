@@ -1,17 +1,16 @@
 import React from 'react'
-import CoursePageComponent from '../components/Courses/CoursePageComponent'
-import CoursePageHero from '../components/Courses/CoursePageHero'
-import NavBar from '../components/NavBar'
-import Footer from '../components/Footer'
+import CoursePageComponent from '../components/PageSections/CoursePageComponent'
+import CoursePageHero from '../components/Hero/CoursePageHero'
+
+
 
 
 function Courses(){
     return(
        <div>
-        <NavBar/>
+
         <CoursePageHero/>
         <CoursePageComponent/>
-        <Footer/>
        </div>
     )
 }

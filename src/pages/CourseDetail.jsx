@@ -1,7 +1,7 @@
 import React from 'react'
-import CourseDetailSection from '../components/Courses/CourseDetailSection'
-import Footer from '../components/Footer'
-import NavBar from '../components/NavBar'
+import CourseDetailSection from '../components/Details/CourseDetailSection'
+
+
 
 
 
@@ -10,9 +10,8 @@ function CourseDetail() {
     
   return (
     <div>
-        <NavBar/>
+
         <CourseDetailSection/>
-        <Footer/>
     </div>
   )
 }

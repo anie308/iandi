@@ -1,14 +1,14 @@
 import React from 'react'
-import BitePageSection from '../components/BiteReads/BitePageSection'
-import Footer from '../components/Footer'
-import NavBar from '../components/NavBar'
+import BitePageSection from '../components/PageSections/BitePageSection'
+
+
 
 function Bites() {
   return (
     <div>
-      <NavBar/>
+
       <BitePageSection/>
-      <Footer/>
+
     </div>
   )
 }

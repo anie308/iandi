@@ -11,9 +11,9 @@ function Sidebar({toggle, isToggled}) {
   }
 
   function CustomLink({ children, to, ...props }) {
-    let match = useMatch(to !== "" ? `/dashboard/` + to + "/*" : "/dashboard");
+    let match = useMatch(to !== "" ? `/dashboard/` + to  : "/dashboard");
     return (
-      <Link className={`item ${match ? "border-l-[5px] border-[#FFC914] text-white" : ""} text-[22px] font-lato font-[600]  py-[4px] md:py-[8px] w-full my-[5px] pl-[10px] md:pl-[20px] `} to={to} {...props} onClick={handleToggle}>
+      <Link className={`item ${match ? "border-l-[5px] border-[#FAFAFA] text-white" : ""} text-[16px] font-raleway font-[700]   w-full my-[20px] pl-[10px] md:pl-[20px] `} to={to} {...props} onClick={handleToggle}>
         {children}
       </Link>
     );
@@ -28,47 +28,24 @@ function Sidebar({toggle, isToggled}) {
       to: "courses",
     },
     {
-      name: "Create Course",
-      to: "create-course",
+      name: "Bite-sized Reads",
+      to: "courses",
     },
     {
-      name: "Bites",
-      to: "bites",
-    },
-    {
-      name: "Create Bite",
-      to: "create-bite",
-    },
-    {
-      name: "Sessions",
+      name: "Live Sessions",
       to: "sessions",
     },
     {
-      name: "Create Session",
-      to: "create-session",
+      name: "Registrations and Waitlists",
+      to: "registrations",
     },
-    {
-      name: "Waitlist",
-      to: "waitlist",
-    },
-    {
-      name: "Testimonials",
-      to: "testimonials",
-    },
-    {
-      name: "Create Testimony",
-      to: "create-testimony",
-    },
-    {
-      name: "Course Applicants",
-      to: "course-regs",
-    },
+   
   ]
   return (
     <div className={`${toggle? 'left-0 z-30 lg:left-0':'left-[-100%] lg:left-0'}  absolute lg:relative min-w-[240px] max-w-[240px] h-screen transition-left  flex flex-col  justify-between bg-[#33658A] pt-[10px]
     `}>
       <div>
-      <div className='hidden md:flex w-full items-center justify-center px-[20px] pt-[10px]  '>
+      <div className='hidden md:flex w-full items-center justify-start px-[20px] pt-[10px]  '>
             <img src={Logo} alt="" />
         </div>
         <div>

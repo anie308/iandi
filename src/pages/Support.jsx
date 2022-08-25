@@ -1,16 +1,16 @@
 import React from 'react'
-import Footer from '../components/Footer'
-import NavBar from '../components/NavBar'
-import SuccessSection from '../components/Support/SuccessSection'
-import TestimonialSection from '../components/Testimonials/TestimonialSection'
+import SuccessSection from '../components/Misc/SuccessSection'
+import SupportPageSection from '../components/PageSections/SupportPageSection'
+import TestimonialSection from '../components/PageSections/TestimonialSection'
 
 function Support() {
   return (
     <div>
-        <NavBar/>
+
+        <SupportPageSection/>
         <SuccessSection/>
         <TestimonialSection/>
-        <Footer/>
+
     </div>
   )
 }

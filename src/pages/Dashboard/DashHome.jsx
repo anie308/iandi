@@ -1,5 +1,5 @@
 import React from 'react'
-import DashHomeHero from '../../components/DashComponents/CourseSectionHero'
+import DashHomeHero from '../../components/DashComponents/DashHomeHero'
 import HeroBites from '../../components/DashComponents/HeroBites'
 import HeroCourse from '../../components/DashComponents/HeroCourse'
 import HeroSession from '../../components/DashComponents/HeroSession'

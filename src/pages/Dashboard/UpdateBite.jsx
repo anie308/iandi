@@ -1,5 +1,5 @@
 import React from 'react'
-import BiteForm from '../../components/BiteForm'
+import BiteForm from '../../components/DashComponents/Forms/BiteForm'
 
 function UpdateBite() {
   return (
