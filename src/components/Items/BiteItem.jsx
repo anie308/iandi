@@ -24,13 +24,13 @@ function BiteItem({ bite }) {
         </div>
 
         <div className="flex flex-col w-full bg-primary h-full p-[10px]">
-          <div className="text-left font-[700] font-raleway text-[16px] h-full w-full">
+          <div className="text-left font-[700] md:font-[700] font-raleway text-[16px] h-full w-full">
             {title}
           </div>
           <div className="  text-lato text-[14px] md:text-[18px] flex items-center space-x-1 h-full w-full">
             <IoTimeOutline className="text-[18px]" />
             <span className="flex items-center">
-              {Math.ceil(content.trim().split(/\s+/).length / 275)} min{" "}
+              {Math.ceil(content.trim().split(/\s+/).length / 275)} <span className="font-montserrat font-[400] text-[12px]">MINS</span>{" "}
             </span>
           </div>
         </div>
