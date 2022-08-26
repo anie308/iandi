@@ -29,7 +29,7 @@ function Sidebar({toggle, isToggled}) {
     },
     {
       name: "Bite-sized Reads",
-      to: "courses",
+      to: "bites",
     },
     {
       name: "Live Sessions",
@@ -66,8 +66,8 @@ function Sidebar({toggle, isToggled}) {
 
         </div>
       </div>
-        <div className='flex md:hidden '>
-            <p className='text-[20px] font-raleway font-[600] '>Welcome (Yushi)</p>
+        <div className='flex  justify-center items-center pb-[15px]'>
+            <Link to='/dashboard/settings' className='text-[16px] text-white font-raleway font-[600] '>Account Settings</Link>
         </div>
 
     </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Thumbnail from "../../assets/thumbnail.png";
 import { IoTimeOutline } from "react-icons/io5";
-import { BsFillArrowDownLeftSquareFill, BsLaptop } from "react-icons/bs";
+import {  BsLaptop } from "react-icons/bs";
 import { useCoursesQuery } from "../../services/coursesApi";
 
 function CourseDetailSection() {

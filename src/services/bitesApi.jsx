@@ -12,6 +12,10 @@ export const bitesApi = createApi({
    })
 })
 
+
+
 export const {
-   useBitesQuery
+   useBitesQuery,
+
 } = bitesApi
+

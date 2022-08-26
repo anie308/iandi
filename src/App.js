@@ -1,4 +1,6 @@
 import { Route , Routes } from 'react-router-dom'
+import {ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import Login from './components/Auth/Login';
 import AboutUs from './pages/AboutUs';
 import Bites from './pages/Bites';
@@ -23,10 +25,12 @@ import UpdateBite from './pages/Dashboard/UpdateBite';
 import SessionDetail from './pages/SessionDetail';
 import Support from './pages/Support';
 import Testimony from './pages/Testimony';
+import  {useSelector} from 'react-redux'
 
 
 function App() {
-  const user =true
+  
+  const user = useSelector((state) => state.auth)
 
   
   return (
@@ -68,6 +72,7 @@ function App() {
       
 
       </Routes>
+      <ToastContainer/>
      
     </>
   );

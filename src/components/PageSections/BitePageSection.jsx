@@ -8,9 +8,11 @@ import { biteReads } from '../../data';
 
 
 
+
 function BitePageSection() {
+
   const [more, setMore] = useState(4)
-  
+
     
     
 
@@ -29,7 +31,7 @@ return (
      <Link to={`/bites/${bite.slug}`} key={bite.id}>
       <div className='w-full md:min-w-[410px] max-w-[410px] border flex rounded-[12px]'>
         <div>
-          <img src={Thumbnail} alt="" className='h-full md:h-[100px] min-w-[120px] object-cover rounded-l-[12px] max-w-[120px]' />
+          <img src={Thumbnail || bite.thumbnail} alt="" className='h-full md:h-[100px] min-w-[120px] object-cover rounded-l-[12px] max-w-[120px]' />
         </div>
         <div className='p-[10px]'>
           <div><p className='font-raleway text-[12px] md:text-[16px] font-[700] '>{bite.title}</p></div>

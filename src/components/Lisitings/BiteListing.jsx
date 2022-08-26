@@ -33,8 +33,8 @@ return (
                 {
                    bites
                    .slice(0,4)
-                  .map((course) => (
-                      <BiteItem key={course.id} course={course}/>
+                  .map((bite) => (
+                      <BiteItem key={bite.id} bite={bite}/>
                   ))
                 }
               </div>
