@@ -4,37 +4,43 @@ import { courseDetails } from "../../data";
 import Thumbnail from "../../assets/thumbnail.png";
 import { IoTimeOutline } from "react-icons/io5";
 import { BsFillArrowDownLeftSquareFill, BsLaptop } from "react-icons/bs";
+import {useCoursesQuery} from '../../services/coursesApi'
+
 
 function CourseDetailSection() {
+  const {data, error, isLoading, isFetching, isSuccess} = useCoursesQuery()
+    const courses = data?.courses
+
   const { slug } = useParams();
   const [course, setCourse] = useState(null);
 
   useEffect(() => {
-    let course = courseDetails.find((course) => course.slug === slug);
+    let course = courses.find((course) => course.slug === slug);
 
     if (course) {
       setCourse(course);
     }
   }, [slug]);
 
-  const available = false;
+  console.log(course)
+
 
   return (
     <div className="mt-[30px] md:mt-[60px]">
       {course ? (
-        <div className=" md:mx-[150px] flex flex-col md:flex-row    justify-around">
+        <div className=" md:mx-[100px] flex flex-col md:flex-row    justify-around">
           <div className="mx-[15px]">
             <div className="w-ful flex flex-col items-left my-[10px] ">
               <p className="font-montserrat text-[14px] md:text-[18px] font-[500] text-[#33658A]">
                 DEVELOPMENT COURSE
               </p>
               <p className="font-raleway text-[28px] md:text-[40px] font-[800] text-[#232C38]">
-                {course.name}
+                {course.title}
               </p>
             </div>
             <div className="w-full lg:w-[648px] h-[200px] lg:h-[400px] border rounded-[15px]">
               <img
-                src={Thumbnail}
+                src={Thumbnail || course.thumbnail}
                 alt=""
                 className="h-full w-full object-cover rounded-t-[15px] md:rounded-[15px]"
               />
@@ -62,7 +68,7 @@ function CourseDetailSection() {
               <div className="hidden md:block  text-[#232C38] md:pb-[50px] md:border-b border-[#D4D4D4]">
                 <div>
                   <div>
-                    <div className="text-center font-raleway hidden md:block font-[700] text-[20px]">
+                    {/* <div className="text-center font-raleway hidden md:block font-[700] text-[20px]">
                       {available ? (
                         <span>
                           Ready to get started? <br /> Get access to all courses
@@ -74,9 +80,9 @@ function CourseDetailSection() {
                           it’s available!
                         </span>
                       )}
-                    </div>
+                    </div> */}
                     <div className="mt-[20px]">
-                      <Link
+                      {/* <Link
                         to={`${
                           available ? "/course/register" : "/course/waitlist"
                         }`}
@@ -90,7 +96,7 @@ function CourseDetailSection() {
                         >
                           {available ? "Register Now" : "Join Waitlist"}
                         </p>
-                      </Link>
+                      </Link> */}
                     </div>
                   </div>
                 </div>
@@ -146,7 +152,7 @@ function CourseDetailSection() {
               <div className=" bg-[#EBEEF5] w-full  block md:hidden mt-[70px] text-[#232C38] md:pb-[50px] md:border-b border-[#D4D4D4] py-[30px] px-[15px]">
                 <div className="w-full flex items-center">
                   <div className="w-full">
-                    <div className="text-center w-full">
+                    {/* <div className="text-center w-full">
                       {available ? (
                         <div className="w-full">
                           <div className="text-[18px] font-[800] font-raleway">
@@ -167,8 +173,8 @@ function CourseDetailSection() {
                           </span>
                         </div>
                       )}
-                    </div>
-                    <div className="mt-[20px]">
+                    </div> */}
+                    {/* <div className="mt-[20px]">
                       <Link
                         to={`${
                           available ? "/course/register" : "/course/waitlist"
@@ -184,7 +190,7 @@ function CourseDetailSection() {
                           {available ? "Register Now" : "Join Waitlist"}
                         </p>
                       </Link>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

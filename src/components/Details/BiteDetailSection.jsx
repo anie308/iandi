@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { default as api } from "../../redux/apiSlice";
 import Thumbnail from "../../assets/thumbnail.png";
 import Markdown from "react-markdown";
 import CourseListing from '../Lisitings/CourseListing'
@@ -10,16 +9,14 @@ import '../style.css'
 function BiteDetailSection() {
   const { slug } = useParams();
   const [bite, setBite] = useState(null);
-  const { data } = api.useGetBitesQuery();
-  const bites = data?.posts;
 
-  useEffect(() => {
-    let bite = bites?.find((bite) => bite.slug === slug);
+  // useEffect(() => {
+  //   let bite = bites?.find((bite) => bite.slug === slug);
 
-    if (bite) {
-      setBite(bite);
-    }
-  }, [slug, bites]);
+  //   if (bite) {
+  //     setBite(bite);
+  //   }
+  // }, [slug, bites]);
   return (
     <div className="">
      <div>
@@ -56,7 +53,7 @@ function BiteDetailSection() {
               </p>
             </div>
             <div className="flex flex-row md:flex-col gap-6 mt-[10px] md:mt-[30px] overflow-auto shit px-[20px]">
-              {bites.map((bite) => (
+              {/* {bites.map((bite) => (
                 <Link to={`/bites/${bite.slug}`} key={bite.id} replace>
                   <div className="h-[180px] md:h-full min-w-[264px] md:min-w-[410px] md:max-w-[410px] border flex flex-col md:flex-row justify-between md:justify-start rounded-[12px]">
                     <div className="hidden md:block">
@@ -90,7 +87,7 @@ function BiteDetailSection() {
                       </div>
                   </div>
                 </Link>
-              ))}
+              ))} */}
             </div>
           </div>
         </div>

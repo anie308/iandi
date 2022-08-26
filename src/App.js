@@ -56,7 +56,7 @@ function App() {
           <DashboardLayout/>
         }
          >
-          <Route name='Dahboard' path='' element={<DashHome/>}/>
+          <Route name='Dahboard' path='home' element={<DashHome/>}/>
           <Route path='courses' element={<DashCourse/>}/>
         
           <Route path='bites' element={<DashBites/>}/>

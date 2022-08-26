@@ -1,7 +1,7 @@
 import React from "react";
 
-import BitesSection from "../components/PageSections/BitesSection";
-import SessionsSection from "../components/PageSections/SessionsSection";
+import BitesSection from "../components/Sections/BitesSection";
+import SessionsSection from "../components/Sections/SessionsSection";
 import RegSuccessSection from "../components/SuccessSection/RegSuccessSection";
 
 function RegistrationSuccess() {

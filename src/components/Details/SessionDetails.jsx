@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {  useParams } from "react-router-dom";
 import { Sessions } from "../../data";
 import Thumbnail from "../../assets/thumbnail.png";
-import TestimonialSection from "../PageSections/TestimonialSection";
+import TestimonialSection from "../Sections/TestimonialSection";
 
 function SessionDetails() {
   const { slug } = useParams();

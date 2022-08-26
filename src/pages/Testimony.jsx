@@ -1,5 +1,5 @@
 import React from 'react'
-import TestimonialSection from '../components/PageSections/TestimonialSection'
+import TestimonialSection from '../components/Sections/TestimonialSection'
 import TestimonyPageSection from '../components/PageSections/TestimonyPageSection'
 
 function Testimony() {

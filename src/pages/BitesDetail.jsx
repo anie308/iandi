@@ -6,7 +6,7 @@ function BitesDetail() {
   return (
     <div>
 
-        {/* <BitesDetailSection/> */}
+        <BitesDetailSection/>
 
     </div>
   )

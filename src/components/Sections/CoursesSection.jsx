@@ -9,7 +9,7 @@ function CoursesSection() {
       <div className="w-full flex flex-col justify-center pt-[20px]">
         <div>
          
-          <p className="font-[800] text-[20px] md:text-[32px] font-raleway text-left md:text-center ">
+          <p className="font-[800] text-[24px] md:text-[28px] font-raleway text-left md:text-center ">
             See professional and personal <br className="hidden md:block" /> development in a 
              <span className="text-[#4395C1]"> new way</span>
           </p>
@@ -22,21 +22,17 @@ function CoursesSection() {
       </div>
       <div className="mt-[30px] ">
         <div>
-            <p className="font-montserrat text-[18px] font-[400] ">DEVELOPER COURSES</p>
+            <p className="font-montserrat text-[14px] font-[400] ">DEVELOPER COURSES</p>
         </div>
         <div id="dev" className="flex items-center justify-between">
             <div className="mt-[8px]flex items-center justify-center">
-                <p className="font-[800] font-raleway text-[18px] md:text-[20px] lg:text-[24px]">Online courses for you learn at <br className='block md:hidden '/><span className="text-[#33658A]" >your own pace</span></p>
+                <p className="font-[800] font-raleway text-[20px] md:text-[28px] ">Online courses for you learn at <br className='block md:hidden '/><span className="text-[#33658A]" >your own pace</span></p>
             </div>
             <div className="hidden md:flex items-center space-x-3">
                 <div>
                     <Link to='/courses' className="font-lato text-[16px] font-[400] border border-[#33658A] text-[#33658A] py-[8px] px-[15px] rounded-[3px]  text-lato">See All</Link>
                 </div>
-                {/* <div className='flex items-center space-x-2'>
-                    <div className="border rounded-full p-[9px] text-[20px] border-[#33658A] text-[#33658A] cursor-pointer"> <BsChevronLeft/></div>
-                    <div className="border rounded-full p-[9px] text-[20px] border-[#33658A] text-[#33658A] cursor-pointer"><BsChevronRight/></div>
-                    
-                </div> */}
+               
             </div>
         </div>
 

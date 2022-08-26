@@ -3,8 +3,12 @@ import Thumbnail from "../../assets/thumbnail.png";
 import { courseDetails, faqArr } from "../../data";
 import { Link } from "react-router-dom";
 import { BsCaretDown } from "react-icons/bs";
+import {useCoursesQuery} from '../../services/coursesApi'
+
 
 function CoursePageComponent() {
+  const {data, error, isLoading, isFetching, isSuccess} = useCoursesQuery()
+  const courses = data?.courses
   const [more, setMore] = useState(3);
   const [faq, setFaq] = useState(null);
   const toggle = (i) => {
@@ -16,8 +20,16 @@ function CoursePageComponent() {
   return (
     <div className="px-[20px]">
       <div className="flex flex-col items-center">
-        <div className=" flex flex-col items-center my-[80px] gap-10">
-          {courseDetails.slice(0, more).map((course) => (
+      
+        {isLoading &&  <div className="flex flex-col md:flex-row md:h-[280px] border rounded-[10px] bg-gray-200" >
+              <div className="h-[280px] w-full  md:min-w-[380px] max-w-[380px] flex-1 bg-gray-300">
+              </div>
+              <div className="flex-1 md:flex-2 w-full md:min-w-[580px] md:max-w-[580px] md:p-[20px] pt-[10px]">
+              </div>
+            </div> }
+          {error && <div className='h-[200px] w-[200px] '>Something went wrong </div>}
+          <div className=" flex flex-col items-center my-[80px] gap-10">
+          {courses.slice(0, more).map((course) => (
             <div className="flex flex-col md:flex-row md:h-[280px] border rounded-[10px]" key={course.id}>
               <div className="h-[280px] w-full  md:min-w-[380px] max-w-[380px] flex-1 relative">
                
@@ -25,7 +37,7 @@ function CoursePageComponent() {
                   {course.status}
                 </span>
                 <img
-                  src={Thumbnail}
+                  src={Thumbnail || course.thumbnail}
                   alt=""
                   className="h-full w-full rounded-l-[10px] object-cover"
                 />
@@ -33,7 +45,7 @@ function CoursePageComponent() {
               <div className="flex-1 md:flex-2 w-full md:min-w-[580px] md:max-w-[580px] md:p-[20px] pt-[10px]">
                 <div className="px-[10px] md:p-0">
                   <p className="font-raleway font-[700] text-[20px]">
-                    {course.name}
+                    {course.title}
                   </p>
                 </div>
                 <div className=" my-[5px] md:mt-[20px] px-[10px] md:p-0">

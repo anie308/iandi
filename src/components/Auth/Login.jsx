@@ -1,20 +1,15 @@
 import { useState } from "react";
-import {useDispatch} from 'react-redux'
 import Logo from "../../assets/logo.png";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { login } from "../../redux/userSlice";
 import {useNavigate} from 'react-router-dom'
-import { default as api } from "../../redux/apiSlice";
 
 
 
-function Login({initialUser}) {
-  const [logUser] = api.useLogUserMutation()
+function Login() {
   const [visible, setVisible] = useState(false);
   const [name, setName] = useState("")
   const [password, setPassword] = useState("")
   const navigate = useNavigate()
-  const dispatch = useDispatch()
 
   const handleVisibility = () => {
     setVisible((prevState) => !prevState);
@@ -25,9 +20,8 @@ function Login({initialUser}) {
   const handleSubmit = (e ) =>{
     e.preventDefault()  
 
-    dispatch(login(logUser))
 
-    navigate('/dashboard')
+    navigate('/dashboard/home')
   }
 
   return (

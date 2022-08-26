@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import BiteItem from '../Items/BiteItem'
+import BiteListing from '../Lisitings/BiteListing'
 
 function BitesSection() {
   return (
@@ -18,16 +18,12 @@ function BitesSection() {
               <div>
                   <Link to='/bites' className="font-lato text-[16px] font-[400] border border-[#F6C042] text-[#F6C042] py-[8px] px-[15px] rounded-[3px]  text-lato">See All</Link>
               </div>
-              {/* <div className='flex items-center space-x-2'>
-                  <div className="border rounded-full p-[9px] text-[20px] border-[#33658A] text-[#F6C042] cursor-pointer"> <BsChevronLeft/></div>
-                  <div className="border rounded-full p-[9px] text-[20px] border-[#33658A] text-[#33658A] cursor-pointer"><BsChevronRight/></div>
-                  
-              </div> */}
+           
           </div>
       </div>
 
       <div className="my-[20px]">
-      <BiteItem />
+      <BiteListing />
       </div>
     </div>
 
