@@ -21,7 +21,7 @@ function Sidebar({toggle, isToggled}) {
   const navArr = [
     {
       name: "Dashboard",
-      to: "",
+      to: "home",
     },
     {
       name: "Courses",
