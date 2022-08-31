@@ -15,9 +15,9 @@ function AboutPageSection() {
       </div>
 
       <div className="px-[10px] flex flex-col items-center justify-center w-full mt-[40px]">
-        <div className="flex flex-col md:flex-row  items-center gap-4 md:gap-0">
+        <div className="flex flex-col md:flex-row  items-center  ">
           <div className="bg-[#FF7373] h-[260px] md:h-[450px] w-full  md:w-[320px] rounded-[12px] md:rounded-none  md:rounded-tl-[12px]   flex flex-row md:flex-col ">
-            <div className="absolute md:relative flex-1 p-[10px] md:w-[320px]">
+            <div className=" flex-1 p-[10px] md:w-[320px]">
               <div className="w-full">
                 <p className="font-[800] font-raleway text-[16px] md:text-[28px] text-[#333333]">
                   Aga Gajownik

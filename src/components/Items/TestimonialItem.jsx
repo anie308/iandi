@@ -9,7 +9,7 @@ function TestimonialItem({ testimony }) {
         <div className="pb-[20px] text-left font-[700] font-raleway text-[16px] ">
           {testimony.title}
         </div>
-        <div className="py-[10px] w-full font-[700] font-raleway text-[16px] ">
+        <div className="py-[10px] w-full font-[700] font-raleway text-[14px] ">
           {testimony.desc}
          
         </div>
@@ -27,7 +27,7 @@ function TestimonialItem({ testimony }) {
       <div className="bg-[#455265] py-[15px] flex items-center justify-center rounded-b-[15px] cursor-pointer">
         <Link
           to={`/stories/${testimony.slug}`}
-          className="text-lato text-[16px] text-white"
+          className="text-lato text-[16px] text-white font-[400]"
         >
           Read Full Story
         </Link>

@@ -1,20 +1,48 @@
 import React from 'react'
-import { Sessions } from '../../data'
 import SessionItem from '../Items/SessionItem'
+import { default as api } from "../../services/sessionsApi";
+
 
 function SessionListing() {
+  const { data, error, isLoading, isSuccess } = api.useSessionsQuery();
+  const sessions = data?.sessions;
+  console.log(sessions)
   return (
-    <div className='shit flex flex-row  items-center justify-between overflow-y-auto gap-4 md:grid md:grid-cols-4'>
-    {
-        Sessions
-        .slice(0,4)
-        .map((session) => (
-            <SessionItem key={session.id} session={session}/>
-        ))
-          
-       
-    }
+   <div>
+     {isLoading && <div className='min-w-[280px] max-w-[300]   min-h-[370px] h-[370px] animate-pulse flex flex-col space-y-2'>
+          <div className='rounded-[10px] w-full  h-[200px] bg-gray-200'></div>
+          <div className='rounded-[10px] w-full  h-full bg-gray-200'></div>
+          <div className='rounded-[10px] w-full  h-[80px] bg-gray-200'></div>
+        </div> }
+        {error && <div className='h-[200px] w-full bg-gray-200 rounded-[10px] font-raleway font-[700] text-[20px] flex items-center justify-center'>Something went wrong </div>}
+     <div>
+     {isSuccess && (
+           <div >
+          {
+            sessions.length === 0 ? (
+              
+               <div className='h-[200px] w-full bg-gray-200 rounded-[10px] font-raleway font-[700] text-[20px] flex items-center justify-center'> No Sessions Yet</div>
+               
+            
+            ) : (
+              <div className='shit flex flex-row items-center justify-between overflow-y-auto gap-4 md:grid md:grid-cols-4'>
+                {
+                   sessions
+                   .slice(0,4)
+                  .map((session) => (
+                    <SessionItem key={session.id} session={session}/>
+                  ))
+                }
+              </div>
+             
+                  
+            )
+          }
+         </div>
+        )}
+  
 </div>
+   </div>
   )
 }
 

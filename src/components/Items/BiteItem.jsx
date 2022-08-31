@@ -5,7 +5,8 @@ import { IoTimeOutline } from "react-icons/io5";
 
 
 function BiteItem({ bite }) {
-  const { id, title, content, slug } = bite;
+  const { id, title, content, slug, thumbnail } = bite;
+  console.log(bite)
 
 
   
@@ -17,7 +18,7 @@ function BiteItem({ bite }) {
         <div className="w-full ">
           <div>
             <img
-              src={ Thumbnail}
+              src={thumbnail || Thumbnail}
               alt=''
               className="h-[180px] rounded-t-[20px] w-full object-cover"
             />
@@ -25,14 +26,14 @@ function BiteItem({ bite }) {
         </div>
 
         <div className="flex flex-col w-full bg-primary h-full p-[10px]">
-          <div className="text-left font-[700] md:font-[700] font-raleway text-[16px] h-full w-full">
+          <div className="text-left break-words font-[700] font-raleway text-[16px] h-full w-full">
             {title}
           </div>
-          <div className="  text-lato text-[14px] md:text-[18px] flex items-center space-x-1 h-full w-full">
+          <div className=" my-[10px] text-lato text-[14px] md:text-[18px] flex items-center space-x-1 h-full w-full">
             <IoTimeOutline className="text-[18px]" />
-            <span className="flex items-center">
-              {Math.ceil(content.trim().split(/\s+/).length / 275)} <span className="font-montserrat">MINS</span>{" "}
-            </span>
+            <p className="flex items-center text-[12px] font-montserrat space-x-1">
+             <span> {Math.ceil(content.trim().split(/\s+/).length / 275)}</span> <span className="font-montserrat">MINS</span>{" "}
+            </p>
           </div>
         </div>
         <div className="bg-[#F6C042] py-[15px] flex items-center justify-center rounded-b-[15px] cursor-pointer">

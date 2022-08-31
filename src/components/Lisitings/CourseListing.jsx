@@ -1,12 +1,12 @@
 import React from 'react'
 import CourseItem from '../Items/CourseItem'
 import '../style.css'
-import {useCoursesQuery} from '../../services/coursesApi'
+import { default as api } from "../../services/coursesApi";
 
 
 
 function CourseListing() {
-    const {data, error, isLoading,  isSuccess} = useCoursesQuery()
+    const {data, error, isLoading,  isSuccess} = api.useCoursesQuery()
     const courses = data?.courses
 
 

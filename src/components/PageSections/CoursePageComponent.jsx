@@ -3,10 +3,11 @@ import Thumbnail from "../../assets/thumbnail.png";
 import { faqArr } from "../../data";
 import { Link } from "react-router-dom";
 import { BsCaretDown } from "react-icons/bs";
-import { useCoursesQuery } from "../../services/coursesApi";
+import { default as api } from "../../services/coursesApi";
+
 
 function CoursePageComponent() {
-  const { data, error, isLoading, isSuccess } = useCoursesQuery();
+  const { data, error, isLoading, isSuccess } = api.useCoursesQuery();
   const courses = data?.courses;
   const [more, setMore] = useState(3);
   const [faq, setFaq] = useState(null);
@@ -20,24 +21,24 @@ function CoursePageComponent() {
     <div className="px-[20px]">
       <div className="flex flex-col items-center">
         {isLoading && (
-          <div className="flex flex-col md:flex-row md:h-[280px] border rounded-[10px] bg-gray-200">
-            <div className="h-[280px] w-full  md:min-w-[380px] max-w-[380px] flex-1 bg-gray-300"></div>
-            <div className="flex-1 md:flex-2 w-full md:min-w-[580px] md:max-w-[580px] md:p-[20px] pt-[10px]"></div>
+          <div className="flex flex-col md:flex-row md:h-[280px] border rounded-[10px] gap-4 animate-pulse">
+            <div className="h-[280px] w-full  md:min-w-[380px] max-w-[380px] flex-1 bg-gray-200"></div>
+            <div className="flex-1 md:flex-2 w-full md:min-w-[580px] md:max-w-[580px] md:p-[20px] pt-[10px] bg-gray-200"></div>
           </div>
         )}
         {error && (
-          <div className="h-[200px] w-[200px] ">Something went wrong </div>
+          <div className="h-[200px] w-full bg-gray-200 rounded-[10px] font-raleway font-[700] text-[20px] flex items-center justify-center mt-[20px]">Something went wrong </div>
         )}
         {isSuccess && (
           <div className="w-full mt-[30px]">
-            {courses.length === 0 ? (
+            {courses?.length === 0 ? (
               <div className="h-[300px] w-full bg-gray-200 rounded-[10px] font-raleway font-[700] text-[25px] flex items-center justify-center">
                 {" "}
                 No Courses Yet
               </div>
             ) : (
               <div className=" flex flex-col items-center my-[80px] gap-10">
-                {courses.slice(0, more).map((course) => (
+                {courses?.slice(0, more).map((course) => (
                   <div
                     className="flex flex-col md:flex-row md:h-[280px] border rounded-[10px]"
                     key={course.id}
@@ -79,12 +80,14 @@ function CoursePageComponent() {
           </div>
         )}
         <div className="my-[20px]">
-          <button
-            className="border border-[#F6C042] text-[#F6C042] font-[400] text-[18px] px-[20px] py-[10px] font-lato rounded-[12px] cursor-pointer"
-            onClick={(e) => setMore(more + 3)}
-          >
-            Load More
-          </button>
+         {courses?.length > 3 && (
+           <button
+           className="border border-[#F6C042] text-[#F6C042] font-[400] text-[18px] px-[20px] py-[10px] font-lato rounded-[12px] cursor-pointer"
+           onClick={(e) => setMore(more + 3)}
+         >
+           Load More
+         </button>
+         )}
         </div>
       </div>
       <div className="mt-[100px] flex flex-col justify-center items-center">

@@ -22,7 +22,7 @@ function SessionItem({session}) {
       <div className="py-[5px] text-left font-[700] font-raleway text-[16px] ">
         { title.length > 40 ? `${title.substring(0, 20)}...` : title }
       </div>
-      <div className=" pb-[20px] text-lato text-[14px] md:text-[16px] flex items-center ">
+      <div className=" pb-[20px] text-lato text-[12px]  flex items-center ">
        <span> {createdAt}</span>
         </div>
     </div>

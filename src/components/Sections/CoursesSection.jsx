@@ -26,7 +26,7 @@ function CoursesSection() {
         </div>
         <div id="dev" className="flex items-center justify-between">
             <div className="mt-[8px]flex items-center justify-center">
-                <p className="font-[800] font-raleway text-[20px] md:text-[28px] ">Online courses for you learn at <br className='block md:hidden '/><span className="text-[#33658A]" >your own pace</span></p>
+                <p className="font-[800] font-raleway text-[20px] ">Online courses for you learn at <br className='block md:hidden '/><span className="text-[#33658A]" >your own pace</span></p>
             </div>
             <div className="hidden md:flex items-center space-x-3">
                 <div>

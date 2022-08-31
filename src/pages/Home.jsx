@@ -6,6 +6,7 @@ import SessionsSection from '../components/Sections/SessionsSection'
 import SupportSection from '../components/Sections/SupportSection'
 import TestimonialSection from '../components/Sections/TestimonialSection'
 import NavBar from '../components/Navbar/NavBar'
+import Footer from '../components/Footer/Footer'
 
 function Home() {
    
@@ -18,6 +19,7 @@ function Home() {
         <SessionsSection/>
         <SupportSection/>
         <TestimonialSection/>
+        <Footer/>
        
     </div>
   )

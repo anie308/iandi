@@ -12,6 +12,4 @@ export const sessionsApi = createApi({
    })
 })
 
-export const {
-   useSessionsQuery
-} = sessionsApi
+export default sessionsApi

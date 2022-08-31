@@ -7,15 +7,30 @@ export const bitesApi = createApi({
    baseQuery: fetchBaseQuery({baseUrl: config.BASE_URL}),
    endpoints: (builder) => ({
        bites: builder.query({
-           query:()=> '/posts'
+           query:()=> '/posts',
+           
+       }),
+
+       createBites: builder.mutation({
+        query: (initialBites) => ({
+            url: '/posts/create',
+            method: 'POST',
+            body: initialBites
+        }),
+
+        deleteBite: builder.mutation({
+            query: bitedId => ({
+                url: '/post',
+                method: "DELETE",
+                body: bitedId
+            })
+        })
        })
    })
 })
 
 
 
-export const {
-   useBitesQuery,
 
-} = bitesApi
+export default bitesApi
 

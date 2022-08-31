@@ -61,20 +61,20 @@ export const courseDetails = [
     id: 1,
     name: "Web Development",
     meta: "Learn how to use the BASICS model to assess and take charge of your physical and mental well-being.",
-    status: "Coming soon",
+    status: "Coming Soon",
     slug: "web-development",
   },
   {
     id: 2,
     name: "Web Development",
     meta: "Learn how to use the BASICS model..",
-    status: "Coming soon",
+    status: "Coming Soon",
   },
   {
     id: 3,
     name: "Web Development",
     meta: "Learn how to use the BASICS model..",
-    status: "Coming soon",
+    status: "Coming Soon",
   },
   {
     id: 4,
@@ -86,7 +86,7 @@ export const courseDetails = [
     id: 5,
     name: "Web Development",
     meta: "Learn how to use the BASICS model..",
-      status: "Coming soon",
+      status: "Coming Soon",
   },
   {
     id: 6,

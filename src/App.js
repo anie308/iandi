@@ -19,13 +19,20 @@ import WaitlistSuccess from './pages/WaitlistSuccess';
 import BitesDetail from './pages/BitesDetail';
 import DashCourse from './pages/Dashboard/DashCourse';
 import DashBites from './pages/Dashboard/DashBites';
+import DashSessions from './pages/Dashboard/DashSessions';
 import DashCreateCourse from './pages/Dashboard/DashCreateCourse';
+import DashViewCourse from './pages/Dashboard/DashViewCourse';
+import DashViewBite from './pages/Dashboard/DashViewBite';
+import DashViewSession from './pages/Dashboard/DashViewSession';
 import DashCreateBite from './pages/Dashboard/DashCreateBite';
 import UpdateBite from './pages/Dashboard/UpdateBite';
+import UpdateCourse from './pages/Dashboard/UpdateCourse';
+import UpdateSession from './pages/Dashboard/UpdateSession';
 import SessionDetail from './pages/SessionDetail';
 import Support from './pages/Support';
 import Testimony from './pages/Testimony';
 import  {useSelector} from 'react-redux'
+import RegWait from './pages/Dashboard/RegWait';
 
 
 function App() {
@@ -55,18 +62,25 @@ function App() {
         <Route path="/stories/:slug" element={<Testimony/>} />
 
         {user ?   <Route
-         path='/dashboard'
+         path='/dashboard/'
          element={
           <DashboardLayout/>
         }
          >
-          <Route name='Dahboard' path='home' element={<DashHome/>}/>
+          <Route path='home' element={<DashHome/>}/>
           <Route path='courses' element={<DashCourse/>}/>
-        
+          <Route path='course/:slug' element={<DashViewCourse/>}/>
+          <Route path ='sessions' element={<DashSessions/>}/>
+          <Route path ='reg-wait' element={<RegWait/>}/>
           <Route path='bites' element={<DashBites/>}/>
+          <Route path='bite/:slug' element={<DashViewBite/>}/>
+          <Route path='session/:slug' element={<DashViewSession/>}/>
           <Route path='create-course' element={<DashCreateCourse/>}/>
           <Route path='create-bite' element={<DashCreateBite/>}/>
           <Route path='update-bite/:slug' element={<UpdateBite/>}/>
+          <Route path='update-course/:slug' element={<UpdateCourse/>}/>
+          <Route path='update-session/:slug' element={<UpdateSession/>}/>
+          {/* <Route path="/*" element={<NotFound/>} /> */}
          </Route> 
         : <Route path="/"  element={<Home/>} />}
       

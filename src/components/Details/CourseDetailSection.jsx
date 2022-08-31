@@ -3,10 +3,10 @@ import { Link, useParams } from "react-router-dom";
 import Thumbnail from "../../assets/thumbnail.png";
 import { IoTimeOutline } from "react-icons/io5";
 import {  BsLaptop } from "react-icons/bs";
-import { useCoursesQuery } from "../../services/coursesApi";
+import { default as api } from "../../services/coursesApi";
 
 function CourseDetailSection() {
-  const {data, error,isFetching, isSuccess} = useCoursesQuery()
+  const {data, error,isFetching, isSuccess} = api.useCoursesQuery()
 
   const courses = data?.courses;
   console.log(courses);

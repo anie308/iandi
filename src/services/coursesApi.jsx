@@ -12,6 +12,4 @@
     })
  })
 
- export const {
-    useCoursesQuery
- } = coursesApi
+ export default coursesApi

@@ -12,7 +12,7 @@ function BitesSection() {
       </div>
       <div id="dev" className="flex items-center justify-between">
           <div className="mt-[8px]flex items-center justify-center">
-              <p className="font-[800] font-raleway text-[28px">Stay updated, stay inspired - even if you’re <span className='text-[#F6C042]'> short on time</span></p>
+              <p className="font-[800] font-raleway text-[20px]">Stay updated, stay inspired - even if you’re <span className='text-[#F6C042]'> short on time</span></p>
           </div>
           <div className="hidden md:flex items-center space-x-3">
               <div>

@@ -9,9 +9,9 @@ function DashboardLayout() {
     <div className="h-full  min-h-screen max-h-screen flex min-w-screen">
       <Sidebar toggle={toggle} isToggled={isToggled} />
 
-      <div className="grow min-h-screen overflow-y-scroll max-h-screen">
-        <DashNav toggle={toggle} isToggled={isToggled} />
-        <div className="max-h-screen min-h-screen">
+      <div className="grow min-h-screen  max-h-screen">
+        {/* <DashNav toggle={toggle} isToggled={isToggled} /> */}
+        <div className="max-h-screen min-h-screen overflow-y-scroll">
           <Outlet />
         </div>
       </div>

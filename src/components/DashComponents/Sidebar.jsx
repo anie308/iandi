@@ -37,12 +37,12 @@ function Sidebar({toggle, isToggled}) {
     },
     {
       name: "Registrations and Waitlists",
-      to: "registrations",
+      to: "reg-wait",
     },
    
   ]
   return (
-    <div className={`${toggle? 'left-0 z-30 lg:left-0':'left-[-100%] lg:left-0'}  absolute lg:relative min-w-[240px] max-w-[240px] h-screen transition-left  flex flex-col  justify-between bg-[#33658A] pt-[10px]
+    <div className={`${toggle? 'left-0 z-30 lg:left-0':'left-[-100%] lg:left-0'}  absolute lg:relative min-w-[240px] max-w-[240px] max-h-screen min-h-screen transition-left  flex flex-col  justify-between bg-[#33658A] pt-[10px]
     `}>
       <div>
       <div className='hidden md:flex w-full items-center justify-start px-[20px] pt-[10px]  '>

@@ -1,22 +1,28 @@
 import React, { useEffect, useState } from "react";
 import {  useParams } from "react-router-dom";
-import { Sessions } from "../../data";
 import Thumbnail from "../../assets/thumbnail.png";
+import insta from "../../assets/svg/insta.svg";
+import linkedin from "../../assets/svg/linkedin.svg";
 import TestimonialSection from "../Sections/TestimonialSection";
+import { default as api } from "../../services/sessionsApi";
+
 
 function SessionDetails() {
   const { slug } = useParams();
+  const { data } = api.useSessionsQuery();
+  const sessions = data?.sessions;
+
   const [session, setSession] = useState(null);
-  // const bites = data?.posts;
+
 
   useEffect(() => {
-    let session = Sessions?.find((bite) => bite.slug === slug);
+    let session = sessions?.find((session) => session.slug === slug);
     console.log(session);
 
     if (session) {
       setSession(session);
     }
-  }, [slug]);
+  }, [slug, sessions]);
   return (
     <div className="mt-[30px] md:mt-[60px]">
      <div>
@@ -33,7 +39,7 @@ function SessionDetails() {
             </div>
             <div className="w-full lg:w-[648px] h-[200px] lg:h-[400px] border rounded-[15px]">
               <img
-                src={Thumbnail}
+                src={session.thumbnail || Thumbnail}
                 alt=""
                 className="h-full w-full object-cover rounded-t-[15px] md:rounded-[15px]"
               />
@@ -44,19 +50,33 @@ function SessionDetails() {
                 <div className=" flex space-x-2 h-fit items-center">
                   <div className="h-[44px] w-[44px] rounded-[10px] ">
                     <img
-                      src={Thumbnail}
+                      src={session.thumbnail || Thumbnail}
                       alt=""
                       className="h-[44px] w-[44px] object-cover rounded-[10px]"
                     />
                   </div>
                   <div>
-                    <p className="font-[400] font-lato text-[16px]">Name</p>
+                    <p className="font-[400] font-lato text-[16px]">{session.speakerName}</p>
                     <p className="font-[400] font-montserrat text-[12px]">
-                      JOB TITLE
+                      {session.speakerJobTitle}
                     </p>
                   </div>
                 </div>
-                <div>Header and stuff</div>
+                <div className="flex flex-col my-[10px] space-y-3">
+                  <div className='font-lato text-[14px] font-[400] '>{session.speakerDesc}</div>
+                  <div className='flex items-center space-x-1'>
+                    <div>
+                      <a href={session.speakerLinked} target="_blank" rel=" noreferrer">
+                        <img src={linkedin} alt="" />
+                      </a>
+                    </div>
+                    <div>
+                      <a href={session.speakerInsta} target="_blank" rel=" noreferrer">
+                        <img src={insta} alt="" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -87,23 +107,8 @@ function SessionDetails() {
               </div>
               <div>
                 <div className="px-[15px] md:m-0 flex flex-col md:flex-row items-start md:items-center py-[15px] space-y-4 md:space-y-0 md:space-x-2 w-full"></div>
-                <div className=" px-[15px] md:m-0">
-                  <div className="my-[20px] w-full">
-                    <p className="font-[700] text-[14px] md:text-[16px] font-raleway">
-                      What you will learn
-                    </p>
-                    <p className="font-[500] font-lato text-[12px] md:text-[14px] mt-[5px]">
-                      Description (1 - 3 rows max)
-                    </p>
-                  </div>
-                  <div className="mt-[25px]">
-                    <p className="font-[700] text-[14px] md:text-[16px] font-raleway">
-                      Who should register for this session?
-                    </p>
-                    <p className="font-[500] font-lato text-[12px] md:text-[14px] mt-[5px]">
-                      Description (1 - 3 rows max)
-                    </p>
-                  </div>
+                <div className=" px-[15px] md:m-0 font-lato">
+                 {session.sessionHighlight}
                 </div>
               </div>
               <div className=" bg-[#EBEEF5] w-full  block md:hidden mt-[70px] text-[#232C38] md:pb-[50px] md:border-b border-[#D4D4D4] py-[30px] px-[15px]">

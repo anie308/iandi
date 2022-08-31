@@ -33,7 +33,7 @@ function Login() {
 
     if (isSuccess || user) {
       navigate("/dashboard/home");
-      // toast.success("Login Succesfull" )
+      toast.success("Login Succesfull!" )
     }
 
     dispatch(reset());

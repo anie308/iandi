@@ -13,7 +13,7 @@ function Footer() {
           </div>
         ))}
       </div>
-      <div className="w-full text-center text-[16px] font-lato text-mobilelink font-[500] mt-[10px]">
+      <div className="w-full text-center text-[12px] font-lato text-mobilelink font-[400] mt-[10px]">
         105 Cecil Street #18-00 <br />
         The Octagon <br />
         Singapore 069534

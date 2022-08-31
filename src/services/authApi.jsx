@@ -35,12 +35,12 @@ export const login = createAsyncThunk('auth/login', async (user, thunkApi) => {
     try{
         return await  loginApi(user)
     } catch (error){
-        const message = (error.response &&  error.response.data && error.response.data.message) || error.message || error.toString()
+        const message = (error.response.data)
         return thunkApi.rejectWithValue(message)
     }
 })
 
-
+//(error.response &&  error.response.data && error.response.data.message) || error.message || error.toString()
 
 export const authSlice = createSlice({
     name: 'auth',

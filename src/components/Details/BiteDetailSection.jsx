@@ -4,11 +4,11 @@ import Thumbnail from "../../assets/thumbnail.png";
 import CourseListing from '../Lisitings/CourseListing'
 import { IoTimeOutline } from "react-icons/io5";
 import '../style.css'
-import { useBitesQuery } from "../../services/bitesApi";
+import { default as api } from "../../services/bitesApi";
 
 function BiteDetailSection() {
   const { slug } = useParams();
-  const { data } = useBitesQuery();
+  const { data } = api.useBitesQuery();
   const bites = data?.posts;
   const [bite, setBite] = useState(null)
 
