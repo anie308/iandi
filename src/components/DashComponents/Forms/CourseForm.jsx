@@ -121,7 +121,9 @@ function CourseForm ({initialCourse}){
          <div className="flex items-center justify-between gap-4 mt-[5px]">
            <div>
                  <div className="bg-[#FAFAFA] w-[150px] px-[10px] h-[40px] flex items-center justify-between cursor-pointer rounded-[5px]" onClick={(e)=> setDropdown(!dropdown)}>
-                   <input className='font-lato font-[400]' name='courseStatus' value={courseStatus}/>
+                   {/* <input className='font-lato font-[400]' name='courseStatus' value={courseStatus}/> */}
+                   <p className='font-lato font-[400]' name='courseStatus' value={courseStatus} onChange={handleChange}>{avail}</p>
+
                    <BiChevronDown className='text-[25px]'/>
                  </div>
                  {
