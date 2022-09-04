@@ -11,7 +11,6 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import RegistrationSuccess from './pages/RegistrationSuccess';
 import Session from './pages/Session';
-
 import DashboardLayout from './components/Templates/DashboardLayout';
 import DashHome from './pages/Dashboard/DashHome';
 import CourseWaitlist from './pages/CourseWaitlist';
@@ -33,12 +32,13 @@ import Support from './pages/Support';
 import Testimony from './pages/Testimony';
 import  {useSelector} from 'react-redux'
 import RegWait from './pages/Dashboard/RegWait';
+import useWindowDimensions from './hooks/useWindowDimension';
 
 
 function App() {
   
   const user = useSelector((state) => state.auth)
-
+  const {width} = useWindowDimensions
   
   return (
     <>
