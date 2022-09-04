@@ -1,11 +1,26 @@
 import React from 'react';
 import Logo from '../../assets/logo.png';
-import {Link, useMatch} from 'react-router-dom';
+import {Link, useMatch, useNavigate} from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux'
+import { logout, reset } from "../../services/authApi";
+import { toast } from 'react-toastify';
+
+
 
 
 
 
 function Sidebar({toggle, isToggled}) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const {user} = useSelector((state) => state.auth)
+
+  const onLogout = () => {
+    dispatch(logout())
+    dispatch(reset())
+    navigate('/')
+    toast.success('Logout Successful !')
+  }
   const handleToggle = ()=> {
     isToggled(!toggle)
   }
@@ -66,8 +81,10 @@ function Sidebar({toggle, isToggled}) {
 
         </div>
       </div>
-        <div className='flex  justify-center items-center pb-[15px]'>
+        <div className='flex flex-col space-y-5  justify-center items-center pb-[15px]'>
             <Link to='/dashboard/settings' className='text-[16px] text-white font-raleway font-[600] '>Account Settings</Link>
+            
+            <button  className='text-[16px] text-white font-raleway font-[600] cursor-pointer' onClick={onLogout}>Log-out</button>
         </div>
 
     </div>
