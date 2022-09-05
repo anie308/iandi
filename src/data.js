@@ -80,7 +80,7 @@ export const courseDetails = [
     id: 4,
     name: "Web Development",
     meta: "Learn how to use the BASICS model..",
-    status: "Out of Stock!",
+    status: "Available",
   },
   {
     id: 5,

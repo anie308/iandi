@@ -8,7 +8,17 @@
     endpoints: (builder) => ({
         courses: builder.query({
             query:()=> '/courses'
-        })
+        }),
+        createCourse: builder.mutation({
+            query: (initialCourse) => ({
+                url: '/courses/create',
+                method: 'POST',
+                body: initialCourse
+            }),
+
+        }),
+
+        
     })
  })
 

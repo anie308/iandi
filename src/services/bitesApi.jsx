@@ -16,16 +16,15 @@ export const bitesApi = createApi({
             url: '/posts/create',
             method: 'POST',
             body: initialBites
-        }),
-
-        deleteBite: builder.mutation({
-            query: bitedId => ({
-                url: '/post',
-                method: "DELETE",
-                body: bitedId
-            })
         })
-       })
+       }),
+       deleteBite: builder.mutation({
+        query: bitedId => ({
+            url: '/post',
+            method: "DELETE",
+            body: bitedId
+        })
+    })
    })
 })
 
