@@ -1,9 +1,9 @@
 import React from 'react'
 import DashHomeHero from '../../components/DashComponents/DashHomeHero'
-import HeroBites from '../../components/DashComponents/HeroBites'
 import UpComingCourses from '../../components/DashComponents/UpComingCourses'
-import HeroWaitlist from '../../components/DashComponents/HeroWaitlist'
+import UpcomingSessions from '../../components/DashComponents/UpcomingSessions'
 import ActiveCourses from '../../components/DashComponents/ActiveCourses'
+import RecentBtes from '../../components/DashComponents/RecentBites'
 
 function DashHome() {
   return (
@@ -16,9 +16,9 @@ function DashHome() {
             <ActiveCourses/>
           </div>
           </div>
-        <div className='flex-1 h-[235px] w-full '>
-          <HeroWaitlist/>
-          <HeroBites/>
+        <div className='flex-1 flex flex-col space-y-5 h-[235px] w-full '>
+          <UpcomingSessions/>
+          <RecentBtes/>
         </div>
       </div>
     </div>

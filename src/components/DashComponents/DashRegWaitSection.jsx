@@ -3,10 +3,17 @@ import { useState } from 'react'
 import {  AiFillFileText } from 'react-icons/ai'
 import { FaSearch } from 'react-icons/fa'
 import { BsChevronDown } from 'react-icons/bs'
+import { default as api } from "../../services/waitlistApi";
+
 
 
 function DashRegWaitSection() {
-    const filter = ['Course Registrations', 'Course Waitlists']
+  const { data, error, isFetching, isSuccess } = api.useWaitlistsQuery();
+  // const waitlists = data?.waitlists
+  console.log(data)
+
+    const filter = [ 'Course Registrations',
+    'Course Waitlists']
     const [regFilter, setRegFilter] = useState(false)
     const [filterVal, setFilterVal] = useState(filter[0])
   return (

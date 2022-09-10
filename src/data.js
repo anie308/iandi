@@ -78,7 +78,7 @@ export const courseDetails = [
   },
   {
     id: 4,
-    name: "Web Development",
+    name: "Web Development For Beginners",
     meta: "Learn how to use the BASICS model..",
     status: "Available",
   },

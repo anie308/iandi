@@ -4,7 +4,6 @@ import { MdEdit } from "react-icons/md";
 import { FiChevronLeft } from "react-icons/fi";
 import { default as api } from "../../services/coursesApi";
 import { useParams } from "react-router-dom";
-import { courseDetails } from "../../data";
 
 
 function DashViewCourse() {
@@ -14,7 +13,7 @@ function DashViewCourse() {
   const [course, setCourse] = useState(null);
 
   useEffect(() => {
-    const course = courseDetails?.find((courseItem) => courseItem.slug === slug);
+    const course = courses?.find((courseItem) => courseItem.slug === slug);
     if (course) {
       setCourse(course);
     }
@@ -63,9 +62,9 @@ function DashViewCourse() {
                   <p className="font-[800] font-raleway text-[20px] leading-[28px]">{course.name}</p>
                 </div>
                 <div className="flex-1">
-                 <p className={`${course.status === 'Coming Soon' ? 'bg-[#FBDF8B] ' : 'bg-[#94DBEF]'} rounded-[4px] p-[4px_8px] text-[12px] uppercase w-fit` }>{course.status} {course.status === 'Coming Soon' ?  ' in August' :'' }</p>
+                 <p className={`${course.courseStatus === 'Coming Soon' ? 'bg-[#FBDF8B] ' : 'bg-[#94DBEF]'} rounded-[4px] p-[4px_8px] text-[12px] uppercase w-fit` }>{course.courseStatus} {course.courseStatus === 'Coming Soon' ?  <span>in {course.availMonth} </span> :'' }</p>
                  <div className='mt-[15px]'>
-                  <img src="" alt=""  className="border w-[160px] h-[95px]"/>
+                  <img src={course.thumbnail} alt=""  className="border w-[160px] h-[95px]"/>
                  </div>
                  <div className="w-full bg-[#FAFAFA] p-[10px] mt-[15px] rounded-[5px]">
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. In iusto ab numquam non animi dignissimos, modi eveniet omnis, vero maxime vitae commodi perferendis expedita obcaecati corporis pariatur corrupti impedit ex?

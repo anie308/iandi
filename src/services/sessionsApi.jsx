@@ -4,7 +4,7 @@ import { config } from '../constants/config'
 
 export const sessionsApi = createApi({
    reducerPath: 'sessionsApi',
-   baseQuery: fetchBaseQuery({baseUrl: config.BASE_URL}),
+   baseQuery: fetchBaseQuery({baseUrl: config.PROD_BASE_URL}),
    endpoints: (builder) => ({
        sessions: builder.query({
            query:()=> '/sessions'

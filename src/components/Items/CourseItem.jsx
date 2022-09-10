@@ -28,7 +28,7 @@ function CourseItem({ course }) {
           {title}
         </div>
         <div className="px-[10px] pb-[10px] text-lato text-[16px] break-words">
-          {courseDesc.substring(0, 105) + "..."}
+          {courseDesc.substring(0, 40) + "..."}
         </div>
       </div>
       <div className="bg-[#33658A]  rounded-b-[15px] cursor-pointer">

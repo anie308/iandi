@@ -18,7 +18,7 @@ function Sidebar({toggle, isToggled}) {
   const onLogout = () => {
     dispatch(logout())
     dispatch(reset())
-    navigate('/')
+    navigate('/admin')
     toast.success('Logout Successful !')
   }
   const handleToggle = ()=> {

@@ -17,25 +17,25 @@ function DashCourses() {
   
   const location = useLocation();
   const name = location.pathname.split("/")[2];
+  const [deleteCourse] = api.useDeleteCourseMutation()
   const { data, error, isLoading, isSuccess } = api.useCoursesQuery();
   const courses = data?.courses;
+  const active = courses?.filter(e => e.courseStatus === 'Available')
+  const upcoming = courses?.filter(e => e.courseStatus === 'Coming Soon')
 
 
-
-  // const availableCourses = courses.sort(e => e.available)
-  // const unavailableCourses = courses.sort(e => e.comingsoon)
   const options = [
     {
       name: "All Courses",
-      value: 'courses',
+      value: courses,
     },
     {
       name: "Available",
-      value: 'availableCourses',
+      value: active,
     },
     {
       name: "Coming Soon",
-      value: 'unavailableCourses',
+      value: upcoming,
     },
   ]
   const [dropdown, setDropdown] = useState(false)
@@ -44,7 +44,10 @@ function DashCourses() {
   const value = selected.value
   console.log(value)
 
-
+  function handleDelete(id){
+    deleteCourse(id)
+    // console.log(id)
+  }
 
   return (
     <div className="px-[15px] ">
@@ -97,32 +100,32 @@ function DashCourses() {
 
         {isSuccess && (
           <div>
-            {courseDetails.length === 0 ? (
+            {courses.length === 0 ? (
               <div className="h-[125px] w-full bg-gray-200 rounded-[10px] font-raleway font-[700] text-[20px] flex items-center justify-center">
                 {" "}
                 No Courses Yet
               </div>
             ) : (
               <div className="flex  gap-5 flex-col w-full">
-                {courseDetails?.map(({ id, slug, name, meta, status }) => (
+                {value?.map(({ id, slug, title, meta, courseStatus, availMonth, thumbnail }) => (
                   <div
                     className="flex  shadow rounded-[5px] p-[10px] bg-[#FAFAFA]"
                     key={id}
                   >
                     <div>
                       <img
-                        src={Thumbnail}
+                        src={thumbnail}
                         alt=""
                         className="h-[100px] md:h-[100px]  md:min-w-[160px] w-full  aspect-video"
                       />
                     </div>
                     <div className="flex pl-[10px] w-full">
                       <div className="flex flex-col justify-between h-full py-[5px] grow">
-                        <p className={`${status === 'Coming Soon' ? 'bg-[#FBDF8B]': 'bg-[#94DBEF]'}  p-[5px]  w-fit rounded-[8px] text-[12px] font-montserrat font-[400] uppercase`}>
-                          {status} {status === 'Coming Soon' ? 'IN AUGUST' : ''}
+                        <p className={`${courseStatus === 'Coming Soon' ? 'bg-[#FBDF8B]': 'bg-[#94DBEF]'}  p-[5px]  w-fit rounded-[8px] text-[12px] font-montserrat font-[400] uppercase`}>
+                          {courseStatus} {courseStatus === 'Coming Soon' ? <span>in {availMonth}</span> : ''}
                         </p>
                         <p className="font-[700] text-[18px] font-raleway">
-                          {name}
+                          {title}
                         </p>
                         <p className="font-[400] text-[14px] font-lato">
                           {meta}
@@ -140,10 +143,10 @@ function DashCourses() {
                           <MdEdit className="text-[#33658A]" />
                         </Link>
                       </div>
-                      <div className="border border-[#DB162F] p-[5px] h-fit rounded-[5px]">
-                        <Link to="">
-                          <AiFillDelete className="text-[#DB162F]" />
-                        </Link>
+                      <div className="border border-[#DB162F] p-[5px] h-fit rounded-[5px]" data-id={id}  onClick={()=> handleDelete(id)}>
+                        
+                          <AiFillDelete className="text-[#DB162F]"  />
+                        
                       </div>
                     </div>
                   </div>

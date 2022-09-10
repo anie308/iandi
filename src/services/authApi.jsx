@@ -3,7 +3,8 @@ import { config } from '../constants/config'
 import axios from 'axios'
 
 const loginApi = async (userData) => {
-    const response = await axios.post(`${config.BASE_URL}/auth/signin`, userData)
+    const response = await axios.post(`${config.PROD_BASE_URL}/auth/signin`, 
+    userData)
 
     if(response.data){
         localStorage.setItem('user', JSON.stringify(response.data))
@@ -15,6 +16,8 @@ const loginApi = async (userData) => {
 const logoutApi = () => {
     localStorage.removeItem('user')
 }
+
+
 
 
 

@@ -4,7 +4,6 @@ import { default as api } from "../../services/bitesApi";
 import "../style.css";
 
 
-
 function BiteListing() {
   const { data, error, isLoading, isSuccess } = api.useBitesQuery();
   const bites = data?.posts;

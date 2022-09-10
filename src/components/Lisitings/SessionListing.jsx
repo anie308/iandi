@@ -25,7 +25,7 @@ function SessionListing() {
                
             
             ) : (
-              <div className='shit flex flex-row items-center justify-between overflow-y-auto gap-4 md:grid md:grid-cols-4'>
+              <div className='shit flex flex-row items-center justify-between overflow-y-auto gap-4 xl:grid xl:grid-cols-4'>
                 {
                    sessions
                    .slice(0,4)
