@@ -2,24 +2,23 @@ import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 import { config } from '../constants/config'
 
 
-export const waitlistApi = createApi({
-   reducerPath: 'waitlistApi',
+export const courseRegApi = createApi({
+   reducerPath: 'courseRegApi',
    baseQuery: fetchBaseQuery({baseUrl: config.PROD_BASE_URL}),
    endpoints: (builder) => ({
-       waitlists: builder.query({
-        headers: {
+       getAllRegistered: builder.query({
+           query:()=> '/courseregs',
+           headers: {
             authorization: `Bearer ${
               JSON.parse(localStorage.getItem("user")).accessToken
             }`,
           },
-           query:()=> '/waitlists',
-         
        }),
-       joinWaitlist: builder.mutation({
-           query: (initialList) => ({
-               url: '/waitlists/create',
+       register: builder.mutation({
+           query: (initialReg) => ({
+               url: '/courseregs/create',
                method: 'POST',
-               body: initialList
+               body: initialReg
            }),
            transformResponse: (response) => response.data,
 
@@ -29,4 +28,4 @@ export const waitlistApi = createApi({
    })
 })
 
-export default waitlistApi
+export default courseRegApi
