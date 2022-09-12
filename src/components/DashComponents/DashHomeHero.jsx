@@ -2,13 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { default as api } from "../../services/coursesApi";
 import { default as wait } from "../../services/waitlistApi";
+import { default as coursereg } from "../../services/courseRegApi";
+
 
 
 function DashHomeHero() {
   const {data} = api.useCoursesQuery()
+  const {data: reg} = coursereg.useGetAllRegisteredQuery()
   const { data: waiters} = wait.useWaitlistsQuery()
   const waitCount = waiters?.waitlistCount
-
+  console.log(reg)
+  // const regCount = reg?.
   const courses = data?.courses
   const upcoming = courses?.filter(e => e.courseStatus === 'Coming Soon')
   const active = courses?.filter(e => e.courseStatus === 'Available')

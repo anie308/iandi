@@ -7,11 +7,11 @@ export const waitlistApi = createApi({
    baseQuery: fetchBaseQuery({baseUrl: config.PROD_BASE_URL}),
    endpoints: (builder) => ({
        waitlists: builder.query({
-        headers: {
-            authorization: `Bearer ${
-              JSON.parse(localStorage.getItem("user")).accessToken
-            }`,
-          },
+        // headers: {
+        //     authorization: `Bearer ${
+        //       JSON.parse(localStorage.getItem("user")).accessToken
+        //     }`,
+        //   },
            query:()=> '/waitlists',
          
        }),

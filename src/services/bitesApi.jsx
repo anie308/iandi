@@ -8,6 +8,8 @@ export const bitesApi = createApi({
   endpoints: (builder) => ({
     bites: builder.query({
       query: () => "/posts",
+      providesTags: ['posts']
+
     }),
 
     createBites: builder.mutation({
@@ -21,6 +23,8 @@ export const bitesApi = createApi({
         method: "POST",
         body: initialBites,
       }),
+      invalidatesTags: ['posts']
+
     }),
     deleteBite: builder.mutation({
       query: (bitedId) => ({
@@ -33,6 +37,8 @@ export const bitesApi = createApi({
         method: "DELETE",
         body: bitedId,
       }),
+      invalidatesTags: ['posts']
+
     }),
   }),
 });

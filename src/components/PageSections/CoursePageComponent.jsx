@@ -92,7 +92,7 @@ function CoursePageComponent() {
       </div>
       <div className="mt-[100px] flex flex-col justify-center items-center">
         <div className="mb-[30px] md:mb-[50px]">
-          <p className="font-[800] font-raleway text-[20px]  md:text-[32px] ">
+          <p className="font-[800] font-raleway text-[20px]  md:text-[32px] text-start">
             Frequently Asked Questions
           </p>
         </div>
@@ -110,7 +110,7 @@ function CoursePageComponent() {
             </div>
             <div
               className={`${
-                faq === i ? "h-full p-[20px]" : "h-0 p-0"
+                faq === i ? "h-full " : "h-0 p-0"
               } overflow-hidden transition-all break-words`}
             >
               <p className="">{item.answer}</p>
