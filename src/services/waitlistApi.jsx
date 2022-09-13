@@ -7,13 +7,7 @@ export const waitlistApi = createApi({
    baseQuery: fetchBaseQuery({baseUrl: config.PROD_BASE_URL}),
    endpoints: (builder) => ({
        waitlists: builder.query({
-        // headers: {
-        //     authorization: `Bearer ${
-        //       JSON.parse(localStorage.getItem("user")).accessToken
-        //     }`,
-        //   },
-           query:()=> '/waitlists',
-         
+           query:()=> '/waitlists',  
        }),
        joinWaitlist: builder.mutation({
            query: (initialList) => ({

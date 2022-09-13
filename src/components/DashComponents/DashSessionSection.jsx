@@ -87,9 +87,9 @@ function DashSessionSection() {
                       </Link>
                     </div>
                     <div className="border border-[#DB162F] p-[5px] h-fit rounded-[5px]">
-                      <Link to="">
+                      <div>
                         <AiFillDelete className="text-[#DB162F]" />
-                      </Link>
+                      </div>
                     </div>
                   </div>
                 </div>

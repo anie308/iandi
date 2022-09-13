@@ -5,11 +5,24 @@ import { default as api } from "../../services/bitesApi";
 import { AiOutlineEye, AiFillDelete, AiOutlinePlus } from "react-icons/ai";
 import { MdEdit } from "react-icons/md";
 import {FaSearch} from 'react-icons/fa'
+import { toast } from 'react-toastify';
 
 
 function DashBitesSection() {
   const { data, error, isLoading, isSuccess } = api.useBitesQuery();
   const bites = data?.posts;
+  const [deleteBite] = api.useDeleteBiteMutation()
+
+  
+  function handleDelete(id){
+    try{
+      deleteBite(id)
+    // console.log(id)
+    toast.success()
+    }catch (err){
+      toast.error(`${error.data.error}`)
+    }
+  }
 
   
   
@@ -86,9 +99,9 @@ function DashBitesSection() {
                         </Link>
                       </div>
                       <div className="border border-[#DB162F] p-[5px] h-fit rounded-[5px]">
-                        <Link to="">
+                        <div data-id={id}  onClick={()=> handleDelete(id)} className='cursor-pointer'>
                           <AiFillDelete className="text-[#DB162F]" />
-                        </Link>
+                        </div>
                       </div>
                     </div>
                   </div>

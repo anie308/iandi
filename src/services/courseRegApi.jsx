@@ -7,11 +7,6 @@ export const courseRegApi = createApi({
    baseQuery: fetchBaseQuery({baseUrl: config.PROD_BASE_URL}),
    endpoints: (builder) => ({
        getAllRegistered: builder.query({
-        headers: {
-            authorization: `Bearer ${
-              JSON.parse(localStorage.getItem("user")).accessToken
-            }`,
-          },
            query:()=> '/courseregs',
         
        }),

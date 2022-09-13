@@ -27,15 +27,15 @@ export const bitesApi = createApi({
 
     }),
     deleteBite: builder.mutation({
-      query: (bitedId) => ({
-        url: "/post",
+      query: (postId) => ({
+        url: `/posts/${postId}`,
         headers: {
           authorization: `Bearer ${
             JSON.parse(localStorage.getItem("user")).accessToken
           }`,
         },
         method: "DELETE",
-        body: bitedId,
+        body: postId,
       }),
       invalidatesTags: ['posts']
 
