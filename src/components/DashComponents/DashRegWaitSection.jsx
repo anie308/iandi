@@ -4,18 +4,25 @@ import {  AiFillFileText } from 'react-icons/ai'
 import { FaSearch } from 'react-icons/fa'
 import { BsChevronDown } from 'react-icons/bs'
 import { default as api } from "../../services/waitlistApi";
+import { default as reg } from "../../services/courseRegApi";
+import  moment from 'moment'
 
 
 
 function DashRegWaitSection() {
   const { data, error, isFetching, isSuccess } = api.useWaitlistsQuery();
-  // const waitlists = data?.waitlists
-  console.log(data)
-
-    const filter = [ 'Course Registrations',
-    'Course Waitlists']
+  const { data: registered, error : err, isFetching: loading, isSuccess : done } = reg.useGetAllRegisteredQuery();
+  
+  const waitlists = data?.waitlists
+  const courseregs = registered?.courseRegs
+  console.log(courseregs)
+    const filter =['Course Registrations',  'Course Waitlists',
+    ]
+    const update = ['Registered', 'Account Created']
     const [regFilter, setRegFilter] = useState(false)
     const [filterVal, setFilterVal] = useState(filter[0])
+    const isRegistered = true
+
   return (
     <div className='p-[15px]'>
         <div className="flex items-center w-full justify-between my-[20px]">
@@ -82,13 +89,53 @@ function DashRegWaitSection() {
             <div>
            {
             filterVal === 'Course Registrations' ?  (
-                <div className='grid grid-cols-6 items-center bg-[#FAFAFA] border shadow shadow-[#33333329] p-[12px_20px] rounded-[8px] '>
-                <div>loll</div>
-                <div>loll</div>
-                <div>loll</div>
-                <div>loll</div>
-                <div>loll</div>
-                <div>loll</div>
+                <div className=' '>
+               {loading && (
+                 <div className="h-[50px] w-full bg-gray-200 rounded-[5px] font-raleway font-[700] text-[15px] flex items-center justify-center animate-pulse">
+                 Loading...
+               </div>
+               )}
+
+               {err && (
+                 <div className="h-[50px] w-full bg-gray-200 rounded-[5px] font-raleway font-[700] text-[15px] flex items-center justify-center">
+                 Something went wrong{" "}
+               </div>
+               )}
+
+               {
+                done && (
+                <div>
+                  {
+                    courseregs.length ===0 ? (
+                      <div className="h-[50px] w-full bg-gray-200 rounded-[5px] font-raleway font-[700] text-[15px] flex items-center justify-center">
+                No Course Registrants Yet
+               </div>
+                    ) : (
+                      <>
+                      <div className=' bg-[#FAFAFA] border shadow shadow-[#33333329]  rounded-[8px] space-y-2' >
+                      {
+                        courseregs.map(({id, fullname, email, occupation, country, createdAt}) => (
+                        <div className=' grid grid-cols-6 items-center font-lato text-[14px] font-[400] hover:bg-gray-100 p-[12px_20px] cursor-pointer'>
+                          <div></div>
+                          <div>{moment(createdAt).format('LL')}</div>
+                          <div>{fullname  }</div>
+                          <div>{email  }</div>
+                          <div>{occupation  }</div>
+                          <div>{country  }</div>
+                          
+                        </div>  
+                        
+                      
+                        ))
+                      }
+                      </div>
+                      </>
+                    )
+                  }
+                </div>
+                  
+                )
+               }
             </div>
             ) : (
                 <div className='grid grid-cols-6 items-center bg-[#FAFAFA] border shadow shadow-[#33333329] p-[12px_20px] rounded-[8px] '>

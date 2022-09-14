@@ -71,3 +71,9 @@
   border-top: 2px solid rgba(#0d0d0d, 0.1);
   margin: 2rem 0;
 }
+.ProseMirror ul{
+  list-style-type: disc;
+  margin: 0;
+
+  /* padding: 0; */
+}

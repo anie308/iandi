@@ -5,14 +5,29 @@ import { MdEdit } from "react-icons/md";
 import {FaSearch} from 'react-icons/fa'
 import {Link} from 'react-router-dom'
 import Thumbnail from '../../assets/thumbnail.png'
+import { toast } from 'react-toastify';
 
 
 
 
 function DashSessionSection() {
     const { data, error, isLoading, isSuccess } = api.useSessionsQuery();
+    const [deleteSession] = api.useDeleteSessionMutation()
     const sessions = data?.sessions;
     console.log(sessions)
+
+    function handleDelete(id){
+      try{
+        deleteSession(id)
+        console.log(id)
+        // toast.success('Session Deleted Successfully')
+      } catch(err){
+        toast.error(error.data.error)
+      }
+      
+    }
+
+    
   return (
     <div className="px-[15px] ">
     <div className="flex items-center w-full justify-between my-[20px]">
@@ -49,7 +64,7 @@ function DashSessionSection() {
           {sessions.length === 0 ? (
             <div className="h-[125px] w-full bg-gray-200 rounded-[10px] font-raleway font-[700] text-[20px] flex items-center justify-center">
               {" "}
-              No Courses Yet
+              No Sessions Yet
             </div>
           ) : (
             <div className="flex  gap-5 flex-col w-full">
@@ -77,7 +92,7 @@ function DashSessionSection() {
                   </div>
                   <div className="flex-1  flex space-x-2">
                     <div className="border border-[#33658A] p-[5px] h-fit rounded-[5px]">
-                      <Link to={`/dashboard/bite/${slug}`}>
+                      <Link to={`/dashboard/session/${slug}`}>
                         <AiOutlineEye className="text-[#33658A]" />
                       </Link>
                     </div>
@@ -87,7 +102,7 @@ function DashSessionSection() {
                       </Link>
                     </div>
                     <div className="border border-[#DB162F] p-[5px] h-fit rounded-[5px]">
-                      <div>
+                      <div  onClick={() => handleDelete(id)} className='cursor-pointer'>
                         <AiFillDelete className="text-[#DB162F]" />
                       </div>
                     </div>

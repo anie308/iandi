@@ -18,6 +18,15 @@ export const waitlistApi = createApi({
            transformResponse: (response) => response.data,
 
        }),
+    //    updateWait: builder.mutation({
+    //        query: (initialList) => ({
+    //            url: '/waitlists/create',
+    //            method: 'POST',
+    //            body: initialList
+    //        }),
+    //        transformResponse: (response) => response.data,
+
+    //    }),
 
        
    })

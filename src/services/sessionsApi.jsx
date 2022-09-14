@@ -7,8 +7,24 @@ export const sessionsApi = createApi({
    baseQuery: fetchBaseQuery({baseUrl: config.PROD_BASE_URL}),
    endpoints: (builder) => ({
        sessions: builder.query({
-           query:()=> '/sessions'
-       })
+           query:()=> '/sessions',
+           provideTags: ['sessions']
+       }),
+       deleteSession: builder.mutation({
+        query : (sessionId) => ({
+            url: `/sessions/${sessionId}`,
+            headers: {
+                authorization: `Bearer ${
+                  JSON.parse(localStorage.getItem("user")).accessToken
+                }`,
+              },
+              method: "DELETE",
+              body: sessionId,
+        }),
+        invalidatesTags: ['sessions']
+       }),
+
+     
    })
 })
 

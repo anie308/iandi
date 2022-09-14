@@ -61,7 +61,7 @@ function DashBitesSection() {
             {bites.length === 0 ? (
               <div className="h-[125px] w-full bg-gray-200 rounded-[10px] font-raleway font-[700] text-[20px] flex items-center justify-center">
                 {" "}
-                No Courses Yet
+                No Posts Yet
               </div>
             ) : (
               <div className="flex  gap-5 flex-col w-full">
@@ -72,7 +72,7 @@ function DashBitesSection() {
                   >
                     <div>
                       <img
-                        src={ thumbnail ||Thumbnail}
+                        src={thumbnail}
                         alt=""
                         className="h-[100px] md:h-[100px]  md:min-w-[160px] w-full  aspect-video"
                       />

@@ -13,12 +13,11 @@ import { toast } from 'react-toastify';
 function Sidebar({toggle, isToggled}) {
   const navigate = useNavigate();
   const dispatch = useDispatch()
-  const {user} = useSelector((state) => state.auth)
 
   const onLogout = () => {
     dispatch(logout())
     dispatch(reset())
-    navigate('/admin')
+    navigate('/')
     toast.success('Logout Successful !')
   }
   const handleToggle = ()=> {

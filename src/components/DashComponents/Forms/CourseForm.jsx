@@ -29,16 +29,16 @@ function CourseForm({ initialCourse, html, onSubmit }) {
   ];
   const status = [
     {
-      value: "Coming Soon",
+      value: false,
       label: "Coming Soon",
     },
     {
-      value: "Available",
+      value: true,
       label: "Available",
     },
   ];
   
-  const [avail, setAvail] = useState("");
+  const [avail, setAvail] = useState(status[0])
   const [monthSelect, setMonthselect] = useState("");
   const defaultCourse = {
     title: "",
@@ -122,7 +122,6 @@ function CourseForm({ initialCourse, html, onSubmit }) {
     
   };
 
-
   const {
     title,
     courseDesc,
@@ -189,10 +188,10 @@ function CourseForm({ initialCourse, html, onSubmit }) {
                   name="courseStatus"
                   value={courseStatus}
                   // className='w-full'
-                  defaultValue={status[0]}
+                  defaultValue={status[0].value}
                 />
               </div>
-              {avail === "Coming Soon" && (
+              {/* {avail.value === false && ( */}
                  <div className="flex-1">
                  <Select
                    options={month}
@@ -205,7 +204,7 @@ function CourseForm({ initialCourse, html, onSubmit }) {
                    defaultValue={month[0]}
                  />
                </div>
-              )}
+              {/* )} */}
             </div>
             <div className="mt-[20px]">
               <p className="font-[700] font-raleway text-[18px]">

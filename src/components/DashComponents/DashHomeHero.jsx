@@ -11,12 +11,10 @@ function DashHomeHero() {
   const {data: reg} = coursereg.useGetAllRegisteredQuery()
   const { data: waiters} = wait.useWaitlistsQuery()
   const waitCount = waiters?.waitlistCount
-  console.log(reg)
-  // const regCount = reg?.
+  const courseCount = reg?.regCount
   const courses = data?.courses
   const upcoming = courses?.filter(e => e.courseStatus === 'Coming Soon')
   const active = courses?.filter(e => e.courseStatus === 'Available')
-  console.log(waitCount)
   const upComingLength = upcoming?.length
   const activeLength = active?.length
   
@@ -39,7 +37,7 @@ function DashHomeHero() {
         </div>
         <div className="bg-[#EBEEF5] flex-1 flex items-center justify-center rounded-[8px]">
           <div className="flex flex-col flex-1 p-[12px_20px] ">
-            <p className="font-[800] font-raleway text-[28px] leading-[39px]">20</p>
+            <p className="font-[800] font-raleway text-[28px] leading-[39px]">{courseCount}</p>
             <p className="font-montserrat font-[400] text-[12px] leading-[16px]">NEW REGISTRATIONS</p>
           </div>
           <div className="bg-[#D4D4D4] w-[1px] h-[60px]"></div>

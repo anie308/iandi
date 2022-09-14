@@ -38,7 +38,7 @@ function RecentBtes() {
           <div>
             {bite?.length === 0 ? (
               <div className="w-full h-[100px] bg-[#FAFAFA] flex items-center justify-center font-raleway font-[600] mt-[10px] rounded-[5px]">
-                No Sessions
+                No Posts Yet
               </div>
             ) : (
               <div className="flex flex-col space-y-4">
