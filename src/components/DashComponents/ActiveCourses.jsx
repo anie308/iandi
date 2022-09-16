@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { courseDetails } from "../../data";
 // import Thumbnail from '../../assets/thumbnail.png'
 import { Link } from "react-router-dom";
 import { default as api } from "../../services/coursesApi";
+import {BsChevronRight} from 'react-icons/bs'
 
 function ActiveCourses() {
   const [course, setCourse] = useState(null);
@@ -22,8 +22,8 @@ function ActiveCourses() {
         <div className="text-[20px] font-raleway font-[800] text-[#333333]">
           Active Courses
         </div>
-        <div className="text-[14px] font-[400] font-lato text-[#33658A]">
-          <Link to="/dashboard/courses">See All</Link>
+        <div className="text-[14px] font-[400] font-lato text-[#33658A] flex items-center">
+          <Link to="/dashboard/courses" className="flex items-center"><p>See All </p><BsChevronRight className="text-[12px] ml-[5px]"/></Link>
         </div>
       </div>
       <div className="flex flex-col ">
@@ -44,7 +44,7 @@ function ActiveCourses() {
                 No Active Courses Yet
               </div>
             ) : (
-              <div className='flex flex-col space-y-4'>
+              <div className='flex flex-col space-y-4 mt-[20px]'>
                 {active
                   ?.slice(0, 3)
                   .map(({ id, title, slug, courseStatus }) => (

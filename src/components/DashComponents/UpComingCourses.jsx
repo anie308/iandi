@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { courseDetails } from "../../data";
+import { BsChevronRight } from "react-icons/bs";
 // import Thumbnail from '../../assets/thumbnail.png'
 import { Link } from "react-router-dom";
 import { default as api } from "../../services/coursesApi";
@@ -27,7 +27,7 @@ function UpComingCourses() {
         </div>
         <div className="text-[14px] font-[400] font-lato text-[#33658A]">
          {
-          upcoming?.length > 0 ?  (<Link to="/dashboard/courses">See All</Link>) : null
+          upcoming?.length > 0 ?  (<Link to="/dashboard/courses"><p>See All </p><BsChevronRight className="text-[12px] ml-[5px]"/></Link>) : null
          }
         </div>
       </div>

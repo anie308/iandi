@@ -42,14 +42,17 @@ function RecentBtes() {
               </div>
             ) : (
               <div className="flex flex-col space-y-4">
-                {bite?.slice(0, 3).map(({ id, title, slug }) => (
+                {bite?.slice(0, 3).map(({ id, title, slug, content }) => (
                 <Link to={`/dashboard/bite/${slug}`}>
                   <div
                     key={id}
-                    className="bg-[#FAFAFA]  h-[100px] p-[12px] rounded-[8px]"
+                    className="bg-[#FAFAFA]  h-[90px] p-[12px] rounded-[8px]"
                   >
                     <div className="font-raleway font-[700] text-[16px] leading-[22px]">
                       {title}
+                    </div>
+                    <div className='mt-[10px] text-[12px]'>
+                       <span> {Math.ceil(content.trim().split(/\s+/).length / 275)}</span> <span className="font-montserrat">MINS</span>
                     </div>
                   </div>
                 </Link>
