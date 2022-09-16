@@ -10,9 +10,10 @@ function CourseWaitlistSection() {
   const [formData, setFormData] = useState({
     fullname: "",
     email: "",
+    course: ""
   });
 
-  const { fullname, email } = formData;
+  const { fullname, email, course } = formData;
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -24,12 +25,16 @@ function CourseWaitlistSection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
    try{
-    const waitlistData = { fullname, email };
+    const waitlistData = { fullname, email, course };
     if(!fullname.trim()){
       toast.warn('Full Name field is reqired')
     }  else if(!email.trim()){
       toast.warn('Email field is required')
-    } else {
+    } else if(!course.trim()){
+      toast.warn('Course field is required')
+
+    }
+    else {
       await joinWaitlist(waitlistData).unwrap()  
       navigate('/course/waitlist/success')
 
@@ -66,6 +71,23 @@ function CourseWaitlistSection() {
                   type="name"
                   name="fullname"
                   value={fullname}
+                  placeholder="Course"
+                  className="border-b pb-[5px] outline-none w-full"
+                  onChange={onChange}
+                />
+              </div>
+            </div>
+            <div className="flex flex-col items-start space-y-1 w-full">
+              <div>
+                <label htmlFor="email" className="font-lato">
+                  Email<sup></sup>
+                </label>
+              </div>
+              <div className="w-full">
+                <input
+                  type="email"
+                  name="course"
+                  value={course}
                   placeholder="Course"
                   className="border-b pb-[5px] outline-none w-full"
                   onChange={onChange}

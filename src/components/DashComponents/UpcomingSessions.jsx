@@ -43,9 +43,9 @@ function UpcomingSessions() {
             ) : (
               <div className="flex flex-col space-y-4">
                 {session?.slice(0, 3).map(({ id, title, slug, createdAt }) => (
-                  <Link to={`/dashboard/session/${slug}`}>
+                  <Link to={`/dashboard/session/${slug}`} key={id}>
                   <div
-                    key={id}
+                    
                     className="bg-[#FAFAFA]  h-[100px] p-[12px] rounded-[8px]"
                   >
                     <div className='uppercase bg-[#FBDF8B] text-[#333333] font-montserrat text-[12px] p-[4px_8px] rounded-[5px] w-fit mb-[5px]'>in 3 days</div>

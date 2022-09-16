@@ -3,6 +3,7 @@ import { useState } from 'react'
 import {  AiFillFileText } from 'react-icons/ai'
 import { FaSearch } from 'react-icons/fa'
 import { BsChevronDown } from 'react-icons/bs'
+import { AiFillDelete } from 'react-icons/ai'
 import { default as api } from "../../services/waitlistApi";
 import { default as reg } from "../../services/courseRegApi";
 import  moment from 'moment'
@@ -12,16 +13,18 @@ import  moment from 'moment'
 function DashRegWaitSection() {
   const { data, error, isFetching, isSuccess } = api.useWaitlistsQuery();
   const { data: registered, error : err, isFetching: loading, isSuccess : done } = reg.useGetAllRegisteredQuery();
-  
-  const waitlists = data?.waitlists
+  const [deleteWaiter] = api.useDeleteWaiterMutation();
+  const waitlists = data?.waiters
   const courseregs = registered?.courseRegs
-  console.log(courseregs)
     const filter =['Course Registrations',  'Course Waitlists',
     ]
     const update = ['Registered', 'Account Created']
     const [regFilter, setRegFilter] = useState(false)
-    const [filterVal, setFilterVal] = useState(filter[0])
+    const [filterVal, setFilterVal] = useState('Course Registrations')
     const isRegistered = true
+    function handleDelete(id) {
+      deleteWaiter(id)
+    }
 
   return (
     <div className='p-[15px]'>
@@ -77,6 +80,7 @@ function DashRegWaitSection() {
                       </div>
                     ) : (
                         <div className='grid grid-cols-6 items-center bg-[#FAFAFA] border shadow shadow-[#33333329] p-[12px_20px] rounded-[8px]'>
+                          
                         <div className='font-[400] font-montserrat uppercase text-[12px] '>Waitlist Date</div>
               <div className='font-[400] font-montserrat uppercase text-[12px] '>Name</div>
               <div className='font-[400] font-montserrat uppercase text-[12px] '>Email</div>
@@ -115,7 +119,7 @@ function DashRegWaitSection() {
                       <div className=' bg-[#FAFAFA] border shadow shadow-[#33333329]  rounded-[8px] space-y-2' >
                       {
                         courseregs.map(({id, fullname, email, occupation, country, createdAt}) => (
-                        <div className=' grid grid-cols-6 items-center font-lato text-[14px] font-[400] hover:bg-gray-100 p-[12px_20px] cursor-pointer'>
+                        <div className=' grid grid-cols-6 items-center font-lato text-[14px] font-[400] hover:bg-gray-100 p-[12px_20px] cursor-pointer' key={id}>
                           <div></div>
                           <div>{moment(createdAt).format('LL')}</div>
                           <div>{fullname  }</div>
@@ -138,13 +142,57 @@ function DashRegWaitSection() {
                }
             </div>
             ) : (
-                <div className='grid grid-cols-6 items-center bg-[#FAFAFA] border shadow shadow-[#33333329] p-[12px_20px] rounded-[8px] '>
-                <div>loll</div>
-                <div>loll</div>
-                <div>loll</div>
-                <div>loll</div>
-                
-            </div>
+              <div className=' '>
+              {isFetching && (
+                <div className="h-[50px] w-full bg-gray-200 rounded-[5px] font-raleway font-[700] text-[15px] flex items-center justify-center animate-pulse">
+                Loading...
+              </div>
+              )}
+
+              {error && (
+                <div className="h-[50px] w-full bg-gray-200 rounded-[5px] font-raleway font-[700] text-[15px] flex items-center justify-center">
+                Something went wrong{" "}
+              </div>
+              )}
+
+              {
+               isSuccess && (
+               <div>
+                 {
+                   waitlists?.length ===0 ? (
+                     <div className="h-[50px] w-full bg-gray-200 rounded-[5px] font-raleway font-[700] text-[15px] flex items-center justify-center">
+               No Waitlists Yet
+              </div>
+                   ) : (
+                     <>
+                     <div className=' bg-[#FAFAFA] border shadow shadow-[#33333329]  rounded-[8px] space-y-2' >
+                     {
+                       waitlists?.map(({id, fullname, email, course,  createdAt}) => (
+                       <div className=' grid  grid-cols-6 items-center font-lato text-[14px] font-[400] hover:bg-gray-100 p-[12px_15px] ' key={id}>
+                         
+                         <div className='flex items-center space-x-2'>
+                          <div className='border-red-500 border p-[2px] rounded-[5px]'><AiFillDelete className='text-red-500 text-[20px] cursor-pointer ' onClick={() => handleDelete(id)}/></div>
+                          <div>{moment(createdAt).format('LL')}</div>
+                         </div>
+                         <div>{fullname  }</div>
+                         <div>{email  }</div>
+                         <div>{course  }</div>
+                       
+                         
+                       </div>  
+                       
+                     
+                       ))
+                     }
+                     </div>
+                     </>
+                   )
+                 }
+               </div>
+                 
+               )
+              }
+           </div>
             )
            }
             </div>

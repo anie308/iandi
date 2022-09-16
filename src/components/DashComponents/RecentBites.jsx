@@ -43,9 +43,9 @@ function RecentBtes() {
             ) : (
               <div className="flex flex-col space-y-4">
                 {bite?.slice(0, 3).map(({ id, title, slug, content }) => (
-                <Link to={`/dashboard/bite/${slug}`}>
+                <Link to={`/dashboard/bite/${slug}`} key={id}>
                   <div
-                    key={id}
+                    
                     className="bg-[#FAFAFA]  h-[90px] p-[12px] rounded-[8px]"
                   >
                     <div className="font-raleway font-[700] text-[16px] leading-[22px]">

@@ -32,13 +32,12 @@ import Support from './pages/Support';
 import Testimony from './pages/Testimony';
 import  {useSelector} from 'react-redux'
 import RegWait from './pages/Dashboard/RegWait';
-import useWindowDimensions from './hooks/useWindowDimension';
+import Settings from './pages/Dashboard/Settings';
 
 
 function App() {
   
   const user = useSelector((state) => state.auth)
-  const {width} = useWindowDimensions
   
   return (
     <>
@@ -80,7 +79,7 @@ function App() {
           <Route path='update-bite/:slug' element={<UpdateBite/>}/>
           <Route path='update-course/:slug' element={<UpdateCourse/>}/>
           <Route path='update-session/:slug' element={<UpdateSession/>}/>
-          {/* <Route path="/*" element={<NotFound/>} /> */}
+          <Route path="settings" element={<Settings/>} />
          </Route> 
         : <Route path="/"  element={<Home/>} />}
       

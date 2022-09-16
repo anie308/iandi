@@ -6,7 +6,6 @@ import { default as api } from "../../services/sessionsApi";
 function SessionListing() {
   const { data, error, isLoading, isSuccess } = api.useSessionsQuery();
   const sessions = data?.sessions;
-  console.log(sessions)
   return (
    <div>
      {isLoading && <div className='min-w-[280px] max-w-[300]   min-h-[370px] h-[370px] animate-pulse flex flex-col space-y-2'>

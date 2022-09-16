@@ -8,6 +8,8 @@ export const waitlistApi = createApi({
    endpoints: (builder) => ({
        waitlists: builder.query({
            query:()=> '/waitlists',  
+           providesTags: ['waiters']
+
        }),
        joinWaitlist: builder.mutation({
            query: (initialList) => ({
@@ -15,18 +17,19 @@ export const waitlistApi = createApi({
                method: 'POST',
                body: initialList
            }),
-           transformResponse: (response) => response.data,
-
+           invalidatesTags: ['waiters'],
        }),
-    //    updateWait: builder.mutation({
-    //        query: (initialList) => ({
-    //            url: '/waitlists/create',
-    //            method: 'POST',
-    //            body: initialList
-    //        }),
-    //        transformResponse: (response) => response.data,
-
-    //    }),
+       deleteWaiter: builder.mutation({
+           query: (waiterId) => ({
+               url: `waitlists/${waiterId}`,
+               headers : {
+                'authorization' : `Bearer ${JSON.parse(localStorage.getItem("user")).accessToken}`
+             },
+               method: 'DELETE',
+               body: waiterId
+           }),
+           invalidatesTags: ['waiters'],
+       }),
 
        
    })

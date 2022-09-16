@@ -1,17 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import Thumbnail from "../../assets/thumbnail2.png";
 
 
 function SessionItem({session}) {
-  const { title,  slug, createdAt } = session;
+  const { title,  slug, createdAt, thumbnail } = session;
 
   return (
     <div className="min-w-[280px] max-w-[300] h-[320px] min-h-[320px]   max-h-[320px]   flex flex-col   rounded-[15px] bg-primary justify-between">
     <div className="w-full">
       <div>
         <img
-          src={Thumbnail}
+          src={thumbnail}
           alt="thumbnail"
           className="h-[180px] rounded-t-[20px] w-full object-cover"
         />
