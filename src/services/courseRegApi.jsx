@@ -8,6 +8,7 @@ export const courseRegApi = createApi({
    endpoints: (builder) => ({
        getAllRegistered: builder.query({
            query:()=> '/courseregs',
+           providesTags: ['courseregs']
         
        }),
        register: builder.mutation({
@@ -16,9 +17,25 @@ export const courseRegApi = createApi({
                method: 'POST',
                body: initialReg
            }),
-           transformResponse: (response) => response.data,
+           invalidatesTags: ['courseregs']
 
+ 
        }),
+       updateCourseregs: builder.mutation({
+        query: ({id, ...rest}) => ({
+            url: `/courseregs/${id}`,
+            headers : {
+                'authorization' : `Bearer ${JSON.parse(localStorage.getItem("user")).accessToken}`
+             },
+            method: "PUT",
+            body: rest 
+        }),
+        invalidatesTags: ['courseregs']
+
+        
+    })
+
+
 
        
    })

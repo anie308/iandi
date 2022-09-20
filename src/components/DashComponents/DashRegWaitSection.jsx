@@ -7,24 +7,49 @@ import { AiFillDelete } from 'react-icons/ai'
 import { default as api } from "../../services/waitlistApi";
 import { default as reg } from "../../services/courseRegApi";
 import  moment from 'moment'
+import { useParams } from 'react-router-dom'
 
 
 
 function DashRegWaitSection() {
+  const {id} = useParams()
+
   const { data, error, isFetching, isSuccess } = api.useWaitlistsQuery();
-  const { data: registered, error : err, isFetching: loading, isSuccess : done } = reg.useGetAllRegisteredQuery();
+  const { data: registered, error : err, isFetching: loading, isSuccess : done } = reg.useGetAllRegisteredQuery(id);
   const [deleteWaiter] = api.useDeleteWaiterMutation();
+  const [updateCourseReg] = reg.useUpdateCourseregsMutation()
   const waitlists = data?.waiters
   const courseregs = registered?.courseRegs
     const filter =['Course Registrations',  'Course Waitlists',
     ]
-    const update = ['Registered', 'Account Created']
+    const update = [
+      {
+        label: 'Registered', 
+        value: false,
+      },
+      {
+        label : 'Account Created',
+        value: true
+      }
+
+    ]
+    const initialValue = ({waitlists})
+    console.log(initialValue)
+
+    
     const [regFilter, setRegFilter] = useState(false)
     const [filterVal, setFilterVal] = useState('Course Registrations')
-    const isRegistered = true
     function handleDelete(id) {
       deleteWaiter(id)
     }
+
+    const [registeredValue, setRegisteredValue] = useState(courseregs?.isRegistered)
+    const  handleUpdate = () => {
+      
+      setRegisteredValue(!registeredValue)
+            updateCourseReg()
+    }
+    console.log(registeredValue )
 
   return (
     <div className='p-[15px]'>
@@ -118,9 +143,10 @@ function DashRegWaitSection() {
                       <>
                       <div className=' bg-[#FAFAFA] border shadow shadow-[#33333329]  rounded-[8px] space-y-2' >
                       {
-                        courseregs.map(({id, fullname, email, occupation, country, createdAt}) => (
+                        courseregs.map(({id, fullname, email, occupation, country, createdAt, isRegistered}) => (
                         <div className=' grid grid-cols-6 items-center font-lato text-[14px] font-[400] hover:bg-gray-100 p-[12px_20px] cursor-pointer' key={id}>
-                          <div></div>
+                          <div className={`${isRegistered === true ? 'bg-[#E4F7FB] ' : 'bg-[#FEF8E2]'} w-[120px]  p-[8px_4px] `} onClick={()=> handleUpdate(id, isRegistered)}>{isRegistered === true ? update[1].label : update[0].label}</div>
+                         
                           <div>{moment(createdAt).format('LL')}</div>
                           <div>{fullname  }</div>
                           <div>{email  }</div>
