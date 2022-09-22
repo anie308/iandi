@@ -1,7 +1,7 @@
 import React from 'react'
 import Thumbnail from '../../assets/thumbnail.png'
 import {Link} from 'react-router-dom'
-import { default as api } from "../../services/bitesApi";
+import { default as api } from "../../services/apiSlice";
 import { AiOutlineEye, AiFillDelete, AiOutlinePlus } from "react-icons/ai";
 import { MdEdit } from "react-icons/md";
 import {FaSearch} from 'react-icons/fa'

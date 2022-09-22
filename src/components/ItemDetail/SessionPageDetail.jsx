@@ -4,7 +4,7 @@ import Thumbnail from "../../assets/thumbnail2.png";
 import { Link } from "react-router-dom";
 import { BsCaretDown } from "react-icons/bs";
 import CourseListing from "../Lisitings/CourseListing";
-import { default as api } from "../../services/sessionsApi";
+import { default as api } from "../../services/apiSlice";
 
 
 

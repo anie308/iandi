@@ -57,13 +57,13 @@ const MenuBar = ({ editor }) => {
       </div> */}
       <div
         onClick={() => editor.chain().focus().toggleBulletList().run()}
-        className={editor.isActive('bulletList') ? 'is-active' : ''}
+        className={`${editor.isActive('bulletList') ? 'bg-gray-100 p-[2px_8px] rounded-[5px]' : ''} font-raleway text-[15px] font-[700] cursor-pointer`}
       >
        <AiOutlineUnorderedList className='font-[700] text-[20px]'/>
       </div>
       <div
         onClick={() => editor.chain().focus().toggleOrderedList().run()}
-        className={editor.isActive('orderedList') ? 'is-active' : ''}
+        className={`${editor.isActive('orderedList')? 'bg-gray-100 p-[2px_8px] rounded-[5px]' : ''} font-raleway text-[15px] font-[700] cursor-pointer`}
       >
         <AiOutlineOrderedList className='font-[700] text-[20px] cursor-pointer'/>
       </div>

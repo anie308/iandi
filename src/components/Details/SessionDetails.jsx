@@ -4,7 +4,7 @@ import Thumbnail from "../../assets/thumbnail.png";
 import insta from "../../assets/svg/insta.svg";
 import linkedin from "../../assets/svg/linkedin.svg";
 import TestimonialSection from "../Sections/TestimonialSection";
-import { default as api } from "../../services/sessionsApi";
+import { default as api } from "../../services/apiSlice";
 
 
 function SessionDetails() {

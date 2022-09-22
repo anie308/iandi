@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // import { waitlist } from "../../data";
-import { default as api } from "../../services/bitesApi";
+import { default as api } from "../../services/apiSlice";
 
 function RecentBtes() {
   const [bite, setBite] = useState(null);

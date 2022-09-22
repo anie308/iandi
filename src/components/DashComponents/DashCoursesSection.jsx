@@ -5,7 +5,7 @@ import { AiOutlineEye, AiFillDelete, AiOutlinePlus } from "react-icons/ai";
 import { MdEdit } from "react-icons/md";
 import { BiChevronDown } from "react-icons/bi";
 import { Link} from "react-router-dom";
-import { default as api } from "../../services/coursesApi";
+import { default as api } from "../../services/apiSlice";
 import { useLocation } from "react-router-dom";
 import {FaSearch} from 'react-icons/fa'
 

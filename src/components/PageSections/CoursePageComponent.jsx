@@ -3,7 +3,7 @@ import Thumbnail from "../../assets/thumbnail.png";
 import { faqArr } from "../../data";
 import { Link } from "react-router-dom";
 import { BsCaretDown } from "react-icons/bs";
-import { default as api } from "../../services/coursesApi";
+import { default as api } from "../../services/apiSlice";
 
 
 function CoursePageComponent() {

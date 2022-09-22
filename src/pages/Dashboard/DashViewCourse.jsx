@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { MdEdit } from "react-icons/md";
 import { FiChevronLeft } from "react-icons/fi";
-import { default as api } from "../../services/coursesApi";
+import { default as api } from "../../services/apiSlice";
 import { useParams } from "react-router-dom";
 
 

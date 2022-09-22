@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { BsChevronRight } from "react-icons/bs";
 // import Thumbnail from '../../assets/thumbnail.png'
 import { Link } from "react-router-dom";
-import { default as api } from "../../services/coursesApi";
+import { default as api } from "../../services/apiSlice";
 import { useState } from "react";
 
 function UpComingCourses() {

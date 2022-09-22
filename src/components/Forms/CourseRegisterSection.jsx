@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { default as api } from "../../services/courseRegApi";
+import { default as api } from "../../services/apiSlice";
 
 function CourseRegisterSection() {
   const navigate = useNavigate();

@@ -1,7 +1,7 @@
 import React from 'react'
 import CourseItem from '../Items/CourseItem'
 import '../style.css'
-import { default as api } from "../../services/coursesApi";
+import { default as api } from "../../services/apiSlice";
 
 
 

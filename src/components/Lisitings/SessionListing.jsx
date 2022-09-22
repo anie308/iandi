@@ -1,6 +1,6 @@
 import React from 'react'
 import SessionItem from '../Items/SessionItem'
-import { default as api } from "../../services/sessionsApi";
+import { default as api } from "../../services/apiSlice";
 
 
 function SessionListing() {

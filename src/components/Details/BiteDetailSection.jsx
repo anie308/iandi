@@ -4,7 +4,7 @@ import Thumbnail from "../../assets/thumbnail.png";
 import CourseListing from '../Lisitings/CourseListing'
 import { IoTimeOutline } from "react-icons/io5";
 import '../style.css'
-import { default as api } from "../../services/bitesApi";
+import { default as api } from "../../services/apiSlice";
 
 function BiteDetailSection() {
   const { slug } = useParams();

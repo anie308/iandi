@@ -3,7 +3,7 @@ import Thumbnail from "../../assets/thumbnail.png";
 import { Link } from "react-router-dom";
 import { IoTimeOutline } from "react-icons/io5";
 import { useState } from "react";
-import { default as api } from "../../services/bitesApi";
+import { default as api } from "../../services/apiSlice";
 
 function BitePageSection() {
   const [more, setMore] = useState(4);

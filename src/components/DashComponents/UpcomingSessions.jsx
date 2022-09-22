@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BsChevronRight } from "react-icons/bs";
-import { default as api } from "../../services/sessionsApi";
+import { default as api } from "../../services/apiSlice";
 
 function UpcomingSessions() {
   const [session, setSession] = useState(null);

@@ -1,5 +1,5 @@
 import React from 'react'
-import { default as api } from "../../services/sessionsApi";
+import { default as api } from "../../services/apiSlice";
 import { AiOutlineEye, AiFillDelete, AiOutlinePlus } from "react-icons/ai";
 import { MdEdit } from "react-icons/md";
 import {FaSearch} from 'react-icons/fa'

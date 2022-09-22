@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { default as api } from "../../services/coursesApi";
-import { default as wait } from "../../services/waitlistApi";
-import { default as coursereg } from "../../services/courseRegApi";
+import { default as api } from "../../services/apiSlice";
+import { default as wait } from "../../services/apiSlice";
+import { default as coursereg } from "../../services/apiSlice";
 
 
 
