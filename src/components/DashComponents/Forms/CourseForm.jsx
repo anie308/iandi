@@ -3,6 +3,10 @@ import { AiOutlineCheck } from "react-icons/ai";
 import { FaTimes } from "react-icons/fa";
 import { BiChevronDown } from "react-icons/bi";
 import Tiptap from "./Tiptap";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+
+
 import Select from "react-select";
 
 import { toast } from "react-toastify";
@@ -246,7 +250,7 @@ function CourseForm({ initialCourse, html, onSubmit }) {
                     Course Highlight
                   </p>
                   <div className="w-full prose h-[400px]">
-                <Tiptap />
+                
               </div>
                 </div>
               </div>

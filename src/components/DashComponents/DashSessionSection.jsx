@@ -20,7 +20,7 @@ function DashSessionSection() {
       try{
         deleteSession(id)
         console.log(id)
-        // toast.success('Session Deleted Successfully')
+        toast.success('Session Deleted Successfully')
       } catch(err){
         toast.error(error.data.error)
       }

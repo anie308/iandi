@@ -143,7 +143,7 @@ function DashCourses() {
                           <MdEdit className="text-[#33658A]" />
                         </Link>
                       </div>
-                      <div className="border border-[#DB162F] p-[5px] h-fit rounded-[5px]" data-id={id}  onClick={()=> handleDelete(id)}>
+                      <div className="border border-[#DB162F] p-[5px] h-fit rounded-[5px] cursor-pointer" data-id={id}  onClick={()=> handleDelete(id)}>
                         
                           <AiFillDelete className="text-[#DB162F]"  />
                         
