@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from '../../assets/logo.png';
 import {Link, useMatch, useNavigate} from 'react-router-dom';
-import {useSelector, useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import { logout, reset } from "../../services/authApi";
 import { toast } from 'react-toastify';
 

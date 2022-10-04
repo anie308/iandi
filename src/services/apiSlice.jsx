@@ -13,6 +13,9 @@
         createCourse: builder.mutation({
             query: (initialCourse) => ({
                 url: '/courses/create',
+                headers : {
+                  'authorization' : `Bearer ${JSON.parse(localStorage.getItem("user")).accessToken}`
+               },
                 method: 'POST',
                 body: initialCourse
             }),

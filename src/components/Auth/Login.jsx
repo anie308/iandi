@@ -1,10 +1,9 @@
 import { useState } from "react";
-import Logo from "../../assets/logo.png";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useSelector, useDispatch } from "react-redux";
-import { login, reset } from "../../services/authApi";
+import { login,  reset } from "../../services/authApi";
 import { useEffect } from "react";
 
 function Login() {
@@ -16,6 +15,15 @@ function Login() {
 
   const handleVisibility = () => {
     setVisible((prevState) => !prevState);
+  };
+   let day = 3600000*24
+  const runLogoutTimer = () => {
+    setTimeout(() => {
+      localStorage.removeItem("user");
+      navigate('/')
+      toast.warn("Session Expired Please Login Again" )
+
+    }, day);
   };
 
   const { username, password } = formData;
@@ -34,6 +42,8 @@ function Login() {
     if (isSuccess || user) {
       navigate("/dashboard/home");
       toast.success("Login Succesfull!" )
+      runLogoutTimer()
+
     }
 
     dispatch(reset());

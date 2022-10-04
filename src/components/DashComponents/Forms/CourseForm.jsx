@@ -1,24 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { AiOutlineCheck } from "react-icons/ai";
 import { FaTimes } from "react-icons/fa";
-import { BiChevronDown } from "react-icons/bi";
-import Tiptap from "./Tiptap";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import { CKEditor } from "@ckeditor/ckeditor5-react";
-
-
+import { Editor } from "@tinymce/tinymce-react";
 import Select from "react-select";
-
 import { toast } from "react-toastify";
 
 function CourseForm({ initialCourse, html, onSubmit }) {
   const month = [
     {
       label: " August",
-      value: 'August'
     },
     {
-      value: 'September',
       label: "September",
     },
     {
@@ -41,73 +33,42 @@ function CourseForm({ initialCourse, html, onSubmit }) {
       label: "Available",
     },
   ];
-  
-  const [avail, setAvail] = useState(status[0])
-  const [monthSelect, setMonthselect] = useState("");
-  const defaultCourse = {
-    title: "",
-    thumbnail: "",
-    courseDesc: html,
-    availMonth: "",
-    courseStatus: "",
-    courseHighlight: "",
-  };
-  const [courseInfo, setCourseInfo] = useState({ ...defaultCourse });
 
+  const [title, setTitle] = useState("");
+  const [courseDesc, setCourseDesc] = useState("");
+  const [courseStatus, setCourseStatus] = useState("");
+  const [courseHighlight, setCourseHighlight] = useState("");
+  const [avail, setAvail] = useState("");
   const [selectedThumbnailURL, setSelectedThumbnailURL] = useState("");
+  const [thumbnail, setThumbnail] = useState('');
 
-  useEffect(() => {
-    setCourseInfo({ ...initialCourse });
-  }, [initialCourse]);
-
-  const handleOption = (selectedOption) => {
-    setAvail(selectedOption) 
-  }
-  const handleMonth = (selectedOption1) => {
-    setMonthselect(selectedOption1) 
-  }
   const handleChange = ({ target }) => {
-    const { value, name } = target;
-
+    const { name } = target;
     if (name === "thumbnail") {
       const file = target.files[0];
-
       if (!file.type?.includes("image")) {
         return toast.warn("This is not an image!");
+      } else{
+        setSelectedThumbnailURL(URL.createObjectURL(file))
+        setThumbnail(file)
+
+
+
       }
 
-      setCourseInfo({ ...courseInfo, thumbnail: file, courseStatus : avail });
-      return setSelectedThumbnailURL(URL.createObjectURL(file));
+      // return (
+              
+      // )
+
     }
 
-    const newCourse = { ...courseInfo, [name]: value };
+    console.log(thumbnail)
 
-    setCourseInfo({ ...newCourse });
 
-    localStorage.setItem("course", JSON.stringify(newCourse));
-    console.log(newCourse);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const {
-      title,
-      courseDesc,
-      courseStatus,
-      courseHighlight,
-    } = courseInfo;
-
-    //month availability of course is not a required field bcos it depends on the  courseStaus
-    if (!title.trim()) return toast.warn( "Title is required!");
-    if (!courseDesc.trim())
-      return toast.warn( "Course Description is required!");
-
-    if (!courseHighlight.trim())
-      return toast.warn( "Course HighLight is required!");
-    if (!courseStatus.trim())
-      return toast.warn( "Course Status is required!");
-
-
     const slug = title
       .toLowerCase()
       .replace(/[^a-zA-Z ]/g, " ")
@@ -115,31 +76,27 @@ function CourseForm({ initialCourse, html, onSubmit }) {
       .filter((item) => item.trim())
       .join("-");
 
-    const formData = new FormData();
+    const newCourse = {
+      title,
+      thumbnail ,
+      courseDesc,
+      courseHighlight,
+      courseStatus,
+      avail,
+      slug,
+    };
 
-    const finalCourse = { ...courseInfo, slug };
-    for (let key in finalCourse) {
-      formData.append(key, finalCourse[key]);
-    }
-
-    onSubmit(formData);
-    
+    onSubmit(newCourse);
+    console.log(thumbnail)
   };
 
-  const {
-    title,
-    courseDesc,
-    availMonth,
-    courseStatus,
-    courseHighlight,
-  } = courseInfo;
   return (
     <div className="px-[15px] py-[30px] ">
       <form action="" className="w-full" onSubmit={handleSubmit}>
         <div className="flex items-center w-full justify-between p-[15px]">
           <button
-            type="reset"
             className="w-[125px] h-[40px] text-[#33658A] border border-[#33658A] bg-white rounded-[5px] flex items-center justify-center space-x-2"
+            // onClick={handleCancel}
           >
             <FaTimes />
             <p className="font-lato text-[14px] font-[400]">Cancel</p>
@@ -152,8 +109,8 @@ function CourseForm({ initialCourse, html, onSubmit }) {
             <p className="font-lato text-[14px] font-[400]">Save</p>
           </button>
         </div>
-        <div className="w-full flex flex-col md:flex-row justify-between mt-[20px] px-[15px] gap-4">
-          <div className="flex-1 md:flex-2">
+        <div className="w-full grid grid-cols-2 md:flex-row justify-between mt-[20px] px-[15px] gap-4">
+          <div className=" ">
             <div>
               <label
                 htmlFor="title"
@@ -165,8 +122,7 @@ function CourseForm({ initialCourse, html, onSubmit }) {
               <input
                 type="text"
                 name="title"
-                value={title}
-                onChange={handleChange}
+                onChange={(e) => setTitle(e.target.value)}
                 className="h-[38px] bg-[#FAFAFA] w-full mt-[5px] rounded-[3px] outline-none border px-[5px] font-lato text-[#333333] text-[16px] font-[400]"
               />
             </div>
@@ -176,7 +132,27 @@ function CourseForm({ initialCourse, html, onSubmit }) {
                 Course Description
               </p>
               <div className="w-full prose">
-                <Tiptap />
+                <Editor
+                  init={{
+                    height: 200,
+                    menubar: false,
+                    plugins: [
+                      "advlist autolink lists link image charmap print preview anchor",
+                      "searchreplace visualblocks code fullscreen",
+                      "insertdatetime media table paste code help wordcount",
+                    ],
+                    toolbar:
+                      "undo redo | formatselect | " +
+                      "bold italic backcolor | alignleft aligncenter " +
+                      "alignright alignjustify | bullist numlist outdent indent | " +
+                      "removeformat | help",
+                    content_style:
+                      "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+                  }}
+                  textareaName="courseDesc"
+                  initialValue=""
+                  onEditorChange={(newText) => setCourseDesc(newText)}
+                />
               </div>
             </div>
           </div>
@@ -188,26 +164,24 @@ function CourseForm({ initialCourse, html, onSubmit }) {
                   options={status}
                   isClearable={false}
                   isSearchable={false}
-                   onInputChange={handleOption}
                   name="courseStatus"
-                  value={courseStatus}
+                  onChange={(e) => setCourseStatus(e.label)}
                   // className='w-full'
                   defaultValue={status[0].value}
                 />
               </div>
               {/* {avail.value === false && ( */}
-                 <div className="flex-1">
-                 <Select
-                   options={month}
-                   isClearable={false}
-                   isSearchable={false}
-                    onInputChange={handleMonth}
-                   name="availMonth"
-                   value={availMonth}
-                   className='w-full'
-                   defaultValue={month[0]}
-                 />
-               </div>
+              <div className="flex-1">
+                <Select
+                  options={month}
+                  isClearable={false}
+                  isSearchable={false}
+                  name="availMonth"
+                  onChange={(e) => setAvail(e.label)}
+                  className="w-full"
+                  defaultValue={month[0]}
+                />
+              </div>
               {/* )} */}
             </div>
             <div className="mt-[20px]">
@@ -215,15 +189,18 @@ function CourseForm({ initialCourse, html, onSubmit }) {
                 Course Image
               </p>
               <div>
-                <div className="mt-[10px]">
+                <div className="mt-[10px]  w-[160px] h-[100px]   ">
                   <input
                     type="file"
                     name="thumbnail"
                     hidden
                     id="thumbnail"
-                    onChange={handleChange}
+                    onChange={(e) => setThumbnail(e.target.files[0])}
                   />
-                  <label htmlFor="thumbnail" className="cursor-pointer">
+                  <label
+                    htmlFor="thumbnail"
+                    className="cursor-pointer  w-[160px] h-[100px]   "
+                  >
                     {selectedThumbnailURL ? (
                       <img
                         src={selectedThumbnailURL}
@@ -249,9 +226,29 @@ function CourseForm({ initialCourse, html, onSubmit }) {
                   <p className="font-[700] font-raleway text-[18px]">
                     Course Highlight
                   </p>
-                  <div className="w-full prose h-[400px]">
-                
-              </div>
+                  <div className="prose h-[400px]">
+                    <Editor
+                      init={{
+                        height: 200,
+                        menubar: false,
+                        plugins: [
+                          "advlist autolink lists link image charmap print preview anchor",
+                          "searchreplace visualblocks code fullscreen",
+                          "insertdatetime media table paste code help wordcount",
+                        ],
+                        toolbar:
+                          "undo redo | formatselect | " +
+                          "bold italic backcolor | alignleft aligncenter " +
+                          "alignright alignjustify | bullist numlist outdent indent | " +
+                          "removeformat | help",
+                        content_style:
+                          "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+                      }}
+                      name="courseHighlight"
+                      initialValue=""
+                      onEditorChange={(newText) => setCourseHighlight(newText)}
+                    />
+                  </div>
                 </div>
               </div>
             </div>

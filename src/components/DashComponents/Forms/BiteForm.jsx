@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { mdRules } from "../../../data";
 import {toast} from 'react-toastify'
 
 const defaultBite = {
