@@ -40,7 +40,7 @@ function CourseForm({ initialCourse, html, onSubmit }) {
   const [courseHighlight, setCourseHighlight] = useState("");
   const [avail, setAvail] = useState("");
   const [selectedThumbnailURL, setSelectedThumbnailURL] = useState("");
-  const [thumbnail, setThumbnail] = useState('');
+  const [thumbnail, setThumbnail] = useState();
 
   const handleChange = ({ target }) => {
     const { name } = target;
@@ -48,21 +48,18 @@ function CourseForm({ initialCourse, html, onSubmit }) {
       const file = target.files[0];
       if (!file.type?.includes("image")) {
         return toast.warn("This is not an image!");
-      } else{
-        setSelectedThumbnailURL(URL.createObjectURL(file))
+      } 
+      return ( 
+        setSelectedThumbnailURL(URL.createObjectURL(file)),
+        console.log(file),
         setThumbnail(file)
 
+      )
 
 
-      }
-
-      // return (
-              
-      // )
 
     }
 
-    console.log(thumbnail)
 
 
   };
@@ -78,7 +75,6 @@ function CourseForm({ initialCourse, html, onSubmit }) {
 
     const newCourse = {
       title,
-      thumbnail ,
       courseDesc,
       courseHighlight,
       courseStatus,
@@ -86,8 +82,18 @@ function CourseForm({ initialCourse, html, onSubmit }) {
       slug,
     };
 
-    onSubmit(newCourse);
-    console.log(thumbnail)
+    const formData = new FormData()
+
+    formData.append('thumbnail', thumbnail)
+    const finalCourse = {...newCourse}
+
+    for (let key in finalCourse){
+      formData.append(key, finalCourse[key])
+    }
+
+    
+
+    onSubmit(formData);
   };
 
   return (
@@ -195,7 +201,7 @@ function CourseForm({ initialCourse, html, onSubmit }) {
                     name="thumbnail"
                     hidden
                     id="thumbnail"
-                    onChange={(e) => setThumbnail(e.target.files[0])}
+                    onChange={handleChange}
                   />
                   <label
                     htmlFor="thumbnail"

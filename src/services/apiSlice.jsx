@@ -15,6 +15,7 @@
                 url: '/courses/create',
                 headers : {
                   'authorization' : `Bearer ${JSON.parse(localStorage.getItem("user")).accessToken}`
+                  // 'content-type' : 'multipart/form-data'
                },
                 method: 'POST',
                 body: initialCourse

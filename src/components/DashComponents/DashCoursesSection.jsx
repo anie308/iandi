@@ -1,5 +1,4 @@
-import React, {useState} from "react";
-import { courseDetails } from "../../data";
+import React, {useState, useEffect} from "react";
 import Thumbnail from "../../assets/thumbnail.png";
 import { AiOutlineEye, AiFillDelete, AiOutlinePlus } from "react-icons/ai";
 import { MdEdit } from "react-icons/md";
@@ -26,20 +25,30 @@ function DashCourses() {
 
   const options = [
     {
+      id: 1,
       name: "All Courses",
       value: courses,
     },
     {
+      id: 2,
       name: "Available",
       value: active,
     },
     {
+      id: 3,
       name: "Coming Soon",
       value: upcoming,
     },
   ]
   const [dropdown, setDropdown] = useState(false)
   const [selected, setSelected] = useState(options[0]);
+
+  // useEffect (()=> {
+  //   setSelected(options[0])
+  // }, [])
+  useEffect(() => {
+    setSelected(options[0])
+  })
 
   const value = selected.value
   console.log(value)
@@ -72,6 +81,7 @@ function DashCourses() {
                   <div className="absolute bg-[#FAFAFA] w-[200px] mt-[10px] rounded-[5px]">
                   {options.map((option, index)=> (
                       <div className="h-[40px] p-[10px] hover:bg-gray-100 cursor-pointer font-lato font-[400]"
+                      // key={option.value}
                       onClick={(e) => {
                         setDropdown(!dropdown);
                         setSelected(option);
