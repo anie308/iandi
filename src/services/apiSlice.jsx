@@ -102,6 +102,19 @@
         query:()=> '/sessions',
         provideTags: ['sessions']
     }),
+    createSession: builder.mutation({
+      query: (initialSessions) => ({
+        url: "/sessions/create",
+        headers: {
+          authorization: `Bearer ${
+            JSON.parse(localStorage.getItem("user")).accessToken
+          }`,
+        },
+        method: "POST",
+        body: initialSessions,
+      }),
+      invalidatesTags: ['sessions']
+    }),
     deleteSession: builder.mutation({
      query : (sessionId) => ({
          url: `/sessions/${sessionId}`,

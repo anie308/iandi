@@ -1,8 +1,17 @@
 import React from 'react'
+import SessionForm from '../../components/DashComponents/Forms/SessionForm';
+import {default as  api} from '../../services/apiSlice'
+
 
 function DashCreateSession() {
+  const [createSession] = api.useCreateSessionMutation();
+  const handleSubmit = async (data) => {
+    createSession(data)
+    console.log(data)
+  }
+
   return (
-    <div>DashCreateSession</div>
+    <SessionForm onSubmit={handleSubmit}/>
   )
 }
 

@@ -24,6 +24,7 @@ import DashViewCourse from './pages/Dashboard/DashViewCourse';
 import DashViewBite from './pages/Dashboard/DashViewBite';
 import DashViewSession from './pages/Dashboard/DashViewSession';
 import DashCreateBite from './pages/Dashboard/DashCreateBite';
+import DashCreateSession from './pages/Dashboard/DashCreateSession';
 import UpdateBite from './pages/Dashboard/UpdateBite';
 import UpdateCourse from './pages/Dashboard/UpdateCourse';
 import UpdateSession from './pages/Dashboard/UpdateSession';
@@ -76,6 +77,7 @@ function App() {
           <Route path='session/:slug' element={<DashViewSession/>}/>
           <Route path='create-course' element={<DashCreateCourse/>}/>
           <Route path='create-bite' element={<DashCreateBite/>}/>
+          <Route path='create-session' element={<DashCreateSession/>}/>
           <Route path='update-bite/:slug' element={<UpdateBite/>}/>
           <Route path='update-course/:slug' element={<UpdateCourse/>}/>
           <Route path='update-session/:slug' element={<UpdateSession/>}/>

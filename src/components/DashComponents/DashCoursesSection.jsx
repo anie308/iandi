@@ -43,19 +43,12 @@ function DashCourses() {
   const [dropdown, setDropdown] = useState(false)
   const [selected, setSelected] = useState(options[0]);
 
-  // useEffect (()=> {
-  //   setSelected(options[0])
-  // }, [])
-  useEffect(() => {
-    setSelected(options[0])
-  })
+
 
   const value = selected.value
-  console.log(value)
 
   function handleDelete(id){
     deleteCourse(id)
-    // console.log(id)
   }
 
   return (

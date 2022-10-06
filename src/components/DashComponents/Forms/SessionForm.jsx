@@ -4,53 +4,42 @@ import { FaTimes } from "react-icons/fa";
 import { Editor } from "@tinymce/tinymce-react";
 import Select from "react-select";
 import { toast } from "react-toastify";
-// const defaultCourse = {
-//   title: "",
-//   thumbnail: "",
-//   courseDesc: "",
-//   courseHighlight: "",
-//   avail: "",
-//   courseStatus: "",
 
-
-// }
-function CourseForm({ initialCourse, html, onSubmit }) {
-  // const [courseInfo, setCourseInfo] = useState({...defaultCourse})
-  const month = [
+function SessionForm({ initialCourse, html, onSubmit }) {
+ 
+  const durationOption = [
     {
-      label: " August",
+      label: 10,
     },
     {
-      label: "September",
+      label: 15,
     },
     {
-      label: "October",
+      label: 30,
     },
     {
-      label: "November",
+      label: 60,
     },
     {
-      label: "December",
-    },
-  ];
-  const status = [
-    {
-      value: false,
-      label: "Coming Soon",
-    },
-    {
-      value: true,
-      label: "Available",
+      label: 120,
     },
   ];
 
   const [title, setTitle] = useState("");
-  const [courseDesc, setCourseDesc] = useState("");
-  const [courseStatus, setCourseStatus] = useState("");
-  const [courseHighlight, setCourseHighlight] = useState("");
-  const [avail, setAvail] = useState("");
+  const [description, setDescription] = useState("");
+  const [date, setDate] = useState("");
+  const [sessionHighlight, setSessionHighlight] = useState("");
+  const [time, setTime] = useState("");
+  const [duration, setDuration] = useState("");
+  const [speakerName, setSpeakerName] = useState("");
+  const [speakerJobTitle, setSpeakerJobTitle] = useState("");
+  const [speakerDesc, setSpeakerDesc] = useState("");
+  const [speakerInsta, setSpeakerInsta] = useState("");
+  const [speakerLinkedIn, setSpeakerLinkedIn] = useState("");
   const [selectedThumbnailURL, setSelectedThumbnailURL] = useState("");
   const [thumbnail, setThumbnail] = useState();
+
+  
 
   const handleChange = ({ target }) => {
     const { name } = target;
@@ -87,17 +76,23 @@ function CourseForm({ initialCourse, html, onSubmit }) {
      
     const newCourse = {
       title,
-      courseDesc,
-      courseHighlight,
-      courseStatus,
-      avail,
+      description,
+      date,
+      sessionHighlight,
+      time,
+      duration,
+      speakerDesc,
+      speakerInsta,
+      speakerJobTitle,
+      speakerLinkedIn,
+      speakerName,
       slug,
     };
 
     if(!title.trim()) return toast.warn('Title is Missing')
-    if(!courseDesc.trim()) return toast.warn('Course Description is Missing')
-    if(!courseStatus.trim()) return toast.warn('Course Status is Missing')
-    if(!courseHighlight.trim()) return toast.warn('Course Highlight is Missing')
+    // if(!courseDesc.trim()) return toast.warn('Course Description is Missing')
+    // if(!courseStatus.trim()) return toast.warn('Course Status is Missing')
+    // if(!courseHighlight.trim()) return toast.warn('Course Highlight is Missing')
 
     const formData = new FormData()
 
@@ -140,7 +135,7 @@ function CourseForm({ initialCourse, html, onSubmit }) {
                 className="font-[700] font-raleway text-[18px]"
               >
                 {" "}
-                Course Title
+                Session Title
               </label>
               <input
                 type="text"
@@ -152,12 +147,12 @@ function CourseForm({ initialCourse, html, onSubmit }) {
 
             <div className="py-[20px]">
               <p className="font-[700] font-raleway text-[18px] mb-[5px]">
-                Course Description
+                Session Description
               </p>
               <div className="w-full prose">
                 <Editor
                   init={{
-                    height: 200,
+                    height: 400,
                     menubar: false,
                     plugins: [
                       "advlist autolink lists link image charmap print preview anchor",
@@ -174,38 +169,35 @@ function CourseForm({ initialCourse, html, onSubmit }) {
                   }}
                   textareaName="courseDesc"
                   initialValue=""
-                  onEditorChange={(newText) => setCourseDesc(newText)}
+                  onEditorChange={(newText) => setDescription(newText)}
                 />
               </div>
             </div>
           </div>
           <div className=" ">
-            <p className="font-[700] font-raleway text-[18px]">Course Status</p>
-            <div className="flex items-center justify-between gap-4 mt-[5px]">
-              <div className="flex-1">
-                <Select
-                  options={status}
+            <p className="font-[700] font-raleway text-[18px]">Session Date & Time</p>
+            <div className="flex flex-col items-start justify-between gap-4 mt-[5px]">
+              <div className="mb-[10px]">
+               <input type="date" className="border p-[5px_18px] rounded-[5px]" onChange={(e) => setDate(e.target.value)}/>
+              </div>
+              
+              <div className="flex items-center space-x-5 w-full">
+               <div className="flex-1 ">
+               <input type="time" className="border p-[6px_10px] rounded-[5px] w-full" onChange={(e) => setTime(e.target.value)} />
+               </div>
+               <div className="flex-1">
+               <Select
+                  options={durationOption}
                   isClearable={false}
                   isSearchable={false}
                   name="courseStatus"
-                  onChange={(e) => setCourseStatus(e.label)}
+                  onChange={(e) => setDuration(e.label)}
                   // className='w-full'
-                  defaultValue={status[0].value}
+                  defaultValue={durationOption[0].value}
                 />
+               </div>
               </div>
-              {/* {avail.value === false && ( */}
-              <div className="flex-1">
-                <Select
-                  options={month}
-                  isClearable={false}
-                  isSearchable={false}
-                  name="availMonth"
-                  onChange={(e) => setAvail(e.label)}
-                  className="w-full"
-                  defaultValue={month[0]}
-                />
-              </div>
-              {/* )} */}
+           
             </div>
             <div className="mt-[20px]">
               <p className="font-[700] font-raleway text-[18px]">
@@ -245,6 +237,77 @@ function CourseForm({ initialCourse, html, onSubmit }) {
                     )}
                   </label>
                 </div>
+                <p className="font-[700] font-raleway mt-[40px] text-[18px]">
+                    Speaker
+                  </p>
+                <div className="mt-[10px]">
+                <p className="font-[400] font-raleway text-[14px]">
+                    NAME
+                  </p>
+                  <div>
+                  <input
+                type="text"
+                name="name"
+                onChange={(e) => setSpeakerName(e.target.value)}
+                className="h-[38px] bg-[#FAFAFA] w-full mt-[5px] rounded-[3px] outline-none border px-[5px] font-lato text-[#333333] text-[16px] font-[400]"
+              />
+                  </div>
+                </div>
+                <div className="mt-[10px]">
+                <p className="font-[400] font-raleway text-[14px]">
+                    JOB TITLE
+                  </p>
+                  <div>
+                  <input
+                type="text"
+                name="jobtitle"
+                onChange={(e) => setSpeakerJobTitle(e.target.value)}
+                className="h-[38px] bg-[#FAFAFA] w-full mt-[5px] rounded-[3px] outline-none border px-[5px] font-lato text-[#333333] text-[16px] font-[400]"
+              />
+                  </div>
+                </div>
+                <div className="mt-[10px]">
+                <p className="font-[400] font-raleway text-[14px]">
+                DESCRIPTION
+                  </p>
+                  <div>
+                  <textarea
+                type="text"
+                name="description"
+                onChange={(e) => setSpeakerDesc(e.target.value)}
+                className=" bg-[#FAFAFA] w-full mt-[5px] rounded-[3px] outline-none border px-[5px] font-lato text-[#333333] text-[16px] font-[400] h-[82px]"
+              />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 w-full gap-3 mt-[10px]">
+                <div className="mt-[10px]">
+                <p className="font-[400] font-raleway text-[14px]">
+                LINKEDIN
+                  </p>
+                  <div>
+                  <input
+                type="text"
+                name="description"
+                onChange={(e) => setSpeakerLinkedIn(e.target.value)}
+                className="h-[38px] bg-[#FAFAFA] w-full mt-[5px] rounded-[3px] outline-none border px-[5px] font-lato text-[#333333] text-[16px] font-[400] "
+              />
+                  </div>
+                </div>
+                <div className="mt-[10px]">
+                <p className="font-[400] font-raleway text-[14px]">
+                INSTAGRAM
+                  </p>
+                  <div>
+                  <input
+                type="text"
+                name="description"
+                onChange={(e) => setSpeakerInsta(e.target.value)}
+                className="h-[38px] bg-[#FAFAFA] w-full mt-[5px] rounded-[3px] outline-none border px-[5px] font-lato text-[#333333] text-[16px] font-[400] "
+              />
+                  </div>
+                </div>
+                </div>
                 <div className="mt-[20px]">
                   <p className="font-[700] font-raleway text-[18px]">
                     Course Highlight
@@ -269,7 +332,7 @@ function CourseForm({ initialCourse, html, onSubmit }) {
                       }}
                       name="courseHighlight"
                       initialValue=""
-                      onEditorChange={(newText) => setCourseHighlight(newText)}
+                      onEditorChange={(newText) => setSessionHighlight(newText)}
                     />
                   </div>
                 </div>
@@ -282,4 +345,4 @@ function CourseForm({ initialCourse, html, onSubmit }) {
   );
 }
 
-export default CourseForm;
+export default SessionForm;
