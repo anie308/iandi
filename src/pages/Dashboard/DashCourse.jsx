@@ -1,10 +1,10 @@
 import React from 'react'
 import DashCoursesSection from '../../components/DashComponents/DashCoursesSection'
 
-function DashCourse() {
+function DashCourse({updateCourse, setUpdateCourse}) {
   return (
     <div>
-      <DashCoursesSection/>
+      <DashCoursesSection updateCourse={updateCourse} setUpdateCourse={setUpdateCourse}/>
     </div>
   )
 }

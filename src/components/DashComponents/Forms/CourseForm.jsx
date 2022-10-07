@@ -14,7 +14,8 @@ import { toast } from "react-toastify";
 
 
 // }
-function CourseForm({ initialCourse, html, onSubmit }) {
+function CourseForm({  onSubmit, updateCourse, courseToUpdate }) {
+  console.log(updateCourse)
   // const [courseInfo, setCourseInfo] = useState({...defaultCourse})
   const month = [
     {
@@ -44,12 +45,12 @@ function CourseForm({ initialCourse, html, onSubmit }) {
     },
   ];
 
-  const [title, setTitle] = useState("");
-  const [courseDesc, setCourseDesc] = useState("");
+  const [title, setTitle] = useState(`${updateCourse ? courseToUpdate.title : ""}`);
+  const [courseDesc, setCourseDesc] = useState(`${updateCourse ? courseToUpdate.courseDesc : ""}`);
   const [courseStatus, setCourseStatus] = useState("");
-  const [courseHighlight, setCourseHighlight] = useState("");
+  const [courseHighlight, setCourseHighlight] = useState(`${updateCourse ? courseToUpdate.courseHighlight : ""}`);
   const [avail, setAvail] = useState("");
-  const [selectedThumbnailURL, setSelectedThumbnailURL] = useState("");
+  const [selectedThumbnailURL, setSelectedThumbnailURL] = useState(`${updateCourse ? courseToUpdate.thumbnail : ""}`);
   const [thumbnail, setThumbnail] = useState();
 
   const handleChange = ({ target }) => {
@@ -145,6 +146,8 @@ function CourseForm({ initialCourse, html, onSubmit }) {
               <input
                 type="text"
                 name="title"
+                contentEditable={true}
+                value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 className="h-[38px] bg-[#FAFAFA] w-full mt-[5px] rounded-[3px] outline-none border px-[5px] font-lato text-[#333333] text-[16px] font-[400]"
               />
@@ -173,7 +176,7 @@ function CourseForm({ initialCourse, html, onSubmit }) {
                       "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
                   }}
                   textareaName="courseDesc"
-                  initialValue=""
+                  initialValue={courseDesc}
                   onEditorChange={(newText) => setCourseDesc(newText)}
                 />
               </div>
@@ -268,7 +271,8 @@ function CourseForm({ initialCourse, html, onSubmit }) {
                           "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
                       }}
                       name="courseHighlight"
-                      initialValue=""
+                      initialValue={courseHighlight}
+                      value={courseHighlight}
                       onEditorChange={(newText) => setCourseHighlight(newText)}
                     />
                   </div>

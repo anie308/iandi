@@ -34,11 +34,13 @@ import Testimony from './pages/Testimony';
 import  {useSelector} from 'react-redux'
 import RegWait from './pages/Dashboard/RegWait';
 import Settings from './pages/Dashboard/Settings';
+import { useState } from 'react';
 
 
 function App() {
   
   const user = useSelector((state) => state.auth)
+  const [updateCourse, setUpdateCourse] = useState(false)
   
   return (
     <>
@@ -68,7 +70,7 @@ function App() {
         }
          >
           <Route path='home' element={<DashHome/>}/>
-          <Route path='courses' element={<DashCourse/>}/>
+          <Route path='courses' element={<DashCourse updateCourse={updateCourse} setUpdateCourse={setUpdateCourse}/>}/>
           <Route path='course/:slug' element={<DashViewCourse/>}/>
           <Route path ='sessions' element={<DashSessions/>}/>
           <Route path ='reg-wait' element={<RegWait/>}/>
@@ -78,8 +80,8 @@ function App() {
           <Route path='create-course' element={<DashCreateCourse/>}/>
           <Route path='create-bite' element={<DashCreateBite/>}/>
           <Route path='create-session' element={<DashCreateSession/>}/>
-          <Route path='update-bite/:slug' element={<UpdateBite/>}/>
-          <Route path='update-course/:slug' element={<UpdateCourse/>}/>
+          <Route path='update-bite/:slug' element={<UpdateBite />}/>
+          <Route path='update-course/:slug' element={<UpdateCourse updateCourse={updateCourse} setUpdateCourse={setUpdateCourse}/>}/>
           <Route path='update-session/:slug' element={<UpdateSession/>}/>
           <Route path="settings" element={<Settings/>} />
          </Route> 

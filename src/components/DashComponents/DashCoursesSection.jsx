@@ -10,7 +10,7 @@ import {FaSearch} from 'react-icons/fa'
 
 
 
-function DashCourses() {
+function DashCourses({updateCourse, setUpdateCourse}) {
 
  
   
@@ -141,8 +141,8 @@ function DashCourses() {
                           <AiOutlineEye className="text-[#33658A]" />
                         </Link>
                       </div>
-                      <div className="border border-[#33658A] p-[5px] h-fit rounded-[5px]">
-                        <Link to={`/dashboard/update-course/${slug}`}>
+                      <div className="border border-[#33658A] p-[5px] h-fit rounded-[5px]" onClick={() => setUpdateCourse(!updateCourse)}>
+                        <Link to={`/dashboard/update-course/${slug}`} >
                           <MdEdit className="text-[#33658A]" />
                         </Link>
                       </div>
