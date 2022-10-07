@@ -3,7 +3,7 @@
  
  export const apiSlice = createApi({
     reducerPath: 'apiSlice',
-    baseQuery: fetchBaseQuery({baseUrl: "https:/iandiapi.herokuapp.com/api"}),
+    baseQuery: fetchBaseQuery({ baseUrl: "https:/iandiapi.herokuapp.com/api"}),
     endpoints: (builder) => ({ 
         courses: builder.query({
             query:()=> '/courses',

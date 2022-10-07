@@ -6,7 +6,7 @@ import { default as api } from "../../services/apiSlice";
 function UpdateCourse({updateCourse}) {
    
   const {slug} = useParams()
-  const { data, error, isLoading, isSuccess } = api.useCoursesQuery();
+  const { data } = api.useCoursesQuery();
   const courses = data?.courses;
 
   const courseToUpdate = courses?.find(item =>item.slug  === slug)

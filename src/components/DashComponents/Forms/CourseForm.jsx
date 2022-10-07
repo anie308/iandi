@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { AiOutlineCheck } from "react-icons/ai";
 import { FaTimes } from "react-icons/fa";
 import { Editor } from "@tinymce/tinymce-react";
