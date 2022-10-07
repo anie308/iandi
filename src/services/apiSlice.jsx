@@ -1,10 +1,9 @@
  import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
- import { config } from '../constants/config'
 
  
  export const apiSlice = createApi({
     reducerPath: 'apiSlice',
-    baseQuery: fetchBaseQuery({baseUrl: config.PROD_BASE_URL}),
+    baseQuery: fetchBaseQuery({baseUrl: "https:/iandiapi.herokuapp.com/api"}),
     endpoints: (builder) => ({ 
         courses: builder.query({
             query:()=> '/courses',
