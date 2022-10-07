@@ -72,7 +72,7 @@ function DashBitesSection() {
                   >
                     <div>
                       <img
-                        src={thumbnail}
+                        src={thumbnail || Thumbnail}
                         alt=""
                         className="h-[100px] md:h-[100px]  md:min-w-[160px] w-full  aspect-video"
                       />

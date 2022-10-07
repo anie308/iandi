@@ -17,14 +17,7 @@ function Login() {
     setVisible((prevState) => !prevState);
   };
    let day = 3600000*24
-  const runLogoutTimer = () => {
-    setTimeout(() => {
-      localStorage.removeItem("user");
-      navigate('/')
-      toast.warn("Session Expired Please Login Again" )
 
-    }, day);
-  };
 
   const { username, password } = formData;
   const navigate = useNavigate();
@@ -40,6 +33,14 @@ function Login() {
     }
 
     if (isSuccess || user) {
+      const runLogoutTimer = () => {
+        setTimeout(() => {
+          localStorage.removeItem("user");
+          navigate('/')
+          toast.warn("Session Expired Please Login Again" )
+    
+        }, day);
+      };
       navigate("/dashboard/home");
       toast.success("Login Succesfull!" )
       runLogoutTimer()
@@ -47,7 +48,7 @@ function Login() {
     }
 
     dispatch(reset());
-  }, [user, isError, isSuccess, message, navigate, dispatch]);
+  }, [user, isError, isSuccess, message, navigate, dispatch, day]);
 
   const onChange = (e) => {
     setFormData((prevState) => ({

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import Thumbnail from "../../assets/thumbnail.png";
 import { AiOutlineEye, AiFillDelete, AiOutlinePlus } from "react-icons/ai";
 import { MdEdit } from "react-icons/md";
@@ -17,8 +17,9 @@ function DashCourses({updateCourse, setUpdateCourse}) {
   const location = useLocation();
   const name = location.pathname.split("/")[2];
   const [deleteCourse] = api.useDeleteCourseMutation()
-  const { data, error, isLoading, isSuccess } = api.useCoursesQuery();
+  const { data, error, isLoading,  isSuccess } = api.useCoursesQuery();
   const courses = data?.courses;
+  console.log(error)
   const active = courses?.filter(e => e.courseStatus === 'Available')
   const upcoming = courses?.filter(e => e.courseStatus === 'Coming Soon')
 
@@ -117,7 +118,7 @@ function DashCourses({updateCourse, setUpdateCourse}) {
                   >
                     <div>
                       <img
-                        src={thumbnail}
+                        src={thumbnail || Thumbnail}
                         alt=""
                         className="h-[100px] md:h-[100px]  md:min-w-[160px] w-full  aspect-video"
                       />
