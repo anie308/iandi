@@ -10,8 +10,8 @@ import RoadMap from '../RoadMap'
 function AboutPageSection() {
   return (
     <div>
-      <div className="my-[40px] w-full ">
-        <p className="font-[800] font-raleway text-[28px] md:text-[32px] text-center">
+      <div className="my-[40px] ">
+        <p className="font-[800] font-raleway text-[26px] md:text-[32px] text-center">
           Meet the <span className="text-[#4395C1]">people</span> who lovingly{" "}
           <br className="hidden md:block" />{" "}
           <span className="text-[#4395C1]">built </span> and continues to make{" "}
@@ -147,7 +147,7 @@ function AboutPageSection() {
                 <p></p>
               </div>
             </div>
-            <div className="lg:flex-1 absolute lg:relative bottom-[0px] right-[-20px]  flex items-end lg:items-center  justify-end lg:justify-center w-full">
+            <div className="lg:flex-1 absolute lg:relative bottom-[0px] right-[0px]  flex items-end lg:items-center  justify-end lg:justify-center w-full">
               <img src={Steph} alt="" className="" />
             </div>
           </div>
@@ -170,7 +170,7 @@ function AboutPageSection() {
                 <p></p>
               </div>
             </div>
-            <div className="lg:flex-1 absolute lg:relative bottom-[0px] right-[-20px]  flex items-end lg:items-center  justify-end lg:justify-center w-full">
+            <div className="lg:flex-1 absolute lg:relative bottom-[0px] right-[0px]  flex items-end lg:items-center  justify-end lg:justify-center w-full">
               <img src={Ana} alt="" className="" />
             </div>
           </div>

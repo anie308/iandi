@@ -9,6 +9,7 @@ function BitePageSection() {
   const [more, setMore] = useState(4);
   const { data, error, isLoading, isSuccess } = api.useBitesQuery();
   const bites = data?.posts;
+  console.log()
 
   return (
     <div>
@@ -51,10 +52,10 @@ function BitePageSection() {
                     </div>
                     <div className="flex items-center mt-[20px]">
                       <IoTimeOutline className="text-[14px] md:text-[18px]" />
-                      <p className="text-[12px] md:text-[14px]">
+                      <p className="text-[12px] md:text-[14px] uppercase ml-[2px]">
                         {Math.ceil(
                           bite.content.trim().split(/\s+/).length / 275
-                        )}{" "}
+                        )}
                         min{" "}
                       </p>
                     </div>

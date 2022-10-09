@@ -50,6 +50,7 @@ function DashCourses({updateCourse, setUpdateCourse}) {
 
   function handleDelete(id){
     deleteCourse(id)
+    // console.log(id)
   }
 
   return (
@@ -147,7 +148,7 @@ function DashCourses({updateCourse, setUpdateCourse}) {
                           <MdEdit className="text-[#33658A]" />
                         </Link>
                       </div>
-                      <div className="border border-[#DB162F] p-[5px] h-fit rounded-[5px] cursor-pointer" data-id={id}  onClick={()=> handleDelete(id)}>
+                      <div className="border border-[#DB162F] p-[5px] h-fit rounded-[5px] cursor-pointer" onClick={()=> handleDelete(id)}>
                         
                           <AiFillDelete className="text-[#DB162F]"  />
                         

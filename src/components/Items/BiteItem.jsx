@@ -6,7 +6,6 @@ import { IoTimeOutline } from "react-icons/io5";
 
 function BiteItem({ bite }) {
   const { id, title, content, slug, thumbnail } = bite;
-  console.log(bite)
 
 
   

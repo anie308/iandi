@@ -40,12 +40,8 @@ function BiteDetailSection() {
                 className=" w-full h-[200px] md:min-h-[400px] rounded-[10px] object-cover"
               />
             </div>
-            <div className="mt-[20px] prose font-raleway">
-              
-              
-                {bite.content}
-              
-            </div>
+            <div className="mt-[20px] prose font-raleway" dangerouslySetInnerHTML={{ __html : bite.content}}/>
+
           </div>
           <div className="md:px-[20px] mt-[50px] md:mt-0">
             <div>
@@ -59,7 +55,7 @@ function BiteDetailSection() {
                   <div className="h-[180px] md:h-full min-w-[264px] md:min-w-[410px] md:max-w-[410px] border flex flex-col md:flex-row justify-between md:justify-start rounded-[12px]">
                     <div className="hidden md:block">
                       <img
-                        src={Thumbnail || Thumbnail}
+                        src={Thumbnail || bite.thumbnail}
                         alt=""
                         className="h-full md:h-[100px] min-w-[120px] object-cover rounded-l-[12px] max-w-[120px]"
                       />

@@ -27,9 +27,9 @@ function CourseItem({ course }) {
         <div className="px-[10px] py-[5px] text-left font-[700] font-raleway text-[16px] ">
           {title}
         </div>
-        <div className="px-[10px] pb-[10px] text-lato text-[16px] break-words">
-          {courseDesc.substring(0, 40) + "..."}
-        </div>
+        <div className="px-[10px] pb-[10px] text-lato text-[16px] break-words" dangerouslySetInnerHTML={{__html: courseDesc.substring(0, 40) + "..."}}/>
+          
+      
       </div>
       <div className="bg-[#33658A]  rounded-b-[15px] cursor-pointer">
         <Link

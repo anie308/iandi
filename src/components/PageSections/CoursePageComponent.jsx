@@ -9,6 +9,7 @@ import { default as api } from "../../services/apiSlice";
 function CoursePageComponent() {
   const { data, error, isLoading, isSuccess } = api.useCoursesQuery();
   const courses = data?.courses;
+  console.log(courses)
   const [more, setMore] = useState(3);
   const [faq, setFaq] = useState(null);
   const toggle = (i) => {
@@ -21,10 +22,7 @@ function CoursePageComponent() {
     <div className="px-[20px]">
       <div className="flex flex-col items-center">
         {isLoading && (
-          <div className="flex flex-col md:flex-row md:h-[280px] border rounded-[10px] gap-4 animate-pulse">
-            <div className="h-[280px] w-full  md:min-w-[380px] max-w-[380px] flex-1 bg-gray-200"></div>
-            <div className="flex-1 md:flex-2 w-full md:min-w-[580px] md:max-w-[580px] md:p-[20px] pt-[10px] bg-gray-200"></div>
-          </div>
+          <div className='h-[200px] w-full bg-gray-200 rounded-[10px] font-raleway font-[700] text-[20px] flex items-center justify-center mt-[20px] animate-pulse'>Loading...</div>
         )}
         {error && (
           <div className="h-[200px] w-full bg-gray-200 rounded-[10px] font-raleway font-[700] text-[20px] flex items-center justify-center mt-[20px]">Something went wrong </div>
@@ -45,7 +43,7 @@ function CoursePageComponent() {
                   >
                     <div className="h-[280px] w-full  md:min-w-[380px] max-w-[380px] flex-1 relative">
                       <span className="absolute bg-[#33658A] top-[20px] text-white py-[2px] rounded-r-[20px] z-10 px-[10px] flex items-center text-lato text-[12px]">
-                        {course.status}
+                        {course.courseStatus}
                       </span>
                       <img
                         src={Thumbnail || course.thumbnail}
@@ -60,9 +58,8 @@ function CoursePageComponent() {
                         </p>
                       </div>
                       <div className=" my-[5px] md:mt-[20px] px-[10px] md:p-0">
-                        <p className="font-lato text-[14px] md:text-[18px] font-[400] text-[#333333]">
-                          {course.meta}
-                        </p>
+                        <p className="font-lato text-[14px] md:text-[18px] font-[400] text-[#333333]" dangerouslySetInnerHTML={{ __html : course.courseDesc}} />
+                        
                       </div>
                       <div className="md:mt-[30px] w-full md:w-fit ">
                         <Link to={`/courses/${course.slug}`} className="">

@@ -9,8 +9,6 @@ function CourseDetailSection() {
   const { data, error, isFetching, isSuccess } = api.useCoursesQuery();
 
   const courses = data?.courses;
-  console.log(courses);
-
   const { slug } = useParams();
   const [course, setCourse] = useState(null);
 
@@ -42,28 +40,14 @@ function CourseDetailSection() {
             <div>
               <div className="w-full lg:w-[648px] h-[200px] lg:h-[400px] border rounded-[15px]">
                 <img
-                  src={Thumbnail || course.thumbnail}
+                  src={course.thumbnail}
                   alt=""
                   className="h-full w-full object-cover rounded-t-[15px] md:rounded-[15px]"
                 />
               </div>
-              <div className="mt-[15px] break-words">
-                Learn how to use the BASICS model to assess and take charge
-                of your physical and mental{" "}
-                <br className="hidden md:block" /> well-being.
-              </div>
-              <div className="mt-[10px]">
-                <p className="font-lato text-[25px] font-[800] py-[10px]">
-                  Lessons in this course
-                </p>
-                <div>
-                  <ol>
-                    <li>1st row of description</li>
-                    <li>2nd row of description</li>
-                    <li>3rd row of description (max)</li>
-                  </ol>
-                </div>
-              </div>
+              <div className="mt-[15px] break-words" dangerouslySetInnerHTML={{__html : course.courseDesc }}/>
+              
+              
             </div>
             <div className="md:bg-[#EBEEF5] md:ml-[100px] rounded-[15px] px-[0px] md:px-[15px] py-[15px] md:py-[25px] w-full md:min-w-[360px] flex flex-col md:flex-col-reverse justify-start items-start h-full">
               <div className="w-full">
@@ -123,35 +107,7 @@ function CourseDetailSection() {
                     </div>
                   </div>
                   <div className=" px-[15px] md:m-0">
-                    <div className="my-[20px] w-full">
-                      <p className="font-[700] text-[16px] md:text-[20px] font-raleway">
-                        What you will learn
-                      </p>
-                      <p className="font-[500] font-lato text-[14px] md:text-[18px] mt-[5px]">
-                        Description (1 - 3 rows max)
-                      </p>
-                    </div>
-                    <div className="mt-[25px]">
-                      <p className="font-[700] text-[16px] md:text-[20px] font-raleway">
-                        Who should take this course?
-                      </p>
-                      <p className="font-[500] font-lato text-[14px] md:text-[18px] mt-[5px]">
-                        Description (1 - 3 rows max)
-                      </p>
-                    </div>
-                    <div className="hidden md:block my-[25px]">
-                      <p className="font-[700] text-[16px] md:text-[20px] font-raleway">
-                        Bonus
-                      </p>
-                      <p className="font-[500] font-lato text-[14px] md:text-[18px] mt-[5px]">
-                        Complimentary{" "}
-                        <span className="text-[#4395C1]">
-                          {" "}
-                          1 to 1 Support Session
-                        </span>{" "}
-                        upon completion of this course
-                      </p>
-                    </div>
+                  <div className="mt-[15px] break-words w-full" dangerouslySetInnerHTML={{__html : course.courseHighlight }}/>
                   </div>
                 </div>
                 <div className=" bg-[#EBEEF5] w-full  block md:hidden mt-[70px] text-[#232C38] md:pb-[50px] md:border-b border-[#D4D4D4] py-[30px] px-[15px]">
