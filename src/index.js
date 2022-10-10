@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import NotifyProvider from "./components/context/NotifyProvider";
 import { Provider } from "react-redux";
 import { store } from "./store";
 
@@ -12,9 +11,7 @@ root.render(
   
     <BrowserRouter>
     <Provider store={store}>
-      <NotifyProvider>
         <App />
-      </NotifyProvider>
       </Provider>
     </BrowserRouter>
   

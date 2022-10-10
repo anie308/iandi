@@ -1,6 +1,7 @@
  import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 
  const baseURL = "https://iandiapi.onrender.com/api";
+ const devURL = "http://localhost:4545/api";
  export const apiSlice = createApi({
     reducerPath: 'apiSlice',
     baseQuery: fetchBaseQuery({ baseUrl: baseURL}),

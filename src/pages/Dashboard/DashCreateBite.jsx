@@ -11,6 +11,7 @@ function DashCreateBite() {
   const handleSubmit = async (data) => {
     createBites(data)
     console.log(data)
+    
   }
 
   useEffect(()=> {

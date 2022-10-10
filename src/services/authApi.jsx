@@ -24,6 +24,8 @@ const loginApi = async (userData) => {
 
 const logoutApi = () => {
   localStorage.removeItem("user");
+  
+
 
 };
 
